@@ -59,27 +59,33 @@ nextButton.addEventListener("click", () => {
 
 showBoxGroup(currentIndex);
 
-function submitForm() {
-    const form = document.getElementById('registerForm');
-    const formData = new FormData(form);
+// =================================REGISTER===================================================================
+
+document.getElementById('registerForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    let formData = new FormData(this);
 
     fetch('/register', {
         method: 'POST',
-        body: formData,
         headers: {
-            'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
-        }
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            'Accept': 'application/json'
+        },
+        body: formData
     })
-    .then(response => {
-        if (response.status === 201) {
-            console.log('Đăng ký thành công!');
-        } else if (response.status === 400) {
-            console.error('Email đã tồn tại!');
+    .then(response => response.json())
+    .then(data => {
+        if (data.message === 'Đăng ký thành công!') {
+            alert('Đăng ký thành công!');
+            this.reset();
         } else {
-            console.error('Đã xảy ra lỗi. Vui lòng thử lại.');
+            alert('Đăng ký thất bại: ' + data.message);
         }
     })
     .catch(error => {
         console.error('Error:', error);
+        alert('Có lỗi xảy ra, vui lòng thử lại sau.');
     });
-}
+});
+// =================================END REGISTER===================================================================

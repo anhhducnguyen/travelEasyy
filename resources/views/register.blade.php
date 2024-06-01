@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7b9d8c4ddc.js" crossorigin="anonymous"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Travel Easy</title>
 </head>
 <body>
@@ -648,29 +649,28 @@
             </div>
 
             <div class="modal-body">
-                <form action="/register" method="POST" id="registerForm">
+                <form id="registerForm" action="/register" method="POST">
                     @csrf
-                    <div  class="modal-body-p">
+                    <div class="modal-body-p">
                         <p class="modal-body-p1">Full name</p>
                         <span>required</span>
                     </div>
                     <input class="modal-body-name" type="text" id="name" name="name" required><br>
-                    <div  class="modal-body-p">
+                    <div class="modal-body-p">
                         <p class="modal-body-p1">Phone</p>
                         <span>required</span>
                     </div>
                     <input class="modal-body-name" type="text" id="phone" name="phone" required><br>
-                    <div  class="modal-body-p">
+                    <div class="modal-body-p">
                         <p class="modal-body-p1">Email address</p>
                         <span>required</span>
                     </div>
                     <input class="modal-body-name" type="email" id="email" name="email" required><br>
-                    <div  class="modal-body-p">
+                    <div class="modal-body-p">
                         <p class="modal-body-p1">Password</p>
                         <span>required</span>
                     </div>
                     <input class="modal-body-name" type="password" id="password" name="password" required><br>
-
                     <button type="submit">Submit</button>
                     <div class="modal-footer">
                         <p>By providing your email & phone number you agree to direct marketing, including SMS. Consent is not a condition to purchase. You can unsubscribe any time.</p>
