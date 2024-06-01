@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
-
 class HomeController extends Controller
 {
     public function index()
@@ -26,26 +25,19 @@ class HomeController extends Controller
             'password' => 'required|string|max:50',
         ]);
 
-        // Kiểm tra xem email đã tồn tại chưa
         $emailExists = CustomerModel::where('email', $validated['email'])->exists();
 
         if ($emailExists) {
-            // Trả về mã trạng thái 400 nếu email đã tồn tại
             return response()->json(['message' => 'Email đã tồn tại!'], 400);
         }
 
-        // Tạo ID khách hàng mới
         $newId = 'CUS' . str_pad(CustomerModel::count() + 1, 4, '0', STR_PAD_LEFT);
         $validated['idCustomer'] = $newId;
         $validated['idAddress'] = null;
-
-        // Mã hóa mật khẩu
         $validated['password'] = md5($validated['password']);
 
-        // Thêm khách hàng vào cơ sở dữ liệu
         $customer = CustomerModel::insertCustomer($validated);
 
-        // Trả về mã trạng thái 201 nếu đăng ký thành công
         return response()->json(['message' => 'Đăng ký thành công!'], 201);
     }
 }
