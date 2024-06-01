@@ -59,56 +59,6 @@ nextButton.addEventListener("click", () => {
 
 showBoxGroup(currentIndex);
 
-// const naviToListing = document.getElementById("hcm-ls");
-// naviToListing.addEventListener("click", () => {
-//     window.location.href = "W04-listings.html";
-// });
-
-// const naviToBlog = document.getElementById("navi-to-blog");
-// naviToBlog.addEventListener("click", () => {
-//     window.location.href = "W02-blog.html";
-// });
-
-// // const naviToHcmBlog = document.getElementById("hcm-blog-detail");
-// // naviToHcmBlog.addEventListener("click", () => {
-// //     window.location.href = "W03-blog-detail.html";
-// // });
-
-// const boxOfLrElements = document.querySelectorAll(".box-of-lr");
-
-// boxOfLrElements.forEach((boxOfLr) => {
-//     boxOfLr.style.cursor = "pointer";
-//     boxOfLr.addEventListener("click", () => {
-//         // const listingUrl = boxOfLr.getAttribute("data-listing-url");
-
-//         // Điều hướng đến trang web chi tiết
-//         window.location.href = "W05-listings-detail.html";
-//     });
-// });
-
-// const blogDetails = document.querySelectorAll(".article");
-
-// blogDetails.forEach((blog) => {
-//     blog.style.cursor = "pointer";
-//     blog.addEventListener("click", () => {
-//         // const listingUrl = boxOfLr.getAttribute("data-listing-url");
-
-//         // Điều hướng đến trang web chi tiết
-//         window.location.href = "W03-blog-detail.html";
-//     });
-// });
-
-// document.addEventListener('DOMContentLoaded', function() {
-//     // Get the button element
-//     const myButton = document.getElementById('myButton');
-
-//     // Add a click event listener to the button
-//     myButton.addEventListener('click', function() {
-//         // Display an alert when the button is clicked
-//         alert('Button clicked!');
-//     });
-// });
-
 function submitForm() {
     const form = document.getElementById('registerForm');
     const formData = new FormData(form);
