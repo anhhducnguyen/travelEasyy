@@ -650,16 +650,6 @@
             <div class="modal-body">
                 <form action="/register" method="POST" id="registerForm">
                     @csrf
-                    <!-- <div  class="modal-body-p">
-                        <p class="modal-body-p1">ID Customer</p>
-                        <span>required</span>
-                    </div>
-                    <input class="modal-body-name" type="text" id="idCustomer" name="idCustomer"><br> -->
-                    <!-- <div  class="modal-body-p">
-                        <p class="modal-body-p1">ID Address</p>
-                        <span>required</span>
-                    </div>
-                    <input class="modal-body-name" type="text" id="idAddress" name="idAddress"><br> -->
                     <div  class="modal-body-p">
                         <p class="modal-body-p1">Full name</p>
                         <span>required</span>
@@ -683,7 +673,6 @@
 
                     <button type="submit">Submit</button>
                     <div class="modal-footer">
-                        <!-- <input type="submit" value="Submit"> -->
                         <p>By providing your email & phone number you agree to direct marketing, including SMS. Consent is not a condition to purchase. You can unsubscribe any time.</p>
                     </div>
                 </form>
@@ -708,9 +697,9 @@
                         <p class="modal-body-p1">Password</p>
                         <span>required</span>
                     </div>
-                    <input class="modal-body-name" type="password" id="txtPassword" name="txtPassword" required>    
+                    <input class="modal-body-name" type="password" id="txtPassword" name="txtPassword" required>   
+                    <button type="submit">Submit</button> 
                     <div class="modal-footer">
-                        <input type="submit" value="Submit">
                         <p>By providing your email & phone number you agree to direct marketing, including SMS. Consent is not a condition to purchase. You can unsubscribe any time.</p>
                     </div>
                 </form>  
