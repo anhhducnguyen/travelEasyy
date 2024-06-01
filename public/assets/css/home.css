@@ -406,7 +406,7 @@ body {
     height: 39px;
 }
 .search-bar-looking-for {
-    margin-right: 380px;
+    margin-right: 300px;
     display: flex;
     align-items: center;
 }
@@ -436,7 +436,7 @@ body {
     line-height: 21px;
 }
 .home-listings-blog a:nth-child(3) {
-    margin-right: 100px;
+    /* margin-right: 100px; */
 }
 .header-mid {
     display: flex;

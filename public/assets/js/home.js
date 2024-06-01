@@ -89,3 +89,64 @@ document.getElementById('registerForm').addEventListener('submit', function(even
     });
 });
 // =================================END REGISTER===================================================================
+
+// =================================LOGIN==========================================================================
+
+// document.getElementById('loginForm').addEventListener('submit', function(event) {
+//     event.preventDefault();
+
+//     let formData = new FormData(this);
+
+//     fetch('/login', {
+//         method: 'POST',
+//         headers: {
+//             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+//             'Accept': 'application/json'
+//         },
+//         body: formData
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//         if (data.message === 'Đăng nhập thành công!') {
+//             alert('Đăng nhập thành công!');
+//             this.reset();
+//         } else {
+//             alert('Đăng nhập thất bại: ' + data.message);
+//         }
+//     })
+//     .catch(error => {
+//         console.error('Error:', error);
+//         alert('Có lỗi xảy ra, vui lòng thử lại sau.');
+//     });
+// });
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    let formData = new FormData(this);
+
+    fetch('/login', {
+        method: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            'Accept': 'application/json'
+        },
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.message === 'Đăng nhập thành công!') {
+            alert(data.name + ' đã đăng nhập thành công!');
+            this.reset();
+            document.getElementById('user-name').textContent = 'Welcome, ' + data.name;
+            
+        } else {
+            alert('Đăng nhập thất bại: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Có lỗi xảy ra, vui lòng thử lại sau.');
+    });
+});
+
+// =================================END LOGIN===================================================================

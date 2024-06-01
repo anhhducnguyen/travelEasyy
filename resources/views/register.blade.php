@@ -11,10 +11,8 @@
     <title>Travel Easy</title>
 </head>
 <body>
-<!-- <button id="myButton">Click me</button> -->
-
     <div class="main">
-<!-- =====================================================HEADER===================================================== -->
+<!-- =====================================================HEADER============================================================= -->
         <div class="header">
         <div class="header-top">
             <a href="W01-home.html"><img src="../../../assets/images/logo.png" alt=""></a>
@@ -28,6 +26,7 @@
                 <a href="W02-blog.html" id="blog">Blog</a>
                 <a href="#" onclick="document.querySelector('.modal-search').style.display='block'">Login in</i></a>
                 <a href="#" onclick="document.querySelector('.modal').style.display='block'">Register</a>
+                <a href="#" id="user-name"></a>
             </div>
         </div>
         <div class="header-mid">
@@ -55,9 +54,9 @@
             </div>
         </div>
     </div>
-<!-- =====================================================END HEADER===================================================== -->
+<!-- =====================================================END HEADER========================================================= -->
 
-<!-- =====================================================CONTENT======================================================= -->
+<!-- =====================================================CONTENT============================================================ -->
 <div class="content">
         <div class="exclusive">    
             <h3>Exclusive deals</h3>
@@ -638,9 +637,9 @@
         </div>
         <button id="navi-to-blog">View all articles</button>
     </div>
-<!-- ==================================================END CONTENT======================================================= -->
+<!-- ==================================================END CONTENT============================================================ -->
 
-<!-- ===============================================FORM LOGIN AND REGISTER============================================== -->
+<!-- ===============================================FORM LOGIN AND REGISTER=================================================== -->
     <div class="modal">
         <div class="modal-inner">
             <div class="modal-header">
@@ -687,28 +686,29 @@
                 <i onclick="document.querySelector('.modal-search').style.display='none'" style="cursor: pointer;" class="fa-solid fa-xmark"></i>
             </div>
             <div class="modal-body">
-                <form action="../Controller/LoginController.php" method="POST">
-                    <div  class="modal-body-p">
+                <form action="/login" id="loginForm" method="POST">
+                    @csrf
+                    <div class="modal-body-p">
                         <p class="modal-body-p1">Email address</p>
                         <span>required</span>
                     </div>
-                    <input class="modal-body-name" type="text" id="txtAccount" name="txtAccount" required>
-                    <div  class="modal-body-p">
+                    <input class="modal-body-name" type="email" id="txtAccount" name="email" required>
+                    <div class="modal-body-p">
                         <p class="modal-body-p1">Password</p>
                         <span>required</span>
                     </div>
-                    <input class="modal-body-name" type="password" id="txtPassword" name="txtPassword" required>   
+                    <input class="modal-body-name" type="password" id="txtPassword" name="password" required>   
                     <button type="submit">Submit</button> 
                     <div class="modal-footer">
                         <p>By providing your email & phone number you agree to direct marketing, including SMS. Consent is not a condition to purchase. You can unsubscribe any time.</p>
                     </div>
-                </form>  
+                </form> 
             </div>
         </div>
     </div>
-<!-- ===============================================END FORM LOGIN AND REGISTER============================================== -->
+<!-- ===============================================END FORM LOGIN AND REGISTER=============================================== -->
 
-<!-- ==================================================FOOTER================================================================ -->
+<!-- ==================================================FOOTER================================================================= -->
 <div class="footer">
         <div class="footer-top">
             <div class="contact-us">
@@ -753,39 +753,7 @@
             <div id="go-to-top"><i class="fa-solid fa-angle-up"></i></div>
         </div>
     </div>
-<!-- ==================================================END FOOTER============================================================ -->
-    <!-- <script src="../js/home.js"></script> -->
+<!-- ==================================================END FOOTER============================================================= -->
     <script src="{{ asset('assets/js/home.js') }}"></script>
-    <script>
-        function submitForm() {
-            const form = document.getElementById('registerForm');
-            const formData = new FormData(form);
-
-            fetch('/register', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
-                }
-            })
-            .then(response => {
-                if (response.status === 201) {
-                    console.log('Đăng ký thành công!');
-                    window.location.href = '/'; // Chuyển hướng về trang chủ
-                } else if (response.status === 400) {
-                    console.error('Email đã tồn tại!');
-                } else {
-                    console.error('Đã xảy ra lỗi. Vui lòng thử lại.');
-                }
-                return response.text();
-            })
-            .then(text => {
-                console.log('Phản hồi từ máy chủ:', text);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        }
-    </script>
 </body>
 </html>
