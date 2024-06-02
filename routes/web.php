@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
 
 
 // Route::get('/', function () {
@@ -16,7 +17,12 @@ use App\Http\Controllers\LoginController;
 
 
 Route::get('/', [LoginController::class, 'index'])->name('index');
+Route::get('/register', [UserController::class, 'register'])->name('register');
+Route::post('/store', [UserController::class, 'store'])->name('store');
+
+
 Route::post('/login', [LoginController::class, 'validateUser'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/content', [LoginController::class, 'checkLogin']);
-Route::post('/register', [LoginController::class, 'register'])->name('register');
+// Route::post('/register', [LoginController::class, 'register'])->name('register');
+

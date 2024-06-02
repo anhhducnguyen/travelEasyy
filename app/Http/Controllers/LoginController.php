@@ -5,15 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Hash;
-use App\Models\CustomerModel;
 use App\Models\User;
+
 class LoginController extends Controller
 {
     public function index()
     {
-        return view('register');
+        return view('fe.homePage');
     }
     public function checkLogin()
     {

@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="modal-body">
-        <form id="registerForm" action="/register" method="POST">
+        <form id="registerForm" action="/store" method="POST">
             @csrf
             <div class="modal-body-p">
                 <p class="modal-body-p1">Full name</p>
