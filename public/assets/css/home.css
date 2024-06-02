@@ -405,8 +405,9 @@ body {
     width: 194px;
     height: 39px;
 }
-.search-bar-looking-for {
-    margin-right: 300px;
+/* ========================đang sửa================= */
+.search-bar-looking-for { 
+    margin-right: 450px;
     display: flex;
     align-items: center;
 }
@@ -429,14 +430,19 @@ body {
     width: 14px;
     height: 15.5px;
 }
+/* .home-listings-blog{
+    width: 700px;
+} */
+
 .home-listings-blog a{
     color: white;
     margin-right: 30px;
     font-size: 15px;
     line-height: 21px;
+    width: 50px;
 }
 .home-listings-blog a:nth-child(3) {
-    /* margin-right: 100px; */
+    margin-right: 100px;
 }
 .header-mid {
     display: flex;

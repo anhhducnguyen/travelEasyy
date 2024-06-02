@@ -122,7 +122,6 @@ document.getElementById('registerForm').addEventListener('submit', function(even
 // });
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
-
     let formData = new FormData(this);
 
     fetch('/login', {
@@ -138,9 +137,12 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         if (data.message === 'Đăng nhập thành công!') {
             alert(data.name + ' đã đăng nhập thành công!');
             this.reset();
+            document.getElementById('a_login').style.display = 'none';
             document.getElementById('user-name').textContent = 'Welcome, ' + data.name;
             document.querySelector('.modal-search').style.display = 'none';
-            
+            // document.getElementById('a_logout').style.display = 'block';
+            document.getElementById('a_register').style.display = 'none';
+
         } else {
             alert('Đăng nhập thất bại: ' + data.message);
         }

@@ -24,9 +24,11 @@
                 <a href="W01-home.html" id="home">Home</a>
                 <a href="W04-listings.html" id="listings">Listings</a>
                 <a href="W02-blog.html" id="blog">Blog</a>
-                <a href="#" onclick="document.querySelector('.modal-search').style.display='block'">Login in</i></a>
-                <a href="#" onclick="document.querySelector('.modal').style.display='block'">Register</a>
+                <!-- <a href="#" id="a_login" onclick="document.querySelector('.modal-search').style.display='block'">Login</i></a> -->
+                <a href="#" id="a_login" onclick="document.querySelector('.modal-search').style.display='block'">Login</a>
+                <a href="#" id="a_register" onclick="document.querySelector('.modal').style.display='block'">Register</a>
                 <a href="#" id="user-name"></a>
+                <!-- <a href="#" id="a_logout" style="display:none;">Logout</a> -->
             </div>
         </div>
         <div class="header-mid">
@@ -56,7 +58,7 @@
 <!-- =====================================================END HEADER========================================================= -->
 
 <!-- =====================================================CONTENT============================================================ -->
-<div class="content">
+    <div class="content">
         <div class="exclusive">    
             <h3>Exclusive deals</h3>
             <p>Discover some of the most popular listings in Vietnam based on user reviews and ratings</p>
