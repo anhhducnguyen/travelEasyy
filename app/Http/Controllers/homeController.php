@@ -19,7 +19,7 @@ class HomeController extends Controller
     // ===================================END INDEX=========================================
 
     // ==================================REGISTER===========================================
-    
+
     public function register(Request $request)
     {
         $validated = $request->validate([
@@ -37,6 +37,23 @@ class HomeController extends Controller
         $validated['idAddress'] = null;
         $validated['password'] = md5($validated['password']);
         $customer = CustomerModel::insertCustomer($validated);
+
+        // Save to JSON file
+        $filePath = storage_path('app/customers.json');
+
+        // Check if the file exists
+        if (file_exists($filePath)) {
+            $customers = json_decode(file_get_contents($filePath), true);
+        } else {
+            $customers = [];
+        }
+
+        // Append new customer data
+        $customers[] = $validated;
+
+        // Save back to the file
+        file_put_contents($filePath, json_encode($customers, JSON_PRETTY_PRINT));
+
 
         return response()->json(['message' => 'Đăng ký thành công!'], 201);
     }

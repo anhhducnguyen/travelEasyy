@@ -50,7 +50,6 @@
                     <input type="text" name="guest=" id="guest" placeholder="Add guest">
                 </div>
                 <img src="../../../assets/images/icon.png" alt="">
-
             </div>
         </div>
     </div>

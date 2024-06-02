@@ -79,6 +79,7 @@ document.getElementById('registerForm').addEventListener('submit', function(even
         if (data.message === 'Đăng ký thành công!') {
             alert('Đăng ký thành công!');
             this.reset();
+            document.querySelector('.modal').style.display = 'none';
         } else {
             alert('Đăng ký thất bại: ' + data.message);
         }
@@ -138,6 +139,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
             alert(data.name + ' đã đăng nhập thành công!');
             this.reset();
             document.getElementById('user-name').textContent = 'Welcome, ' + data.name;
+            document.querySelector('.modal-search').style.display = 'none';
             
         } else {
             alert('Đăng nhập thất bại: ' + data.message);
