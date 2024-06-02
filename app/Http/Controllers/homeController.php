@@ -11,11 +11,28 @@ use Illuminate\Support\Facades\Session;
 class HomeController extends Controller
 {
     // ===================================INDEX=============================================
-    public function index()
+    // public function account()
+    // {
+    //     $customers = CustomerModel::getCustomer();
+    //     // dd($customers);
+    //     // return response()->json($customers);
+    //     return view('account', ['customers' => $customers]);
+    // }
+    public function account(Request $request)
     {
-        $customers = CustomerModel::getCustomer();
-        dd($customers);
+        // Kiểm tra xem có khách hàng nào đã đăng nhập không
+        $customer = $request->session()->get('customer');
+
+        if (!$customer) {
+            // Không có khách hàng đăng nhập, có thể chuyển hướng hoặc trả về thông báo lỗi
+            return response()->json(['message' => 'Bạn chưa đăng nhập!'], 401);
+        }
+
+        // Khách hàng đã đăng nhập, trả về thông tin của họ
+        // return response()->json($customer);
+        return view('account', ['customers' => $customer]);
     }
+
     // ===================================END INDEX=========================================
 
     // ==================================REGISTER===========================================
@@ -61,24 +78,23 @@ class HomeController extends Controller
 
     // ==================================LOGIN==============================================
 
-    public function login_1(Request $request)
-    {
-        $validated = $request->validate([
-            'email' => 'required|string|email|max:50',
-            'password' => 'required|string|max:50',
-        ]);
+    // public function login(Request $request)
+    // {
+    //     $validated = $request->validate([
+    //         'email' => 'required|string|email|max:50',
+    //         'password' => 'required|string|max:50',
+    //     ]);
 
-        $customer = CustomerModel::where('email', $validated['email'])->first();
-        if (!$customer || $customer->password !== md5($validated['password'])) {
-            return response()->json(['message' => 'Thông tin đăng nhập không chính xác!'], 400);
-        }
+    //     $customer = CustomerModel::where('email', $validated['email'])->first();
+    //     if (!$customer || $customer->password !== md5($validated['password'])) {
+    //         return response()->json(['message' => 'Thông tin đăng nhập không chính xác!'], 400);
+    //     }
 
-        // Store customer information in the session
-        Session::put('customer', $customer);
+    //     // Store customer information in the session
+    //     Session::put('customer', $customer);
 
-        return response()->json(['message' => 'Đăng nhập thành công!'], 200);
-    }
-
+    //     return response()->json(['message' => 'Đăng nhập thành công!', 'name' => $customer->name], 200);
+    // }
     public function login(Request $request)
     {
         $validated = $request->validate([
@@ -91,11 +107,12 @@ class HomeController extends Controller
             return response()->json(['message' => 'Thông tin đăng nhập không chính xác!'], 400);
         }
 
-        // Store customer information in the session
-        Session::put('customer', $customer);
+        // Lưu thông tin khách hàng vào phiên
+        $request->session()->put('customer', $customer);
 
         return response()->json(['message' => 'Đăng nhập thành công!', 'name' => $customer->name], 200);
     }
+
     // ==================================END LOGIN==========================================
 }
 

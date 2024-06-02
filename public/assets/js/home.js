@@ -93,33 +93,6 @@ document.getElementById('registerForm').addEventListener('submit', function(even
 
 // =================================LOGIN==========================================================================
 
-// document.getElementById('loginForm').addEventListener('submit', function(event) {
-//     event.preventDefault();
-
-//     let formData = new FormData(this);
-
-//     fetch('/login', {
-//         method: 'POST',
-//         headers: {
-//             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-//             'Accept': 'application/json'
-//         },
-//         body: formData
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//         if (data.message === 'Đăng nhập thành công!') {
-//             alert('Đăng nhập thành công!');
-//             this.reset();
-//         } else {
-//             alert('Đăng nhập thất bại: ' + data.message);
-//         }
-//     })
-//     .catch(error => {
-//         console.error('Error:', error);
-//         alert('Có lỗi xảy ra, vui lòng thử lại sau.');
-//     });
-// });
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
     let formData = new FormData(this);
@@ -154,3 +127,12 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
 });
 
 // =================================END LOGIN===================================================================
+
+// ====================================ACCOUNT==================================================================
+document.getElementById('user-name').addEventListener('click', function(event){
+    event.preventDefault();
+    // alert('hello');
+    window.location.href = '/account';
+});
+// ====================================END ACCOUNT==============================================================
+
