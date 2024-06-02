@@ -13,28 +13,26 @@ class UserController extends Controller
     {
         return view('fe.registerr');
     }
-
     public function login()
     {
         return view('fe.login');
     }
-
+    public function account()
+    {
+        return view('fe.account');
+    }
     public function store(Request $req)
     {
-        // dd(bcrypt($req->password));
         $req->merge(['password'=>bcrypt($req->password)]);
         try {
             User::create($req->all());
         } catch (\Throwable $th){
             dd($th);
         }
-        // dd($req->all());
         return view('register');
     }
-
     public function storeLogin(Request $req)
     {
-    //    dd($req->all());
        if(Auth::attempt(['email'=>$req->email,'password'=>$req->password]))
        {
             return redirect()->route('index');
@@ -46,5 +44,10 @@ class UserController extends Controller
     {
         Auth::logout();
         return redirect()->back();
+    }
+    public function logout_up()
+    {
+        Auth::logout();
+        return redirect()->route('index');
     }
 }

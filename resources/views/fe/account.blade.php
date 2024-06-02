@@ -7,15 +7,20 @@
 </head>
 <body>
     <h1>Customer Accounts</h1>
-    <ul>
-        <li>Name: {{ $customers->name }}</li>
-        <li>Email: {{ $customers->email }}</li>
-        <li>Phone: {{ $customers->phone }}</li>
-    </ul>
-    <form action="/logout" method="POST">
-        @csrf
-        <!-- Các trường nhập dữ liệu của người dùng -->
-        <button type="submit">Đăng xuất</button>
-    </form>
+    @if(Auth::check())
+        <p>Name:</p>
+        <input type="text" id="name" value="{{ Auth::user()->name }}" readonly>
+        
+        <p>Email:</p>
+        <input type="email" id="email" value="{{ Auth::user()->email }}" readonly>
+        
+        <p>Created_at:</p>
+        <input type="tel" id="phone" value="{{ Auth::user()->created_at }}" readonly>
+    @else
+        <a href="{{route('login')}}" id="login"></a>
+    @endif
+    <a href="{{route('logout_up')}}" id="a_logout">Logout</a>
+        
+
 </body>
 </html>

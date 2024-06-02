@@ -27,9 +27,9 @@
                 <a href="#" id="blog">Blog</a>
                 
                 @if(Auth::check())
-                    <a href="" id="blog">{{ Auth::user()->name }}</a>
+                    <a href="{{route('account')}}" id="blog">{{ Auth::user()->name }}</a>
                 @else
-                    <a href="{{ route('login') }}" id="login"></a>
+                    <a href="{{route('login')}}" id="login"></a>
                 @endif
                 <!-- <a href="#" id="a_login" onclick="document.querySelector('.modal-search').style.display='block'">Login</i></a> -->
                 <!-- <a href="#" id="a_login" onclick="document.querySelector('.modal-search').style.display='block'">Login</a> -->
