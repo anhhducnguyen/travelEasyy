@@ -10,6 +10,12 @@
     <ul>
         <li>Name: {{ $customers->name }}</li>
         <li>Email: {{ $customers->email }}</li>
+        <li>Phone: {{ $customers->phone }}</li>
     </ul>
+    <form action="/logout" method="POST">
+        @csrf
+        <!-- Các trường nhập dữ liệu của người dùng -->
+        <button type="submit">Đăng xuất</button>
+    </form>
 </body>
 </html>

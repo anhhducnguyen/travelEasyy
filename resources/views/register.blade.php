@@ -656,11 +656,11 @@
                         <span>required</span>
                     </div>
                     <input class="modal-body-name" type="text" id="name" name="name" required><br>
-                    <div class="modal-body-p">
+                    <!-- <div class="modal-body-p">
                         <p class="modal-body-p1">Phone</p>
                         <span>required</span>
                     </div>
-                    <input class="modal-body-name" type="text" id="phone" name="phone" required><br>
+                    <input class="modal-body-name" type="text" id="phone" name="phone" required><br> -->
                     <div class="modal-body-p">
                         <p class="modal-body-p1">Email address</p>
                         <span>required</span>
@@ -687,7 +687,7 @@
                 <i onclick="document.querySelector('.modal-search').style.display='none'" style="cursor: pointer;" class="fa-solid fa-xmark"></i>
             </div>
             <div class="modal-body">
-                <form action="/login" id="loginForm" method="POST">
+                <!-- <form action="/login" id="loginForm" method="POST">
                     @csrf
                     <div class="modal-body-p">
                         <p class="modal-body-p1">Email address</p>
@@ -703,7 +703,24 @@
                     <div class="modal-footer">
                         <p>By providing your email & phone number you agree to direct marketing, including SMS. Consent is not a condition to purchase. You can unsubscribe any time.</p>
                     </div>
-                </form> 
+                </form>  -->
+                <form action="/login" method="POST" id="loginForm">
+                @csrf
+                <div class="modal-body-p">
+                    <p class="modal-body-p1">Email address</p>
+                    <span>required</span>
+                </div>
+                <input class="modal-body-name" type="email" name="email" required>
+                <div class="modal-body-p">
+                    <p class="modal-body-p1">Password</p>
+                    <span>required</span>
+                </div>
+                <input class="modal-body-name" type="password" name="password" required>   
+                <button type="submit">Submit</button> 
+                <div class="modal-footer">
+                    <p>By providing your email & phone number you agree to direct marketing, including SMS. Consent is not a condition to purchase. You can unsubscribe any time.</p>
+                </div>
+            </form> 
             </div>
         </div>
     </div>

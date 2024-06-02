@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CustomerModel extends Model
 {
+    protected $primaryKey = 'idCustomer';
     protected $table = 'tblcustomer'; 
     // protected $primaryKey = 'idCustomer'; 
     // public $incrementing = false; 
