@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7b9d8c4ddc.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="../../../assets/images/logo_web.ico" type="image/x-icon">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Travel Easy</title>
 </head>
@@ -21,14 +22,23 @@
                 <img src="../../../assets/images/loupe 1.png" alt="">
             </div>
             <div class="home-listings-blog">
-                <a href="W01-home.html" id="home">Home</a>
-                <a href="W04-listings.html" id="listings">Listings</a>
-                <a href="{{route('register')}}" id="blog">Blog</a>
+                <a href="#" id="home">Home</a>
+                <a href="#" id="listings">Listings</a>
+                <a href="#" id="blog">Blog</a>
+                
+                @if(Auth::check())
+                    <a href="" id="blog">{{ Auth::user()->name }}</a>
+                @else
+                    <a href="{{ route('login') }}" id="login"></a>
+                @endif
                 <!-- <a href="#" id="a_login" onclick="document.querySelector('.modal-search').style.display='block'">Login</i></a> -->
-                <a href="#" id="a_login" onclick="document.querySelector('.modal-search').style.display='block'">Login</a>
-                <a href="#" id="a_register" onclick="document.querySelector('.modal').style.display='block'">Register</a>
-                <a href="#" id="user-name"></a>
+                <!-- <a href="#" id="a_login" onclick="document.querySelector('.modal-search').style.display='block'">Login</a> -->
+                <!-- <a href="#" id="a_register" onclick="document.querySelector('.modal').style.display='block'">Register</a> -->
+                <a href="{{route('login')}}" id="blog">Login</a>
+                <a href="{{route('register')}}" id="blog">Register</a>
+                <!-- <a href="#" id="user-name"></a> -->
                 <!-- <a href="#" id="a_logout" style="display:none;">Logout</a> -->
+                <a href="{{route('logout')}}" id="a_logout">Logout</a>
             </div>
         </div>
         <div class="header-mid">

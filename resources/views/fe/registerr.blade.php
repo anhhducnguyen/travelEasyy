@@ -25,9 +25,6 @@
             </div>
             <input class="modal-body-name" type="password" id="password" name="password" required><br>
             <button type="submit">Submit</button>
-            <div class="modal-footer">
-                 <p>By providing your email & phone number you agree to direct marketing, including SMS. Consent is not a condition to purchase. You can unsubscribe any time.</p>
-            </div>
         </form>
     </div>
 </body>
