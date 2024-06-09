@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Customer Accounts</h1>
-    @if(Auth::check())
+    @if(Auth::check())z
         <p>Name:</p>
         <input type="text" id="name" value="{{ Auth::user()->name }}" readonly>
         

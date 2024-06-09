@@ -20,6 +20,9 @@
                 <input class="modal-body-name" type="password" name="password" required>   
                 <button type="submit">Submit</button> 
             </form>
+            <a href="{{ route('auth.google') }}" class="container-right-btn1">
+                    Continue with Google
+            </a>
             <div>
                 @if ($message = Session::get('error'))
                     <div class="alert alert-success alert-block">

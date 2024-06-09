@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
+
+
 class UserController extends Controller
 {
     public function register()
@@ -27,9 +29,9 @@ class UserController extends Controller
         try {
             User::create($req->all());
         } catch (\Throwable $th){
-            dd($th);
+            // dd($th);
         }
-        return view('register');
+        return view('fe.login');
     }
     public function storeLogin(Request $req)
     {
