@@ -408,7 +408,7 @@ body {
 }
 /* ========================đang sửa================= */
 .search-bar-looking-for { 
-    margin-right: 450px;
+    margin-right: 350px;
     display: flex;
     align-items: center;
 }
@@ -438,10 +438,16 @@ body {
 .home-listings-blog a{
     color: white;
     margin-right: 30px;
-    font-size: 15px;
+    font-size: 17px;
     line-height: 21px;
     width: 50px;
 }
+
+.home-listings-blog a:hover{
+    color: red;
+    text-decoration: underline;
+}
+
 .home-listings-blog a:nth-child(3) {
     margin-right: 100px;
 }

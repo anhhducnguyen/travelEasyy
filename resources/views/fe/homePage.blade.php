@@ -24,25 +24,36 @@
                 <img src="{{asset('assets/images/loupe 1.png')}}" alt="">
             </div>
             <div class="home-listings-blog">
-                <a href="#" id="home">Home</a>
-                <a href="#" id="listings">Listings</a>
+                <a href="{{route('index')}}" id="home">Trang chủ</a>
+                <a href="#" id="listings">Danh sách</a>
                 <a href="#" id="blog">Blog</a>
                 
-                @if(Auth::check())
+                <!-- @if(Auth::check())
                     <a href="{{route('account')}}" id="blog">{{ Auth::user()->name }}</a>
                 @else
                     <a href="{{route('login')}}" id="login"></a>
+                @endif -->
+
+                @if(Auth::check())
+                    <!-- Hiển thị nếu người dùng đã đăng nhập -->
+                    <a href="{{route('account')}}" id="account">{{ Auth::user()->name }}</a>
+                    <a href="{{route('logout')}}" id="a_logout">Đăng xuất</a>
+                @else
+                    <!-- Hiển thị nếu người dùng chưa đăng nhập -->
+                    <a href="{{route('login')}}" id="login">Đăng nhập</a>
+                    <a href="{{route('register')}}" id="register">Đăng ký</a>
                 @endif
+                
+                <!-- <a href="{{route('login')}}" id="blog">Đăng nhập</a>
+                <a href="{{route('register')}}" id="blog">Đăng ký</a>
+                
+                
+                <a href="{{route('logout')}}" id="a_logout">Đăng xuất</a> -->
+
+
                 <!-- <a href="#" id="a_login" onclick="document.querySelector('.modal-search').style.display='block'">Login</i></a> -->
                 <!-- <a href="#" id="a_login" onclick="document.querySelector('.modal-search').style.display='block'">Login</a> -->
                 <!-- <a href="#" id="a_register" onclick="document.querySelector('.modal').style.display='block'">Register</a> -->
-                <a href="{{route('login')}}" id="blog">Login</a>
-                <a href="{{route('register')}}" id="blog">Register</a>
-                
-                
-                <a href="{{route('logout')}}" id="a_logout">Logout</a>
-                
-                
                 <!-- <a href="#" id="user-name"></a> -->
                 <!-- <a href="#" id="a_logout" style="display:none;">Logout</a> -->
                 
