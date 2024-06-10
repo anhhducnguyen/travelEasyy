@@ -60,7 +60,7 @@
 
 <body>
     <header id="header">
-        <div class="logo"><a href="">Minimal</a> </div>
+        <div class="logo"><a href="">Travel Easy</a> </div>
         <div class="hamburger" id="toggle">
             <div class="line"></div>
             <div class="line"></div>
@@ -94,19 +94,24 @@
                 <h1>Welcome</h1>
                 <p>Please login to continue......</p>
             </div>
-            <!-- <form action="" class="login-form" autocomplete="off"> -->
             <form action="/storeLogin" method="POST" id="loginForm" class="login-form" autocomplete="off">
+                <div>
+                    @if ($message = Session::get('error'))
+                        <div class="alert alert-success alert-block error-message">
+                            <!-- <button type="button" class="close" data-dismiss="alert">×</button>     -->
+                            <strong>{{ $message }}</strong>
+                        </div>
+                    @endif
+                </div>
                 @csrf
                 <div class="login-content">
                     <div class="form-item">
                         <label for="email">Enter Email</label>
-                        <!-- <input type="email" name="" id="" placeholder="example@email.com"> -->
                         <input type="email" name="email" required placeholder="example@email.com">
                     </div>
                     <div class="form-item">
                         <label for="password">Enter Password</span></label>
                         <label for="text"></label>
-                        <!-- <input type="password" name="" id="password" placeholder="Enter your Password" required class="pass-key"> -->
                         <input type="password" name="password" id="password" placeholder="Enter your Password" required class="pass-key">  
                         <img src="{{asset('assets/images/eye-close.png')}}" id="eyeicon" class="password-toggle">
                     </div>
@@ -145,7 +150,6 @@
         let eyeicon = document.getElementById("eyeicon");
         let password = document.getElementById("password");
 
-        // Lấy URL của ảnh từ blade và lưu vào biến JavaScript
         let eyeOpenUrl = "{{ asset('assets/images/eye-open.png') }}";
         let eyeCloseUrl = "{{ asset('assets/images/eye-close.png') }}";
 

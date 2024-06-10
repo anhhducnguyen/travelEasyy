@@ -39,9 +39,9 @@ class UserController extends Controller
     {
        if(Auth::attempt(['email'=>$req->email,'password'=>$req->password]))
        {
-            return redirect()->route('index');
+            return redirect()->route('index')->with('success','Logged in successfully');
        } else {
-            return redirect()->back()->with('error','Đăng nhập thất bại');
+            return redirect()->back()->with('error','Login failed, please log in again!');
        }
     }
     public function logout()
