@@ -698,6 +698,7 @@
                 <i onclick="document.querySelector('.modal-search').style.display='none'" style="cursor: pointer;" class="fa-solid fa-xmark"></i>
             </div>
             <div class="modal-body">
+
             <form action="/storeLogin" method="POST" id="loginForm">
                 @csrf
                 <div class="modal-body-p">
@@ -735,14 +736,17 @@
             <div class="contact-us">
                 <h4>Contact-us</h4>
                 <div class="address">
+                    <!-- <img src="../../../assets/images/pin2.png" alt=""> -->
                     <img src="{{asset('assets/images/pin2.png')}}" alt="">
                     <p>01 Độc Lập, Quán Thánh, Ba Đình, Hà Nội</p>
                 </div>
                 <div class="phone-number">
+                    <!-- <img src="../../../assets/images/phone.png" alt=""> -->
                     <img src="{{asset('assets/images/phone.png')}}" alt="">
                     <p>080 41532</p>
                 </div>
                 <div class="email">
+                    <!-- <img src="../../../assets/images/email.png" alt=""> -->
                     <img src="{{asset('assets/images/email.png')}}" alt="">
                     <p>21011601@st.phenikaa-uni.edu.vn</p>
                 </div>
@@ -763,8 +767,10 @@
             </div>
         </div>
         <div class="footer-bottom">
+            <!-- <img src="../../../assets/images/copyright.png" alt="" id="copyright"> -->
             <img src="{{asset('assets/images/copyright.png')}}" alt="" id="copyright">
             <img src="{{asset('assets/images/logo.png')}}" alt="" id="logo-footer">
+            <!-- <img src="../../../assets/images/logo.png" alt="" id="logo-footer"> -->
             <div class="media">
                 <i class="fa-brands fa-facebook-f"></i>
                 <i class="fa-brands fa-x-twitter"></i>
