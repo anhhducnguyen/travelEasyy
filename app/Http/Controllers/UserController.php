@@ -23,17 +23,29 @@ class UserController extends Controller
     {
         return view('fe.account');
     }
+    // public function store(Request $req)
+    // {
+    //     $req->merge(['password'=>bcrypt($req->password)]);
+    //     try {
+    //         User::create($req->all());
+    //     } catch (\Throwable $th){
+    //         // dd($th);
+    //     }
+    //     return redirect()->route('index');
+    // }
     public function store(Request $req)
     {
-        $req->merge(['password'=>bcrypt($req->password)]);
+        $req->merge(['password' => bcrypt($req->password)]);
         try {
             User::create($req->all());
-        } catch (\Throwable $th){
-            // dd($th);
+            session()->flash('showLoginModal', true);
+        } catch (\Throwable $th) {
+            // Handle error
+            // session()->flash('error', 'Registration failed.');
         }
         return redirect()->route('index');
-        // return view('fe.login');
     }
+
     public function storeLogin(Request $req)
     {
        if(Auth::attempt(['email'=>$req->email,'password'=>$req->password]))
