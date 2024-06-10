@@ -31,7 +31,8 @@ class UserController extends Controller
         } catch (\Throwable $th){
             // dd($th);
         }
-        return view('fe.login');
+        return redirect()->route('index');
+        // return view('fe.login');
     }
     public function storeLogin(Request $req)
     {

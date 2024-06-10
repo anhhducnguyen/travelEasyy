@@ -32,13 +32,18 @@
                     <a href="{{route('login')}}" id="login"></a>
                 @endif
                 <!-- <a href="#" id="a_login" onclick="document.querySelector('.modal-search').style.display='block'">Login</i></a> -->
-                <!-- <a href="#" id="a_login" onclick="document.querySelector('.modal-search').style.display='block'">Login</a> -->
-                <!-- <a href="#" id="a_register" onclick="document.querySelector('.modal').style.display='block'">Register</a> -->
-                <a href="{{route('login')}}" id="blog">Login</a>
-                <a href="{{route('register')}}" id="blog">Register</a>
+                <a href="#" id="a_login" onclick="document.querySelector('.modal-search').style.display='block'">Login</a>
+                <a href="#" id="a_register" onclick="document.querySelector('.modal').style.display='block'">Register</a>
+                <!-- <a href="{{route('login')}}" id="blog">Login</a>
+                <a href="{{route('register')}}" id="blog">Register</a> -->
+                
+                
+                <a href="{{route('logout')}}" id="a_logout">Logout</a>
+                
+                
                 <!-- <a href="#" id="user-name"></a> -->
                 <!-- <a href="#" id="a_logout" style="display:none;">Logout</a> -->
-                <a href="{{route('logout')}}" id="a_logout">Logout</a>
+                
             </div>
         </div>
         <div class="header-mid">
@@ -659,18 +664,13 @@
             </div>
 
             <div class="modal-body">
-                <form id="registerForm" action="/register" method="POST">
+                <!-- <form id="registerForm" action="/register" method="POST">
                     @csrf
                     <div class="modal-body-p">
                         <p class="modal-body-p1">Full name</p>
                         <span>required</span>
                     </div>
                     <input class="modal-body-name" type="text" id="name" name="name" required><br>
-                    <!-- <div class="modal-body-p">
-                        <p class="modal-body-p1">Phone</p>
-                        <span>required</span>
-                    </div>
-                    <input class="modal-body-name" type="text" id="phone" name="phone" required><br> -->
                     <div class="modal-body-p">
                         <p class="modal-body-p1">Email address</p>
                         <span>required</span>
@@ -685,6 +685,25 @@
                     <div class="modal-footer">
                         <p>By providing your email & phone number you agree to direct marketing, including SMS. Consent is not a condition to purchase. You can unsubscribe any time.</p>
                     </div>
+                </form> -->
+                <form id="registerForm" action="/store" method="POST">
+                    @csrf
+                    <div class="modal-body-p">
+                        <p class="modal-body-p1">Full name</p>
+                        <span>required</span>
+                    </div>
+                    <input class="modal-body-name" type="text" id="name" name="name" required><br>
+                    <div class="modal-body-p">
+                        <p class="modal-body-p1">Email address</p>
+                        <span>required</span>
+                    </div>
+                    <input class="modal-body-name" type="email" id="email" name="email" required><br>
+                    <div class="modal-body-p">
+                        <p class="modal-body-p1">Password</p>
+                        <span>required</span>
+                    </div>
+                    <input class="modal-body-name" type="password" id="password" name="password" required><br>
+                    <button type="submit">Submit</button>
                 </form>
             </div>
         </div>
@@ -714,7 +733,7 @@
                         <p>By providing your email & phone number you agree to direct marketing, including SMS. Consent is not a condition to purchase. You can unsubscribe any time.</p>
                     </div>
                 </form>  -->
-                <form action="/login" method="POST" id="loginForm">
+                <!-- <form action="/login" method="POST" id="loginForm">
                 @csrf
                 <div class="modal-body-p">
                     <p class="modal-body-p1">Email address</p>
@@ -730,7 +749,33 @@
                 <div class="modal-footer">
                     <p>By providing your email & phone number you agree to direct marketing, including SMS. Consent is not a condition to purchase. You can unsubscribe any time.</p>
                 </div>
-            </form> 
+            </form>  -->
+            <form action="/storeLogin" method="POST" id="loginForm">
+                @csrf
+                <div class="modal-body-p">
+                    <p class="modal-body-p1">Email address</p>
+                    <span>required</span>
+                </div>
+                <input class="modal-body-name" type="email" name="email" required>
+                <div class="modal-body-p">
+                    <p class="modal-body-p1">Password</p>
+                    <span>required</span>
+                </div>
+                <input class="modal-body-name" type="password" name="password" required>   
+                <button type="submit">Submit</button> 
+                <a href="{{ route('auth.google') }}" class="container-right-btn1">
+                    Continue with Google
+                </a>
+            </form>
+            
+            <div>
+                @if ($message = Session::get('error'))
+                    <div class="alert alert-success alert-block">
+                        <button type="button" class="close" data-dismiss="alert">×</button>	
+                            <strong>{{ $message }}</strong>
+                    </div>
+                @endif
+            </div>
             </div>
         </div>
     </div>
