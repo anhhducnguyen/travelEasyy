@@ -32,7 +32,7 @@ class UserController extends Controller
         } catch (\Throwable $th){
             // dd($th);
         }
-        return redirect()->route('index');
+        return redirect()->route('login')->with('success','Register in successfully');
         // return view('fe.login');
     }
     public function storeLogin(Request $req)

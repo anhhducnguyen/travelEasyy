@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <script src="{{ asset('assets/js/registerr.js') }}"></script>
+    <!-- <script src="{{ asset('assets/js/registerr.js') }}"></script> -->
 </head>
 <body>
     <h1>Đăng ký tài khoản</h1>
