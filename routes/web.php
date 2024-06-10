@@ -21,8 +21,3 @@ Route::post('/storeLogin', [UserController::class, 'storeLogin'])->name('storeLo
 //SSO
 Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
 Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('auth.google.callback');
-
-
-
-
-
