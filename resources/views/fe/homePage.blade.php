@@ -7,7 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7b9d8c4ddc.js" crossorigin="anonymous"></script>
-    <link rel="shortcut icon" href="../../../assets/images/logo_web.ico" type="image/x-icon">
+    <!-- <link rel="shortcut icon" href="../../../assets/images/logo_web.ico" type="image/x-icon"> -->
+    <link rel="shortcut icon" href="{{asset('assets/images/logo_web.ico')}}" type="image/x-icon">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Travel Easy</title>
 </head>
@@ -16,10 +17,10 @@
 <!-- =====================================================HEADER============================================================= -->
         <div class="header">
         <div class="header-top">
-            <a href="W01-home.html"><img src="../../../assets/images/logo.png" alt=""></a>
+            <a href="W01-home.html"><img src="{{asset('assets/images/logo.png')}}" alt=""></a>
             <div class="search-bar-looking-for">
                 <input type="search" name="" id="" placeholder="What are you looking for?">
-                <img src="../../../assets/images/loupe 1.png" alt="">
+                <img src="{{asset('assets/images/loupe 1.png')}}" alt="">
             </div>
             <div class="home-listings-blog">
                 <a href="#" id="home">Home</a>
@@ -32,10 +33,10 @@
                     <a href="{{route('login')}}" id="login"></a>
                 @endif
                 <!-- <a href="#" id="a_login" onclick="document.querySelector('.modal-search').style.display='block'">Login</i></a> -->
-                <a href="#" id="a_login" onclick="document.querySelector('.modal-search').style.display='block'">Login</a>
-                <a href="#" id="a_register" onclick="document.querySelector('.modal').style.display='block'">Register</a>
-                <!-- <a href="{{route('login')}}" id="blog">Login</a>
-                <a href="{{route('register')}}" id="blog">Register</a> -->
+                <!-- <a href="#" id="a_login" onclick="document.querySelector('.modal-search').style.display='block'">Login</a> -->
+                <!-- <a href="#" id="a_register" onclick="document.querySelector('.modal').style.display='block'">Register</a> -->
+                <a href="{{route('login')}}" id="blog">Login</a>
+                <a href="{{route('register')}}" id="blog">Register</a>
                 
                 
                 <a href="{{route('logout')}}" id="a_logout">Logout</a>
@@ -66,7 +67,7 @@
                     <p>Guest</p>
                     <input type="text" name="guest=" id="guest" placeholder="Add guest">
                 </div>
-                <img src="../../../assets/images/icon.png" alt="">
+                <img src="{{asset('assets/images/icon.png')}}" alt="">
             </div>
         </div>
     </div>
@@ -84,7 +85,7 @@
                 <div class="box-of-lr">
                     <div class="lr-box">
                         <div class="upper-img">
-                            <img src="../../../assets/images/imagelr1.png" alt="">
+                            <img src="{{asset('assets/images/imagelr1.png')}}" alt="">
                         </div>
                         <div class="price">
                             <a href="">$150/ night</a>
@@ -92,12 +93,12 @@
                         <div class="icon-heart">
                             <i class="fa-regular fa-heart"></i>
                         </div>
-                        <img src="../../../assets/images/star_25.png" alt="" class="star-ratings">
-                        <img src="../../../assets/images/profile1.png" alt="" class="profile-lr">
+                        <img src="{{asset('assets/images/star_25.png')}}" alt="" class="star-ratings">
+                        <img src="{{asset('assets/images/profile1.png')}}" alt="" class="profile-lr">
                     </div>
                     <div class="desc-of-lr">
                         <div class="location">
-                            <img src="../../../assets/images/pin.png" alt="">
+                            <img src="{{asset('assets/images/pin.png')}}" alt="" class="profile-lr">
                             <span>Sai Gon, Ho Chi Minh City</span>
                         </div>
                         <h4>Cheerful 1-bedroom in a townhouse with parking.</h4>
@@ -108,7 +109,7 @@
                 <div class="box-of-lr">
                     <div class="lr-box">
                         <div class="upper-img">
-                            <img src="../../../assets/images/imagelr2.png" alt="">
+                            <img src="{{asset('assets/images/imagelr2.png')}}" alt="">
                         </div>
                         <div class="price">
                             <a href="">$100/ night</a>
@@ -116,12 +117,13 @@
                         <div class="icon-heart">
                             <i class="fa-regular fa-heart"></i>
                         </div>
-                        <img src="../../../assets/images/star_15.png" alt="" class="star-ratings">
-                        <img src="../../../assets/images/profile2.png" alt="" class="profile-lr">
+                        <img src="{{asset('assets/images/star_15.png')}}" alt="" class="star-ratings">
+                        <img src="{{asset('assets/images/profile2.png')}}" alt="" class="profile-lr">
+
                     </div>
                     <div class="desc-of-lr">
                         <div class="location">
-                            <img src="../../../assets/images/pin.png" alt="">
+                            <img src="{{asset('assets/images/pin.png')}}" alt="">
                             <span>Quang Nam, Hoi An</span>
                         </div>
                         <h4>Ventilated area surrounded by beautiful gardens and barbeque allowed</h4>
@@ -132,7 +134,7 @@
                 <div class="box-of-lr">
                     <div class="lr-box">
                         <div class="upper-img">
-                            <img src="../../../assets/images/imagelr3.png" alt="">
+                            <img src="{{asset('assets/images/imagelr3.png')}}" alt="">
                         </div>
                         <div class="price">
                             <a href="">$120/ night</a>
@@ -140,12 +142,14 @@
                         <div class="icon-heart">
                             <i class="fa-regular fa-heart"></i>
                         </div>
-                        <img src="../../../assets/images/star_9.png" alt=""class="star-ratings">
-                        <img src="../../../assets/images/profile3.png" alt="" class="profile-lr">
+                        <img src="{{asset('assets/images/star_9.png')}}" alt="" class="star-ratings">
+                        <img src="{{asset('assets/images/profile3.png')}}" alt="" class="profile-lr">
+
+                       
                     </div>
                     <div class="desc-of-lr">
                         <div class="location">
-                            <img src="../../../assets/images/pin.png" alt="">
+                            <img src="{{asset('assets/images/pin.png')}}" alt="">
                             <span>Tay Ho, Ha Noi</span>
                         </div>
                         <h4>Nice homestay with double bed and smoke-free balcony.</h4>
@@ -158,7 +162,7 @@
                 <div class="box-of-lr">
                     <div class="lr-box">
                         <div class="upper-img">
-                            <img src="../../../assets/images/imagelr1.png" alt="">
+                            <img src="{{asset('assets/images/imagelr1.png')}}" alt="">
                         </div>
                         <div class="price">
                             <a href="">$150/ night</a>
@@ -166,12 +170,13 @@
                         <div class="icon-heart">
                             <i class="fa-regular fa-heart"></i>
                         </div>
-                        <img src="../../../assets/images/star_25.png" alt="" class="star-ratings">
-                        <img src="../../../assets/images/profile1.png" alt="" class="profile-lr">
+                        <img src="{{asset('assets/images/star_25.png')}}" alt="" class="star-ratings">
+                        <img src="{{asset('assets/images/profile1.png')}}" alt="" class="profile-lr">
+
                     </div>
                     <div class="desc-of-lr">
                         <div class="location">
-                            <img src="../../../assets/images/pin.png" alt="">
+                            <img src="{{asset('assets/images/pin.png')}}" alt="">
                             <span>Sai Gon, Ho Chi Minh City</span>
                         </div>
                         <h4>Cheerful 1-bedroom in a townhouse with parking.</h4>
@@ -182,7 +187,7 @@
                 <div class="box-of-lr">
                     <div class="lr-box">
                         <div class="upper-img">
-                            <img src="../../../assets/images/imagelr1.png" alt="">
+                            <img src="{{asset('assets/images/imagelr1.png')}}" alt="">
                         </div>
                         <div class="price">
                             <a href="">$150/ night</a>
@@ -190,12 +195,12 @@
                         <div class="icon-heart">
                             <i class="fa-regular fa-heart"></i>
                         </div>
-                        <img src="../../../assets/images/star_25.png" alt="" class="star-ratings">
-                        <img src="../../../assets/images/profile1.png" alt="" class="profile-lr">
+                        <img src="{{asset('assets/images/star_25.png')}}" alt="" class="star-ratings">
+                        <img src="{{asset('assets/images/profile1.png')}}" alt="" class="profile-lr">
                     </div>
                     <div class="desc-of-lr">
                         <div class="location">
-                            <img src="../../../assets/images/pin.png" alt="">
+                        <img src="{{asset('assets/images/pin.png')}}" alt="">
                             <span>Sai Gon, Ho Chi Minh City</span>
                         </div>
                         <h4>Cheerful 1-bedroom in a townhouse with parking.</h4>
@@ -206,7 +211,7 @@
                 <div class="box-of-lr">
                     <div class="lr-box">
                         <div class="upper-img">
-                            <img src="../../../assets/images/imagelr1.png" alt="">
+                            <img src="{{asset('assets/images/imagelr1.png')}}" alt="">
                         </div>
                         <div class="price">
                             <a href="">$150/ night</a>
@@ -214,12 +219,12 @@
                         <div class="icon-heart">
                             <i class="fa-regular fa-heart"></i>
                         </div>
-                        <img src="../../../assets/images/star_25.png" alt="" class="star-ratings">
-                        <img src="../../../assets/images/profile1.png" alt="" class="profile-lr">
+                        <img src="{{asset('assets/images/star_25.png')}}" alt="" class="star-ratings">
+                        <img src="{{asset('assets/images/profile1.png')}}" alt="" class="profile-lr">
                     </div>
                     <div class="desc-of-lr">
                         <div class="location">
-                            <img src="../../../assets/images/pin.png" alt="">
+                            <img src="{{asset('assets/images/pin.png')}}" alt="">
                             <span>Sai Gon, Ho Chi Minh City</span>
                         </div>
                         <h4>Cheerful 1-bedroom in a townhouse with parking.</h4>
@@ -232,7 +237,7 @@
                 <div class="box-of-lr">
                     <div class="lr-box">
                         <div class="upper-img">
-                            <img src="../../../assets/images/imagelr2.png" alt="">
+                            <img src="{{asset('assets/images/imagelr2.png')}}" alt="">
                         </div>
                         <div class="price">
                             <a href="">$100/ night</a>
@@ -240,12 +245,12 @@
                         <div class="icon-heart">
                             <i class="fa-regular fa-heart"></i>
                         </div>
-                        <img src="../../../assets/images/star_15.png" alt="" class="star-ratings">
-                        <img src="../../../assets/images/profile2.png" alt="" class="profile-lr">
+                        <img src="{{asset('assets/images/star_15.png')}}" alt="" class="star-ratings">
+                        <img src="{{asset('assets/images/profile2.png')}}" alt="" class="profile-lr">
                     </div>
                     <div class="desc-of-lr">
                         <div class="location">
-                            <img src="../../../assets/images/pin.png" alt="">
+                            <img src="{{asset('assets/images/pin.png')}}" alt="">
                             <span>Quang Nam, Hoi An</span>
                         </div>
                         <h4>Ventilated area surrounded by beautiful gardens and barbeque allowed</h4>
@@ -256,7 +261,7 @@
                 <div class="box-of-lr">
                     <div class="lr-box">
                         <div class="upper-img">
-                            <img src="../../../assets/images/imagelr2.png" alt="">
+                            <img src="{{asset('assets/images/imagelr2.png')}}" alt="">
                         </div>
                         <div class="price">
                             <a href="">$100/ night</a>
@@ -264,12 +269,12 @@
                         <div class="icon-heart">
                             <i class="fa-regular fa-heart"></i>
                         </div>
-                        <img src="../../../assets/images/star_15.png" alt="" class="star-ratings">
-                        <img src="../../../assets/images/profile2.png" alt="" class="profile-lr">
+                        <img src="{{asset('assets/images/star_15.png')}}" alt="" class="star-ratings">
+                        <img src="{{asset('assets/images/profile2.png')}}" alt="" class="profile-lr">
                     </div>
                     <div class="desc-of-lr">
                         <div class="location">
-                            <img src="../../../assets/images/pin.png" alt="">
+                            <img src="{{asset('assets/images/pin.png')}}" alt="">
                             <span>Quang Nam, Hoi An</span>
                         </div>
                         <h4>Ventilated area surrounded by beautiful gardens and barbeque allowed</h4>
@@ -280,7 +285,7 @@
                 <div class="box-of-lr">
                     <div class="lr-box">
                         <div class="upper-img">
-                            <img src="../../../assets/images/imagelr2.png" alt="">
+                            <img src="{{asset('assets/images/imagelr2.png')}}" alt="">
                         </div>
                         <div class="price">
                             <a href="">$100/ night</a>
@@ -288,12 +293,12 @@
                         <div class="icon-heart">
                             <i class="fa-regular fa-heart"></i>
                         </div>
-                        <img src="../../../assets/images/star_15.png" alt="" class="star-ratings">
-                        <img src="../../../assets/images/profile2.png" alt="" class="profile-lr">
+                        <img src="{{asset('assets/images/star_15.png')}}" alt="" class="star-ratings">
+                        <img src="{{asset('assets/images/profile2.png')}}" alt="" class="profile-lr">
                     </div>
                     <div class="desc-of-lr">
                         <div class="location">
-                            <img src="../../../assets/images/pin.png" alt="">
+                            <img src="{{asset('assets/images/pin.png')}}" alt="">
                             <span>Quang Nam, Hoi An</span>
                         </div>
                         <h4>Ventilated area surrounded by beautiful gardens and barbeque allowed</h4>
@@ -306,7 +311,7 @@
                 <div class="box-of-lr">
                     <div class="lr-box">
                         <div class="upper-img">
-                            <img src="../../../assets/images/hcm1.png" alt="">
+                            <img src="{{asset('assets/images/hcm1.png')}}" alt="">
                         </div>
                         <div class="price">
                             <a href="">$120/ night</a>
@@ -314,12 +319,12 @@
                         <div class="icon-heart">
                             <i class="fa-regular fa-heart"></i>
                         </div>
-                        <img src="../../../assets/images/star_9.png" alt="" class="star-ratings">
-                        <img src="../../../assets/images/profile3.png" alt="" class="profile-lr">
+                        <img src="{{asset('assets/images/star_9.png')}}" alt="" class="star-ratings">
+                        <img src="{{asset('assets/images/profile3.png')}}" alt="" class="profile-lr">
                     </div>
                     <div class="desc-of-lr">
                         <div class="location">
-                            <img src="../../../assets/images/pin.png" alt="">
+                            <img src="{{asset('assets/images/pin.png')}}" alt="">
                             <span>District 1, Ho Chi Minh</span>
                         </div>
                         <h4>Spacious family home with modern amenities</h4>
@@ -330,7 +335,7 @@
                 <div class="box-of-lr">
                     <div class="lr-box">
                         <div class="upper-img">
-                            <img src="../../../assets/images/hcm2.png" alt="">
+                            <img src="{{asset('assets/images/hcm2.png')}}" alt="">
                         </div>
                         <div class="price">
                             <a href="">$120/ night</a>
@@ -338,12 +343,12 @@
                         <div class="icon-heart">
                             <i class="fa-regular fa-heart"></i>
                         </div>
-                        <img src="../../../assets/images/star_9.png" alt="" class="star-ratings">
-                        <img src="../../../assets/images/profile3.png" alt="" class="profile-lr">
+                        <img src="{{asset('assets/images/star_9.png')}}" alt="" class="star-ratings">
+                        <img src="{{asset('assets/images/profile3.png')}}" alt="" class="profile-lr">
                     </div>
                     <div class="desc-of-lr">
                         <div class="location">
-                            <img src="../../../assets/images/pin.png" alt="">
+                            <img src="{{asset('assets/images/pin.png')}}" alt="">
                             <span>District 1, Ho Chi Minh</span>
                         </div>
                         <h4>Serene house with breathtaking lakeviews</h4>
@@ -354,7 +359,7 @@
                 <div class="box-of-lr">
                     <div class="lr-box">
                         <div class="upper-img">
-                            <img src="../../../assets/images/hcm3.png" alt="">
+                            <img src="{{asset('assets/images/hcm3.png')}}" alt="">
                         </div>
                         <div class="price">
                             <a href="">$120/ night</a>
@@ -362,12 +367,12 @@
                         <div class="icon-heart">
                             <i class="fa-regular fa-heart"></i>
                         </div>
-                        <img src="../../../assets/images/star_9.png" alt="" class="star-ratings">
-                        <img src="../../../assets/images/profile3.png" alt="" class="profile-lr">
+                        <img src="{{asset('assets/images/star_9.png')}}" alt="" class="star-ratings">
+                        <img src="{{asset('assets/images/profile3.png')}}" alt="" class="profile-lr">
                     </div>
                     <div class="desc-of-lr">
                         <div class="location">
-                            <img src="../../../assets/images/pin.png" alt="">
+                            <img src="{{asset('assets/images/pin.png')}}" alt="">
                             <span>District 3, Ho Chi Minh</span>
                         </div>
                         <h4>Elegant house with panoramic views</h4>
@@ -380,7 +385,7 @@
                 <div class="box-of-lr">
                     <div class="lr-box">
                         <div class="upper-img">
-                            <img src="../../../assets/images/hcm4.png" alt="">
+                            <img src="{{asset('assets/images/hcm4.png')}}" alt="">
                         </div>
                         <div class="price">
                             <a href="">$120/ night</a>
@@ -388,12 +393,12 @@
                         <div class="icon-heart">
                             <i class="fa-regular fa-heart"></i>
                         </div>
-                        <img src="../../../assets/images/star_9.png" alt="" class="star-ratings">
-                        <img src="../../../assets/images/profile3.png" alt="" class="profile-lr">
+                        <img src="{{asset('assets/images/star_9.png')}}" alt="" class="star-ratings">
+                        <img src="{{asset('assets/images/profile3.png')}}" alt="" class="profile-lr">
                     </div>
                     <div class="desc-of-lr">
                         <div class="location">
-                            <img src="../../../assets/images/pin.png" alt="">
+                            <img src="{{asset('assets/images/pin.png')}}" alt="">
                             <span>District 2, Ho Chi Minh</span>
                         </div>
                         <h4>Cosy and affordable: Quaint bungalow in a quiet neighborhood</h4>
@@ -404,7 +409,7 @@
                 <div class="box-of-lr">
                     <div class="lr-box">
                         <div class="upper-img">
-                            <img src="../../../assets/images/hcm5.png" alt="">
+                            <img src="{{asset('assets/images/hcm5.png')}}" alt="">
                         </div>
                         <div class="price">
                             <a href="">$120/ night</a>
@@ -412,12 +417,12 @@
                         <div class="icon-heart">
                             <i class="fa-regular fa-heart"></i>
                         </div>
-                        <img src="../../../assets/images/star_9.png" alt="" class="star-ratings">
-                        <img src="../../../assets/images/profile3.png" alt="" class="profile-lr">
+                        <img src="{{asset('assets/images/star_9.png')}}" alt="" class="star-ratings">
+                        <img src="{{asset('assets/images/profile3.png')}}" alt="" class="profile-lr">
                     </div>
                     <div class="desc-of-lr">
                         <div class="location">
-                            <img src="../../../assets/images/pin.png" alt="">
+                            <img src="{{asset('assets/images/pin.png')}}" alt="">
                             <span>Thao Dien, Ho Chi Minh</span>
                         </div>
                         <h4>Fully furnished apartment near main campus</h4>
@@ -428,7 +433,7 @@
                 <div class="box-of-lr">
                     <div class="lr-box">
                         <div class="upper-img">
-                            <img src="../../../assets/images/hcm6.png" alt="">
+                            <img src="{{asset('assets/images/hcm6.png')}}" alt="">
                         </div>
                         <div class="price">
                             <a href="">$120/ night</a>
@@ -436,12 +441,12 @@
                         <div class="icon-heart">
                             <i class="fa-regular fa-heart"></i>
                         </div>
-                        <img src="../../../assets/images/star_9.png" alt="" class="star-ratings">
-                        <img src="../../../assets/images/profile3.png" alt="" class="profile-lr">
+                        <img src="{{asset('assets/images/star_9.png')}}" alt="" class="star-ratings">
+                        <img src="{{asset('assets/images/profile3.png')}}" alt="" class="profile-lr">
                     </div>
                     <div class="desc-of-lr">
                         <div class="location">
-                            <img src="../../../assets/images/pin.png" alt="">
+                            <img src="{{asset('assets/images/pin.png')}}" alt="">
                             <span>Binh Thanh, Ho Chi Minh</span>
                         </div>
                         <h4>Contemporary home with designer finishes</h4>
@@ -454,7 +459,6 @@
         </div>
         <div class="dot-page">
             <p class="dot-ls"></p>
-            <!-- <p class="dot-black"></p> -->
             <p class="dot-ls"></p>
             <p class="dot-ls"></p>
             <p class="dot-ls"></p>
@@ -468,7 +472,7 @@
             <div class="upper-tc">
                 <div class="hg-hcm">
                     <div class="tc-img">
-                        <img src="../../../assets/images/tc_img1.png" alt="tc1">
+                        <img src="{{asset('assets/images/tc_img1.png')}}" alt="">
                     </div>
                     <div class="desc-tc">
                         <h4>Ha Giang</h4>
@@ -477,7 +481,7 @@
                 </div>
                 <div class="dn-hlb">
                     <div class="tc-img">
-                        <img src="../../../assets/images/tc_img2.png" alt="tc2">
+                        <img src="{{asset('assets/images/tc_img2.png')}}" alt="">
                     </div>
                     <div class="desc-tc">
                         <h4>Da Nang</h4>
@@ -488,7 +492,7 @@
             <div class="bottom-tc">
                 <div class="dn-hlb">
                     <div class="tc-img">
-                        <img src="../../../assets/images/tc_img3.png" alt="tc3">
+                        <img src="{{asset('assets/images/tc_img3.png')}}" alt="tc3">
                     </div>
                     <div class="desc-tc">
                         <h4>Ha Long Bay</h4>
@@ -497,7 +501,7 @@
                 </div>
                 <div class="hg-hcm" id="hcm-ls">
                     <div class="tc-img">
-                        <img src="../../../assets/images/tc_img4.png" alt="tc4">
+                        <img src="{{asset('assets/images/tc_img4.png')}}" alt="tc4">
                     </div>
                     <div class="desc-tc">
                         <h4>Ho Chi Minh City</h4>
@@ -515,7 +519,7 @@
         <div class="explain">
             <div class="explain-box">
                 <div class="hw-img">
-                    <img src="../../../assets/images/find-location.png" alt="">
+                    <img src="{{asset('assets/images/find-location.png')}}" alt="">
                 </div>
                 <div class="desc-img-hw">
                     <h4>Find accomodation</h4>
@@ -524,7 +528,7 @@
             </div>
             <div class="explain-box">
                 <div class="hw-img">
-                    <img src="../../../assets/images/comment.png" alt="">
+                    <img src="{{asset('assets/images/comment.png')}}" alt="">
                 </div>
                 <div class="desc-img-hw">
                     <h4>Review Listings</h4>
@@ -533,7 +537,7 @@
             </div>
             <div class="explain-box">
                 <div class="hw-img">
-                    <img src="../../../assets/images/date.png" alt="">
+                    <img src="{{asset('assets/images/date.png')}}" alt="">
                 </div>
                 <div class="desc-img-hw">
                     <h4>Make a reservation</h4>
@@ -549,7 +553,7 @@
         </div>
         <div class="customers-reviews">
             <div class="review-box rw-box1">
-                <img src="../../../assets/images/review_img1.png" alt="">
+                <img src="{{asset('assets/images/review_img1.png')}}" alt="">
                 <h5>Quang</h5>
                 <p>Ha Noi</p>
                 <p>Quick and easy hotel booking with no cancellations fees. Highly recommended!</p>
@@ -557,14 +561,14 @@
             <div class="review-box rw-box2">
                 <span>“</span>
                 <div id="review-position">
-                    <img src="../../../assets/images/review_img2.png" alt="">
+                    <img src="{{asset('assets/images/review_img2.png')}}" alt="">
                     <h5>Viet</h5>
                     <p>Hai Phong</p>
                     <p>The best booking site i've ever used. Instant confirmation, competitve prices and hassle-free cancellations.</p>
                 </div>
             </div>
             <div class="review-box rw-box3">
-                <img src="../../../assets/images/review_img3.png" alt="">
+                <img src="{{asset('assets/images/review_img3.png')}}" alt="">
                 <h5>Tam</h5>
                 <p>Ho Chi Minh</p>
                 <p>Time and money-saving hotel bookings. User-friendly and flexible. Highly recommended.</p>
@@ -586,7 +590,7 @@
         <div class="articles-container">
             <div class="article">
                 <div class="ar_img ar1">
-                    <img src="../../../assets/images/ar_1-1.png" alt="">
+                    <img src="{{asset('assets/images/ar_1-1.png')}}" alt="">
                     <span>Quang Binh</span>
                 </div>
                 <i class="fa-regular fa-user"></i>
@@ -597,7 +601,7 @@
             </div>
             <div class="article">
                 <div class="ar_img ar2">
-                    <img src="../../../assets/images/ar_1-2.jpg" alt="">
+                    <img src="{{asset('assets/images/ar_1-2.jpg')}}" alt="">
                     <span>Hue</span>
                 </div>
                 <i class="fa-regular fa-user"></i>
@@ -608,7 +612,7 @@
             </div>
             <div class="article">
                 <div class="ar_img ar3">
-                    <img src="../../../assets/images/ar_1-3.png" alt="">
+                    <img src="{{asset('assets/images/ar_1-3.png')}}" alt="">
                     <span>Ha Noi</span>
                 </div>
                 <i class="fa-regular fa-user"></i>
@@ -619,7 +623,7 @@
             </div>
             <div class="article" id="hcm-blog-detail">
                 <div class="ar_img ar4">
-                    <img src="../../../assets/images/ar_2-1.png" alt="">
+                    <img src="{{asset('assets/images/ar_2-1.png')}}" alt="">
                     <span>Ho Chi Minh</span>
                 </div>
                 <i class="fa-regular fa-user"></i>
@@ -630,7 +634,7 @@
             </div>
             <div class="article">
                 <div class="ar_img ar5">
-                    <img src="../../../assets/images/ar_2-2.png" alt="">
+                    <img src="{{asset('assets/images/ar_2-2.png')}}" alt="">
                     <span>Sa Pa</span>
                 </div>
                 <i class="fa-regular fa-user"></i>
@@ -641,7 +645,7 @@
             </div>
             <div class="article">
                 <div class="ar_img ar6">
-                    <img src="../../../assets/images/ar_2-3.png" alt="">
+                    <img src="{{asset('assets/images/ar_2-3.png')}}" alt="">
                     <span>Binh Thuan</span>
                 </div>
                 <i class="fa-regular fa-user"></i>
@@ -664,28 +668,6 @@
             </div>
 
             <div class="modal-body">
-                <!-- <form id="registerForm" action="/register" method="POST">
-                    @csrf
-                    <div class="modal-body-p">
-                        <p class="modal-body-p1">Full name</p>
-                        <span>required</span>
-                    </div>
-                    <input class="modal-body-name" type="text" id="name" name="name" required><br>
-                    <div class="modal-body-p">
-                        <p class="modal-body-p1">Email address</p>
-                        <span>required</span>
-                    </div>
-                    <input class="modal-body-name" type="email" id="email" name="email" required><br>
-                    <div class="modal-body-p">
-                        <p class="modal-body-p1">Password</p>
-                        <span>required</span>
-                    </div>
-                    <input class="modal-body-name" type="password" id="password" name="password" required><br>
-                    <button type="submit">Submit</button>
-                    <div class="modal-footer">
-                        <p>By providing your email & phone number you agree to direct marketing, including SMS. Consent is not a condition to purchase. You can unsubscribe any time.</p>
-                    </div>
-                </form> -->
                 <form id="registerForm" action="/store" method="POST">
                     @csrf
                     <div class="modal-body-p">
@@ -716,40 +698,6 @@
                 <i onclick="document.querySelector('.modal-search').style.display='none'" style="cursor: pointer;" class="fa-solid fa-xmark"></i>
             </div>
             <div class="modal-body">
-                <!-- <form action="/login" id="loginForm" method="POST">
-                    @csrf
-                    <div class="modal-body-p">
-                        <p class="modal-body-p1">Email address</p>
-                        <span>required</span>
-                    </div>
-                    <input class="modal-body-name" type="email" id="txtAccount" name="email" required>
-                    <div class="modal-body-p">
-                        <p class="modal-body-p1">Password</p>
-                        <span>required</span>
-                    </div>
-                    <input class="modal-body-name" type="password" id="txtPassword" name="password" required>   
-                    <button type="submit">Submit</button> 
-                    <div class="modal-footer">
-                        <p>By providing your email & phone number you agree to direct marketing, including SMS. Consent is not a condition to purchase. You can unsubscribe any time.</p>
-                    </div>
-                </form>  -->
-                <!-- <form action="/login" method="POST" id="loginForm">
-                @csrf
-                <div class="modal-body-p">
-                    <p class="modal-body-p1">Email address</p>
-                    <span>required</span>
-                </div>
-                <input class="modal-body-name" type="email" name="email" required>
-                <div class="modal-body-p">
-                    <p class="modal-body-p1">Password</p>
-                    <span>required</span>
-                </div>
-                <input class="modal-body-name" type="password" name="password" required>   
-                <button type="submit">Submit</button> 
-                <div class="modal-footer">
-                    <p>By providing your email & phone number you agree to direct marketing, including SMS. Consent is not a condition to purchase. You can unsubscribe any time.</p>
-                </div>
-            </form>  -->
             <form action="/storeLogin" method="POST" id="loginForm">
                 @csrf
                 <div class="modal-body-p">
@@ -787,15 +735,15 @@
             <div class="contact-us">
                 <h4>Contact-us</h4>
                 <div class="address">
-                    <img src="../../../assets/images/pin2.png" alt="">
+                    <img src="{{asset('assets/images/pin2.png')}}" alt="">
                     <p>01 Độc Lập, Quán Thánh, Ba Đình, Hà Nội</p>
                 </div>
                 <div class="phone-number">
-                    <img src="../../../assets/images/phone.png" alt="">
+                    <img src="{{asset('assets/images/phone.png')}}" alt="">
                     <p>080 41532</p>
                 </div>
                 <div class="email">
-                    <img src="../../../assets/images/email.png" alt="">
+                    <img src="{{asset('assets/images/email.png')}}" alt="">
                     <p>21011601@st.phenikaa-uni.edu.vn</p>
                 </div>
             </div>
@@ -815,8 +763,8 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <img src="../../../assets/images/copyright.png" alt="" id="copyright">
-            <img src="../../../assets/images/logo.png" alt="" id="logo-footer">
+            <img src="{{asset('assets/images/copyright.png')}}" alt="" id="copyright">
+            <img src="{{asset('assets/images/logo.png')}}" alt="" id="logo-footer">
             <div class="media">
                 <i class="fa-brands fa-facebook-f"></i>
                 <i class="fa-brands fa-x-twitter"></i>

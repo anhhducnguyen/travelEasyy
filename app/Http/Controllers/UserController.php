@@ -23,6 +23,7 @@ class UserController extends Controller
     {
         return view('fe.account');
     }
+
     public function store(Request $req)
     {
         $req->merge(['password'=>bcrypt($req->password)]);
