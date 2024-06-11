@@ -1,3 +1,5 @@
+<!-- resources/views/hotels/index.blade.php -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +9,7 @@
 <body>
 <div class="container mt-5">
     <h2 class="mb-4">Hotels List</h2>
+    <a href="{{ route('addHotel') }}" class="btn btn-success mb-2">Add New Hotel</a>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -25,9 +28,9 @@
                     <td>{{ $hotel->name }}</td>
                     <td>{{ $hotel->created_at }}</td>
                     <td>{{ $hotel->updated_at }}</td>
-                    <td><a href="{{ route('insert') }}">Sửa</a></td>
-                    <td><a href="{{ route('update') }}">Xóa</a></td>
-                    <td><a href="{{ route('delete') }}">Xem chi tiết</a></td>
+                    <td><a href="#">Edit</a></td>
+                    <td><a href="#">Delete</a></td>
+                    <td><a href="#">View Details</a></td>
                 </tr>
             @endforeach
         </tbody>

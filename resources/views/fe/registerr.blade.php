@@ -106,7 +106,6 @@
                 <h1>Welcome</h1>
                 <p>Please register to continue......</p>
             </div>
-            <!-- <form action="/storeLogin" method="POST" id="loginForm" class="login-form" autocomplete="off"> -->
             <form action="/store" method="POST" id="registerForm" class="login-form" autocomplete="off" onsubmit="validateForm(event)">
             <div>
                 @if ($message = Session::get('success'))
@@ -144,15 +143,6 @@
                         <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Enter your Password" required class="pass-key">  
                         <img src="{{asset('assets/images/eye-close.png')}}" id="eyeicon" class="password-toggle">
                     </div>
-                    <!-- <div class="form-item">
-                        <div class="checkbox">
-                            <input type="checkbox" name="" id="rememberMeCheckbox" checked>
-                            <label for="rememberMeCheckbox" class="checkboxlabel">Remember Me</label>
-                        </div>
-                    </div> -->
-                    <!-- <div class="remember-forgot">
-                        <a href="#">Forgot password?</a>
-                    </div> -->
 
                     <div class="bg-grey">
                         <div class="sing-up">Do you have an account? <a href="{{ route('login') }}"class="text-link" id="sign-up" >Login</a></div>

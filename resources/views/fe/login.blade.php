@@ -257,7 +257,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <title>Login</title>
     <style>
-        /* SpinKit spinner */
         .sk-fading-circle {
             margin: 100px auto;
             width: 40px;
@@ -399,12 +398,10 @@
             40% { opacity: 1; }
         }
 
-        /* CSS để ẩn nội dung */
         .hidden {
             display: none !important;
         }
 
-        /* CSS cho phần tử body khi đang loading */
         .body-loading {
             position: relative;
         }
@@ -501,11 +498,9 @@
             </form>
         </div>
         <div class="login-right">
-            <!-- <img src="{{asset('assets/images/travel_logo.jpg')}}"> -->
         </div>
     </div>
 
-    <!-- Thêm SpinKit spinner -->
     <div id="loadingSpinner" class="sk-fading-circle">
         <div class="sk-circle1 sk-circle"></div>
         <div class="sk-circle2 sk-circle"></div>
@@ -539,14 +534,12 @@
         }
 
         document.getElementById('loginButton').addEventListener('click', function(event) {
-            event.preventDefault(); // Ngăn không cho form submit ngay lập tức
+            event.preventDefault(); 
 
-            // Ẩn toàn bộ nội dung và hiển thị spinner
             document.body.classList.add('body-loading');
             document.querySelector('.container').classList.add('hidden');
             document.getElementById('loadingSpinner').style.display = 'block';
 
-            // Tiếp tục việc submit form sau một thời gian ngắn (có thể điều chỉnh)
             setTimeout(function() {
                 document.getElementById('loginForm').submit();
             }, 500);

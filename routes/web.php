@@ -8,7 +8,7 @@ use App\Http\Controllers\HotelController;
 
 // ===FE ROUTE===========================================================================
 
-// Route::get('/', [LoginController::class, 'index'])->name('index');
+Route::get('/', [LoginController::class, 'index'])->name('index');
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
@@ -24,10 +24,12 @@ Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name(
 Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('auth.google.callback');
 
 // HOTEL
-Route::get('/', [HotelController::class, 'index'])->name('index');
-Route::get('/insert', [HotelController::class, 'insert'])->name('insert');
+// Route::get('/', [HotelController::class, 'index'])->name('index');
+Route::get('/addHotel', [HotelController::class, 'addHotel'])->name('addHotel');
+Route::get('/store', [HotelController::class, 'store'])->name('store');
 Route::get('/update', [HotelController::class, 'update'])->name('update');
 Route::get('/delete', [HotelController::class, 'del'])->name('delete');
+
 
 
 
