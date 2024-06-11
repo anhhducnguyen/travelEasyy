@@ -29,3 +29,17 @@ if (links.length) {
     });
   });
 }
+
+
+document.getElementById('loginButton').addEventListener('click', function(event) {
+  event.preventDefault(); // Ngăn không cho form submit ngay lập tức
+
+  // Ẩn form login và hiển thị spinner
+  document.getElementById('loginContent').classList.add('hidden');
+  document.getElementById('loadingSpinner').style.display = 'block';
+
+  // Tiếp tục việc submit form sau một thời gian ngắn (có thể điều chỉnh)
+  setTimeout(function() {
+      document.getElementById('loginForm').submit();
+  }, 500);
+});
