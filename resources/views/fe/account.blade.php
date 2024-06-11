@@ -76,6 +76,9 @@
         
         <p>Email</p>
         <input type="email" id="email" value="{{ Auth::user()->email }}" readonly>
+
+        <p>Phone</p>
+        <input type="text" id="phone" value="{{ Auth::user()->phone }}" readonly>
         
         <p>Created_at:</p>
         <input type="tel" value="{{ Auth::user()->created_at }}" readonly>
