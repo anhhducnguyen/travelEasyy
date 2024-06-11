@@ -47,7 +47,7 @@ class UserController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->back();
+        return redirect()->back()->with('success','Logout in successfully');
     }
     public function logout_up()
     {

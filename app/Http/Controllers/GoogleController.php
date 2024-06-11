@@ -17,7 +17,7 @@ class GoogleController extends Controller
         $findUser = User::where('google_id',$user->id)->first();
         if($findUser){
             Auth::login($findUser);
-            return redirect()->route('index');
+            return redirect()->route('index')->with('success','Logged in successfully');
         }else{
             $user = User::updateOrCreate([
                 'email' => $user->email,
