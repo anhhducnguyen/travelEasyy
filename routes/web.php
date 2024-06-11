@@ -28,7 +28,6 @@ Route::get('/', [HotelController::class, 'index'])->name('index');
 Route::get('/insert', [HotelController::class, 'insert'])->name('insert');
 Route::get('/update', [HotelController::class, 'update'])->name('update');
 Route::get('/delete', [HotelController::class, 'del'])->name('delete');
-Route::get('/search', [HotelController::class, 'search'])->name('search');
 
 
 
