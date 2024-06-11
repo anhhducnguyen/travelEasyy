@@ -44,6 +44,7 @@ class UserController extends Controller
             return redirect()->back()->with('error','Login failed, please log in again!');
        }
     }
+    // test
     public function logout()
     {
         Auth::logout();
