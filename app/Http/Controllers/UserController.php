@@ -37,7 +37,7 @@ class UserController extends Controller
     }
     public function storeLogin(Request $req)
     {
-       if(Auth::attempt(['email'=>$req->email,'password'=>$req->password]))
+       if(Auth::attempt(['email'=>$req->email,'password'=>$req->password,'role'=> 1]))
        {
             return redirect()->route('index')->with('success','Logged in successfully');
        } else {
