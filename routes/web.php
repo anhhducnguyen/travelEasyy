@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AgencyController;
 use App\Http\Controllers\Admin\HomeAdminController;
 use App\Http\Controllers\Admin\TourController;
 use App\Http\Controllers\Admin\TourGuideController;
@@ -47,6 +48,7 @@ Route::get('admin/tours/view', [TourController::class, 'index'])->name('admin.to
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('vehicles', VehicleController::class);
     Route::resource('tourguides', TourGuideController::class);
+    Route::resource('agencies', AgencyController::class);
 });
 
 
