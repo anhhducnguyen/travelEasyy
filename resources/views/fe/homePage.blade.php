@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7b9d8c4ddc.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js"></script>
     <!-- <link rel="shortcut icon" href="../../../assets/images/logo_web.ico" type="image/x-icon"> -->
     <link rel="shortcut icon" href="{{asset('assets/images/logo_web.ico')}}" type="image/x-icon">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -33,8 +35,8 @@
                 <img src="{{asset('assets/images/loupe 1.png')}}" alt="">
             </div>
             <div class="home-listings-blog">
-                <a href="{{route('index')}}" id="home">Trang chủ</a>
-                <a href="#" id="listings">Danh sách</a>
+                <a href="{{route('index')}}" id="home">Home</a>
+                <a href="{{route('listings')}}" id="listings">Listings</a>
                 <a href="#" id="blog">Blog</a>
                 
                 <!-- @if(Auth::check())
@@ -46,11 +48,11 @@
                 @if(Auth::check())
                     <!-- Hiển thị nếu người dùng đã đăng nhập -->
                     <a href="{{route('account')}}" id="account">{{ Auth::user()->name }}</a>
-                    <a href="{{route('logout')}}" id="a_logout">Đăng xuất</a>
+                    <a href="{{route('logout')}}" id="a_logout">Log out</a>
                 @else
                     <!-- Hiển thị nếu người dùng chưa đăng nhập -->
-                    <a href="{{route('login')}}" id="login">Đăng nhập</a>
-                    <a href="{{route('register')}}" id="register">Đăng ký</a>
+                    <a href="{{route('login')}}" id="login">Log in</a>
+                    <a href="{{route('register')}}" id="register">Register</a>
                 @endif
                 
                 <!-- <a href="{{route('login')}}" id="blog">Đăng nhập</a>
@@ -74,7 +76,12 @@
             <div class="search-bar-check">
                 <div class="input-search where">
                     <p>Where</p>
-                    <input type="text" name="where" id="where" placeholder="Where are you going">
+                    <select name="where" id="where" class="form-control">
+                        <!-- <option value="">Where are you going</option> -->
+                        <option value="Ha Noi">Ha Noi</option>
+                        <option value="Da Nang">Da Nang</option>
+                        <option value="Tp Ho Chi Minh">Tp Ho Chi Minh</option>
+                    </select>
                 </div>
                 <div class="input-search check-in">
                     <p>Check in</p>
@@ -86,9 +93,11 @@
                 </div>
                 <div class="input-search guest">
                     <p>Guest</p>
-                    <input type="text" name="guest=" id="guest" placeholder="Add guest">
+                    <input type="text" name="guest" id="guest" placeholder="Add guest">
                 </div>
-                <img src="{{asset('assets/images/icon.png')}}" alt="">
+                <div class="bt-search">
+                    <i class="fas fa-search fa-1x"></i>
+                </div>
             </div>
         </div>
     </div>

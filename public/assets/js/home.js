@@ -59,6 +59,15 @@ nextButton.addEventListener("click", () => {
 
 showBoxGroup(currentIndex);
 
+
+// Sử dụng flatpickr cho input chọn ngày
+flatpickr("#checkIn", {
+    dateFormat: "Y-m-d"
+});
+flatpickr("#checkOut", {
+    dateFormat: "Y-m-d"
+});
+
 // =================================REGISTER===================================================================
 
 // document.getElementById('registerForm').addEventListener('submit', function(event) {

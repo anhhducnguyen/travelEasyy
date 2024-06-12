@@ -171,6 +171,7 @@ header .logo a{
     transform: translate(30px, -10px);
     font-size: 14px;
 }
+input[type='text'],
 input[type='email'],
 input[type='password']{
     border: 1px solid black;
@@ -186,9 +187,12 @@ input[type='email']:hover{
     border: 1px solid rgb(18, 115, 156);
 }
 
-input[type='password']:hover{
+input[type='text']:hover{
     border: 1px solid rgb(18, 115, 156);
-    
+}
+
+input[type='password']:hover{
+    border: 1px solid rgb(18, 115, 156);  
 }
 .pass-key{
     border: 1px solid black;
