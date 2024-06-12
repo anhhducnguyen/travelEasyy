@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\HomeAdminController;
 use App\Http\Controllers\Admin\TourController;
+use App\Http\Controllers\Admin\VehicleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
@@ -37,7 +39,13 @@ Route::get('admin/tours/create', [TourController::class, 'create'])->name('admin
 Route::post('admin/tours', [TourController::class, 'store'])->name('admin.tours.store');
 
 // Route cho việc hiển thị danh sách tour
+Route::get('admin/dasboard', [HomeAdminController::class, 'dashboard'])->name('admin.dashboard');
 Route::get('admin/tours/view', [TourController::class, 'index'])->name('admin.tours.view');
+
+// Route cho Vehicles
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('vehicles', VehicleController::class);
+});
 
 
 

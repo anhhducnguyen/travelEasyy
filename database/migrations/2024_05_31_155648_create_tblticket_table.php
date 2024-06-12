@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('tblticket', function (Blueprint $table) {
             $table->string('idTicket', 15)->primary();
             $table->string('idTour', 15)->nullable();
-            $table->string('idCustomer', 15)->nullable();
+            $table->string('emailUser', 255)->nullable();
             $table->string('idAgency', 15)->nullable();
-            $table->timestamps();
         });
     }
 

@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('tblregister', function (Blueprint $table) {
             $table->string('idRegister', 15)->primary();
-            $table->string('idCustomer', 15)->nullable();
+            $table->string('emailUser', 255)->nullable();
             $table->string('idTour', 15)->nullable();
             $table->integer('quantityTicket')->nullable();
-            $table->timestamps();
         });
     }
 

@@ -12,13 +12,10 @@ return new class extends Migration
     {
         Schema::create('tbladdress', function (Blueprint $table) {
             $table->string('idAddress', 15)->primary();
-            $table->string('idCity', 15)->nullable();
-            $table->string('idDistrict', 15)->nullable();
-            $table->string('idWard', 15)->nullable();
-            $table->string('idDetailAddress', 15)->nullable();
-            $table->timestamps();
-
-            
+            $table->string('city', 50)->nullable();
+            $table->string('district', 50)->nullable();
+            $table->string('ward', 50)->nullable();
+            $table->string('detailAddress', 50)->nullable();
         });
     }
 

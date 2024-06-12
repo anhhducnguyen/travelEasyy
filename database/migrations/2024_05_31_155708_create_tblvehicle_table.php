@@ -15,7 +15,6 @@ return new class extends Migration
             $table->string('idVehicle', 15)->primary();
             $table->string('name', 50)->nullable();
             $table->string('licensePlate', 20)->nullable();
-            $table->timestamps();
         });
     }
 

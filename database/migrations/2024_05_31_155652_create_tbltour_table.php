@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('idHotel', 15)->nullable();
             $table->string('idVehicle', 15)->nullable();
             $table->string('idTourGuide', 15)->nullable();
-            $table->timestamps();
         });
     }
 

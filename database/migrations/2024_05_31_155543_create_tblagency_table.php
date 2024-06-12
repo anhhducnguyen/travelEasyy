@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('name', 50)->nullable();
             $table->string('phone', 15)->nullable();
             $table->string('idTourGuide', 15)->nullable();
-            $table->timestamps();
         });
 
        
