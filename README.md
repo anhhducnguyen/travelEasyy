@@ -87,7 +87,20 @@ php artisan serve
 ```
 - **Step 4**: Go to the `php.ini` file and remove the `;` sign. before the command line `extension=zip`
 
-
+## Databases and Migrations
+- If you wish to use MySQL, update your `.env` configuration file's DB_* variables like so:
+```bash
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=
+```
+- Create the database and run your application's database migrations:
+```bash
+php artisan migrate
+```
 
 # Authentication
 `UserController.php`
