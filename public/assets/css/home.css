@@ -400,13 +400,14 @@ body {
 .header-top {
     display: flex;
     align-items: center;
+    justify-content: space-around;
 }
 .header-top>a>img {
     margin: 20px 70px 20px 30px;
     width: 194px;
     height: 39px;
 }
-/* ========================đang sửa================= */
+
 .search-bar-looking-for { 
     margin-right: 350px;
     display: flex;
@@ -464,32 +465,68 @@ h1 {
 }
 .header-mid>p {
     color: white;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 18px;
     margin-bottom: 40px;
 }
 .search-bar-check {
     display: flex;
     background-color: white;
-    width: 800px;
-    height: 50px;
+    width: 850px;
+    height: 60px;
     border-radius: 26px;
     /* justify-content: space-around; */
     padding: 12px 0px;
 
 }
+.search-bar-check p{
+    font-size: 15px;
+    line-height: 20px;
+
+}
+
+select.form-control {
+    border: none;
+    box-shadow: none;
+    appearance: none;
+    width: 105px;
+}
+select.form-control:focus {
+    border: none;
+    box-shadow: none;
+    outline: none;
+    padding: 0 10px;
+}
+
+.bt-search {
+    width: 45px;
+    height: 45px;
+    background-color: red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    top: -4px;
+    right: -7px;;
+}
+.bt-search i {
+    color: white;
+}
+
 .input-search {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 16px;
     border-left: 1px solid black;
 }
 .input-search input {
     border: none;
     outline: none;
-    font-size: 12px;
+    font-size: 13px;
     position: relative;
     color: #717171;
 }
@@ -506,12 +543,7 @@ h1 {
     padding-left: 20px;
     display: flex;
 }
-.search-bar-check img {
-    width: 35px;
-    height: 35px;
-    position: relative;
-    top: -5px;
-}
+
 .content {
     /* background-color: #f9f7f1; */
     /* background-color: lightyellow; */
