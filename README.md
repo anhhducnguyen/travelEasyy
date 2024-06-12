@@ -72,14 +72,20 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 
 
-
-
-
-
-
-
-
-
+# Framework: Laravel
+## Setting:
+- **Step 1**: Install Composer and PHP
+- **Step 2**: After you have installed PHP and Composer, you can create a new Laravel project via Composer command (create-project):
+```bash
+composer create-project laravel/laravel example-app
+```
+- **Step 3**: Once the project has been created, start Laravel's local development server using the Laravel Artisan command`serve`
+```bash
+cd example-app
+ 
+php artisan serve
+```
+- **Step 4**: Go to the `php.ini` file and remove the `;` sign. before the command line `extension=zip`
 
 
 
