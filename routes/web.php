@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\HomeAdminController;
 use App\Http\Controllers\Admin\TourController;
+use App\Http\Controllers\Admin\TourGuideController;
 use App\Http\Controllers\Admin\VehicleController;
 use App\Http\Controllers\HotelController;
 use Illuminate\Support\Facades\Route;
@@ -55,6 +56,7 @@ Route::get('admin/tours/view', [TourController::class, 'index'])->name('admin.to
 // Route cho Vehicles
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('vehicles', VehicleController::class);
+    Route::resource('tourguides', TourGuideController::class);
 });
 
 
