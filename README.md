@@ -1,15 +1,24 @@
-# Simple PHP SSO integration for Laravel
+# SSO integration
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-### Words meanings
-* ***SSO*** - Single Sign-On.
-* ***Server*** - page which works as SSO server, handles authentications, stores all sessions data.
-* ***Broker*** - your page which is used visited by clients/users.
-* ***Client/User*** - your every visitor.
+SSO is a relatively simple and straightforward solution for single sign on (SSO).
+
+With SSO, logging into a single website will authenticate you for all affiliate sites. The sites don't need to share a toplevel domain.
 
 ### How it works?
-Client visits Broker and unique token is generated. When new token is generated we need to attach Client session to his session in Broker so he will be redirected to Server and back to Broker at this moment new session in Server will be created and associated with Client session in Broker's page. When Client visits other Broker same steps will be done except that when Client will be redirected to Server he already use his old session and same session id which associated with Broker#1.
+When using SSO, we can distinguish 3 parties:
+* ***Client*** - This is the browser of the visitor
+* ***Broker*** - The website which is visited
+* ***Server*** - The place that holds the user info and credentials
+
+The broker has an id and a secret. These are known to both the broker and server.
+
+When the client visits the broker, it creates a random token, which is stored in a cookie. The broker will then send the client to the server, passing along the broker's id and token. The server creates a hash using the broker id, broker secret and the token. This hash is used to create a link to the user's session. When the link is created the server redirects the client back to the broker.
+
+The broker can create the same link hash using the token (from the cookie), the broker id and the broker secret. When doing requests, it passes that hash as a session id.
+
+The server will notice that the session id is a link and use the linked session. As such, the broker and client are using the same session. When another broker joins in, it will also use the same session.
 
 # Installation
 1. Configure Laravel 
