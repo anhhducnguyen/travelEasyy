@@ -1,3 +1,39 @@
+# Authentication
+`UserController.php`
+```php
+use Illuminate\Support\Facades\Auth;
+
+    public function storeLogin(Request $req)
+    {
+       if(Auth::attempt(['email'=>$req->email,'password'=>$req->password,'role'=> 0]))
+       {
+            return redirect()->route('index')->with('success','Logged in successfully');
+       } else {
+            return redirect()->back()->with('error','Login failed, please log in again!');
+       }
+    }
+```
+```php
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->back()->with('success','Logout in successfully');
+    }
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # SSO integration
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
