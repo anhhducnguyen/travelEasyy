@@ -10,7 +10,7 @@ class Tour extends Model
     use HasFactory;
     protected $table = 'tbltour';
     protected $fillable = [
-        'idTour', // Thêm trường idTour vào mảng fillable
+        'idTour', 
         'name',
         'startDay',
         'endDay',
