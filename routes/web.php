@@ -35,11 +35,7 @@ Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name(
 Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('auth.google.callback');
 
 // HOTEL
-// Route::get('/', [HotelController::class, 'index'])->name('index');
-Route::get('/addHotel', [HotelController::class, 'addHotel'])->name('addHotel');
-Route::get('/store', [HotelController::class, 'store'])->name('store');
-Route::get('/update', [HotelController::class, 'update'])->name('update');
-Route::get('/delete', [HotelController::class, 'del'])->name('delete');
+
 
 
 

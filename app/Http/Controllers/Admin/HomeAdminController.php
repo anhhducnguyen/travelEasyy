@@ -8,7 +8,8 @@ use App\Http\Controllers\Controller;
 
 class HomeAdminController extends Controller
 {
-    public function dashboard(){
+    public function dashboard()
+    {
         return view('admin.index');
     }
 }

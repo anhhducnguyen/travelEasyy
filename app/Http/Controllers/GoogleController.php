@@ -9,10 +9,12 @@ use Illuminate\Support\Facades\Auth;
 
 class GoogleController extends Controller
 {
-    public function redirectToGoogle(){
+    public function redirectToGoogle()
+    {
         return Socialite::driver('google')->redirect();
     }
-    public function handleGoogleCallback(){
+    public function handleGoogleCallback()
+    {
         $user = Socialite::driver('google')->user(); 
         $findUser = User::where('google_id',$user->id)->first();
         if($findUser){

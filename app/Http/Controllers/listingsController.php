@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class listingsController extends Controller
 {
-    public function listings(){
+    public function listings()
+    {
         return view('fe.listingsPage');
     }
 }
