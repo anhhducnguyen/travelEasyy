@@ -478,7 +478,7 @@
                         </div>
                     </div>
                     <div class="remember-forgot">
-                        <a href="#">Forgot password?</a>
+                        <a href="{{ route('account.forgot-password' )}}">Forgot password?</a>
                     </div>
 
                     <div class="bg-grey">

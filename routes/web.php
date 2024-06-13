@@ -5,13 +5,11 @@ use App\Http\Controllers\Admin\HomeAdminController;
 use App\Http\Controllers\Admin\TourController;
 use App\Http\Controllers\Admin\TourGuideController;
 use App\Http\Controllers\Admin\VehicleController;
-use App\Http\Controllers\HotelController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\listingsController;
-use App\Http\Controllers\tourDetailController;
 
 // ===FE ROUTE===========================================================================
 
@@ -22,24 +20,37 @@ Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 Route::get('/account', [UserController::class, 'account'])->name('account');
 Route::get('/logout_up', [UserController::class, 'logout_up'])->name('logout_up');
 Route::get('/listings', [listingsController::class, 'listings'])->name('listings');
-// Route::get('/listings/tour_detail/{idTour}', [TourDetailController::class, 'tour_detail'])->name('tour_detail');
 
-//EMAIL
+// EMAIL
 Route::get('/verify_account/{email}', [UserController::class, 'verify'])->name('account.verify');
 
 // REGISTER__LOGIN__LOGOUT
 Route::post('/store', [UserController::class, 'store'])->name('store');
 Route::post('/storeLogin', [UserController::class, 'storeLogin'])->name('storeLogin');
 
-//SSO
+// SSO
 Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
 Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('auth.google.callback');
-
-// HOTEL
 
 // CHANGE PASSWORD
 Route::get('/change-password', [UserController::class, 'showChangePasswordForm'])->name('password.change');
 Route::post('/change-password', [UserController::class, 'changePassword'])->name('password.update');
+
+// FORGOT PASSWORD
+Route::get('/forgot-password', [UserController::class, 'forgot_password'])->name('account.forgot-password');
+Route::post('/forgot-password', [UserController::class, 'check_forgot_password'])->name('account.check-forgot-password');
+
+
+Route::get('/reset_password/{token}', [UserController::class, 'reset_password'])->name('account.reset_password');
+Route::post('/reset_password/{token}', [UserController::class, 'check_reset_password'])->name('check_reset_password');
+    
+
+
+
+
+
+
+
 
 
 
@@ -52,6 +63,7 @@ Route::post('admin/tours', [TourController::class, 'store'])->name('admin.tours.
 // Route cho việc hiển thị danh sách tour
 Route::get('admin/dasboard', [HomeAdminController::class, 'dashboard'])->name('admin.dashboard');
 Route::get('admin/tours/view', [TourController::class, 'index'])->name('admin.tours.view');
+// Route::get('/listings/tour_detail/{idTour}', [TourDetailController::class, 'tour_detail'])->name('tour_detail');
 
 // Route cho admin
 Route::prefix('admin')->name('admin.')->group(function () {
