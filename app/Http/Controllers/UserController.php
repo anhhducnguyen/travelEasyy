@@ -24,7 +24,6 @@ class UserController extends Controller
     {
         return view('fe.account');
     }
-
     public function store(Request $req)
     {
         $req->merge(['password'=>bcrypt($req->password)]);
@@ -41,16 +40,24 @@ class UserController extends Controller
     {
         $acc = User::where('email', $email)->whereNull('email_verified_at')->firstOrFail();
         User::where('email', $email)->update(['email_verified_at'=>date('Y-m-d')]);
-        return redirect()->route('login')->with('success','Now, you can login');
+        return redirect()->route('login')->with('success','Your account has been activated! Now, you can login.');
     }
     public function storeLogin(Request $req)
     {
-       if(Auth::attempt(['email'=>$req->email,'password'=>$req->password,'role'=>'user']))
-       {
-            return redirect()->route('index')->with('success','Logged in successfully');
-       } else {
-            return redirect()->back()->with('error','Login failed, please log in again!');
-       }
+        $credentials = $req->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+
+            if ($user->email_verified_at) {
+                return redirect()->route('index')->with('success', 'Logged in successfully');
+            } else {
+                Auth::logout();
+                return redirect()->back()->with('error', 'Your email address is not verified. Please check your email.');
+            }
+        } else {
+            return redirect()->back()->with('error', 'Login failed, please log in again!');
+        }
     }
     public function logout()
     {
