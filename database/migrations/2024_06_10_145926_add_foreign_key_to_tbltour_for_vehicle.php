@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('tbltour', function (Blueprint $table) {
             // Thêm khóa ngoại vào cột idVehicle
-            $table->foreign('idVehicle')->references('idVehicle')->on('tblvehicle')->onDelete('cascade');
+            $table->foreign('idVehicle')->references('idVehicle')->on('tblvehicle')->onDelete('set null');
         });
     }
 

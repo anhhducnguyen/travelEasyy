@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Address;
+use App\Models\Tour;
 use App\Models\TourGuide;
 use Illuminate\Http\Request;
 
@@ -94,11 +95,30 @@ class TourGuideController extends Controller
     public function destroy($id)
     {
         $tourGuide = TourGuide::findOrFail($id);
-        $tourGuide->delete();
+        // Kiểm tra xem tour guide có liên kết với bất kỳ tour nào đang hoạt động hay không
+        $activeTours = Tour::where('idTourGuide', $id)
+                           ->where('endDay', '>=', now()) // Chỉ xem xét các tour chưa kết thúc
+                           ->exists();
+        if ($activeTours) {
+            // Nếu tour guide đang liên kết với tour chưa kết thúc, không cho phép xoá
+            return back()->with('error', 'Cannot delete this tour guide because it is linked to active tours.');
+        }
+        // Lấy danh sách các tour liên kết với tour guide
+        $tours = Tour::where('idTourGuide', $id)->get();
 
+        // Xoá địa chỉ của các tour liên kết
+        foreach ($tours as $tour) {
+            if ($tour->idAddress) {
+                $address = Address::find($tour->idAddress);
+                if ($address) {
+                    $address->delete();
+                }
+            }
+        }
+        $tourGuide->delete();
         $address = Address::findOrFail($tourGuide->idAddress);
         $address->delete();
 
-        return redirect()->route('admin.tourguides.index');
+        return redirect()->route('admin.tourguides.index')->with('success', 'Tour guide deleted successfully.');;
     }
 }

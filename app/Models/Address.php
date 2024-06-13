@@ -16,4 +16,20 @@ class Address extends Model
     protected $fillable = [
         'idAddress', 'city', 'district', 'ward', 'detailAddress'
     ];
+    public function users()
+    {
+        return $this->hasMany(User::class, 'idAddress', 'idAddress');
+    }
+    public function tours()
+    {
+        return $this->hasMany(Tour::class, 'idAddress', 'idAddress');
+    }
+    public function hotels()
+    {
+        return $this->hasMany(Hotel::class, 'idAddress', 'idAddress');
+    }
+    public function tourguides()
+    {
+        return $this->hasMany(TourGuide::class, 'idAddress', 'idAddress');
+    }
 }

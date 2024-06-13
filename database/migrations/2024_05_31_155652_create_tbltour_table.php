@@ -17,7 +17,7 @@ return new class extends Migration
             $table->date('startDay')->nullable();
             $table->date('endDay')->nullable();
             $table->decimal('cost', 10, 2)->nullable();
-            $table->string('idAddress', 15)->nullable();
+            $table->unsignedBigInteger('idAddress')->nullable();
             $table->string('idHotel', 15)->nullable();
             $table->string('idVehicle', 15)->nullable();
             $table->string('idTourGuide', 15)->nullable();

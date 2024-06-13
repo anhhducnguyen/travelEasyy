@@ -11,7 +11,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tbladdress', function (Blueprint $table) {
-            $table->string('idAddress', 15)->primary();
+            $table->id('idAddress');
             $table->string('city', 50)->nullable();
             $table->string('district', 50)->nullable();
             $table->string('ward', 50)->nullable();

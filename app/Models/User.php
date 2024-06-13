@@ -52,4 +52,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function address()
+    {
+        return $this->belongsTo(Address::class, 'idAddress', 'idAddress');
+    }
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class, 'idUser', 'id');
+    }
 }
