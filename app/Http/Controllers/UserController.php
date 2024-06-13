@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\VerifyAccount;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Mail;
 
 
 class UserController extends Controller
@@ -28,16 +29,23 @@ class UserController extends Controller
     {
         $req->merge(['password'=>bcrypt($req->password)]);
         try {
-            User::create($req->all());
+            if ($acc = User::create($req->all())){
+                Mail::to($req->email)->send(new VerifyAccount($acc));
+                return redirect()->route('login')->with('success','Your Account has been created succesfully!! Please check your email to confirm your email address in order to activate your account.');
+            }
         } catch (\Throwable $th){
             // dd($th);
         }
-        return redirect()->route('login')->with('success','Register in successfully');
-        // return view('fe.login');
+    }
+    public function verify($email)
+    {
+        $acc = User::where('email', $email)->whereNull('email_verified_at')->firstOrFail();
+        User::where('email', $email)->update(['email_verified_at'=>date('Y-m-d')]);
+        return redirect()->route('login')->with('success','Now, you can login');
     }
     public function storeLogin(Request $req)
     {
-       if(Auth::attempt(['email'=>$req->email,'password'=>$req->password,'role'=>1]))
+       if(Auth::attempt(['email'=>$req->email,'password'=>$req->password,'role'=>'user']))
        {
             return redirect()->route('index')->with('success','Logged in successfully');
        } else {

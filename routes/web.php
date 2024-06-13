@@ -24,7 +24,8 @@ Route::get('/logout_up', [UserController::class, 'logout_up'])->name('logout_up'
 Route::get('/listings', [listingsController::class, 'listings'])->name('listings');
 // Route::get('/listings/tour_detail/{idTour}', [TourDetailController::class, 'tour_detail'])->name('tour_detail');
 
-
+//EMAIL
+Route::get('/verify_account/{email}', [UserController::class, 'verify'])->name('account.verify');
 
 // REGISTER__LOGIN__LOGOUT
 Route::post('/store', [UserController::class, 'store'])->name('store');

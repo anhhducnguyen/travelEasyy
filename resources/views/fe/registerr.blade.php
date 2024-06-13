@@ -185,8 +185,4 @@
     <script src="{{ asset('assets/js/login.js') }}"></script>
 </body>
 
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> phongvu
