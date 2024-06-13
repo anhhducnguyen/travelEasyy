@@ -134,11 +134,11 @@
                 <li>
                     <a href="#contact">Contact</a>
                 </li>
-                <!-- <div class="login" id="login">
+                <div class="login" id="login">
                     <li>
-                        <a href="{{ route('login') }}" class="navlogin">Login</a>
+                        <a href="{{ route('password.change') }}" class="navlogin">Change Password</a>
                     </li>
-                </div> -->
+                </div>
             </ul>
         </nav>
     </header>

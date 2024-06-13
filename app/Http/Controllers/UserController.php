@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -23,6 +23,10 @@ class UserController extends Controller
     public function account()
     {
         return view('fe.account');
+    }
+    public function showChangePasswordForm()
+    {
+        return view('fe.change-password');
     }
     public function store(Request $req)
     {
@@ -68,5 +72,26 @@ class UserController extends Controller
     {
         Auth::logout();
         return redirect()->route('index');
+    }
+    public function changePassword(Request $request)
+    {
+        $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|min:8|confirmed',
+        ]);
+
+        $user = Auth::user();
+
+        if (!$user) {
+            return redirect()->route('login')->with('error', 'User not authenticated');
+        }
+
+        if (!Hash::check($request->current_password, $user->password)) {
+            return back()->withErrors(['current_password' => 'Current password is incorrect']);
+        }
+
+        DB::table('users')->where('id', $user->id)->update(['password' => Hash::make($request->new_password)]);
+
+        return redirect()->route('account')->with('success', 'Password changed successfully');
     }
 }
