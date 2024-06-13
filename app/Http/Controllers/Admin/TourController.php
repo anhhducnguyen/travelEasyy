@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\IdGenerator;
 use App\Http\Controllers\Controller;
 use App\Models\Address;
 use App\Models\Hotel;
@@ -30,7 +31,6 @@ class TourController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'idTour' => 'required|string|max:15|unique:tbltour,idTour',
             'name' => 'nullable|string|max:50',
             'startDay' => 'nullable|date',
             'endDay' => 'nullable|date',
@@ -43,17 +43,19 @@ class TourController extends Controller
             'idVehicle' => 'nullable|string|max:15',
             'idTourGuide' => 'nullable|string|max:15',
         ]);
-        // Create the address first
+
+
         $address = Address::updateOrCreate([
-            'idAddress' => $data['idTour'], // Assuming you want to use the same ID
             'city' => $data['city'],
             'district' => $data['district'],
             'ward' => $data['ward'],
             'detailAddress' => $data['detailAddress'],
         ]);
 
+        $newId = IdGenerator::generateId('TO', Tour::class, 'idTour');   
+
         Tour::create([
-            'idTour' => $data['idTour'],
+            'idTour' => $newId,
             'name'=> $data['name'],
             'startDay'=> $data['startDay'],
             'endDay'=> $data['endDay'],

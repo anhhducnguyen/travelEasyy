@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\IdGenerator;
 use App\Http\Controllers\Controller;
 use App\Models\Address;
 use App\Models\Hotel;
@@ -24,7 +25,6 @@ class HotelController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'idHotel' => 'required|string|max:15|unique:tblhotel,idHotel',
             'name' => 'nullable|string|max:50',
             'city' => 'required|string|max:50',
             'district' => 'required|string|max:50',
@@ -32,18 +32,19 @@ class HotelController extends Controller
             'detailAddress' => 'nullable|string|max:50',
         ]);
 
-        // Create the address first
         $address = Address::create([
-            'idAddress' => $data['idHotel'],
             'city' => $data['city'],
             'district' => $data['district'],
             'ward' => $data['ward'],
             'detailAddress' => $data['detailAddress'],
         ]);
 
+        
+        $newId = IdGenerator::generateId('HT', Hotel::class, 'idHotel');       
+
         // Create the hotel
         Hotel::create([
-            'idHotel' => $data['idHotel'],
+            'idHotel' => $newId,
             'idAddress' => $address->idAddress,
             'name' => $data['name'],
         ]);
@@ -53,8 +54,10 @@ class HotelController extends Controller
 
     public function edit($id)
     {
-        $hotel = Hotel::with('address')->findOrFail($id);
-        return view('admin.hotels.edit', compact('hotel'));
+        $hotel = Hotel::findOrFail($id);
+        $address = $hotel->address; 
+    
+        return view('admin.hotels.edit', compact('hotel', 'address'));
     }
 
     public function update(Request $request, $id)

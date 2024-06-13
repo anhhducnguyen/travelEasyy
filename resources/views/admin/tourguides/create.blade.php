@@ -22,10 +22,6 @@
 
             <form action="{{ route('admin.tourguides.store') }}" method="POST">
                 @csrf
-                <div>
-                    <label for="idTourGuide">Tour Guide ID</label>
-                    <input type="text" id="idTourGuide" name="idTourGuide" required>
-                </div>
 
                 <div>
                     <label for="name">Name</label>

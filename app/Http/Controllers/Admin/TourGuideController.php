@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\IdGenerator;
 use App\Http\Controllers\Controller;
 use App\Models\Address;
 use App\Models\Tour;
@@ -25,7 +26,6 @@ class TourGuideController extends Controller
     {
         // Validate the request data
         $data = $request->validate([
-            'idTourGuide' => 'required|string|max:15|unique:tbltourguide,idTourGuide',
             'name' => 'nullable|string|max:50',
             'phone' => 'nullable|string|max:50',
             'email' => 'nullable|string|max:50',
@@ -35,18 +35,17 @@ class TourGuideController extends Controller
             'detailAddress' => 'nullable|string|max:50',
         ]);
 
-        // Create the address first
+
         $address = Address::create([
-            'idAddress' => $data['idTourGuide'], // Assuming you want to use the same ID
             'city' => $data['city'],
             'district' => $data['district'],
             'ward' => $data['ward'],
             'detailAddress' => $data['detailAddress'],
         ]);
-
+        $newId = IdGenerator::generateId('TG', TourGuide::class, 'idTourGuide');   
         // Create the tour guide
         TourGuide::create([
-            'idTourGuide' => $data['idTourGuide'],
+            'idTourGuide' => $newId,
             'idAddress' => $address->idAddress,
             'name' => $data['name'],
             'phone' => $data['phone'],
