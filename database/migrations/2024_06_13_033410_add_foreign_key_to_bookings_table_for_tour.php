@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('tblregister', function (Blueprint $table) {
-            // Thêm khóa ngoại vào cột idTour
-            $table->foreign('idTour')->references('idTour')->on('tbltour')->onDelete('cascade');
+        Schema::table('bookings', function (Blueprint $table) {
+            // Add the foreign key constraint for idTour
+            $table->foreign('idTour')->references('idTour')->on('tbltour')->onDelete('set null');
         });
     }
 
@@ -22,8 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('tblregister', function (Blueprint $table) {
-            // Xóa khóa ngoại nếu rollback
+        Schema::table('bookings', function (Blueprint $table) {
+            // Drop the foreign key constraint for idTour
             $table->dropForeign(['idTour']);
         });
     }

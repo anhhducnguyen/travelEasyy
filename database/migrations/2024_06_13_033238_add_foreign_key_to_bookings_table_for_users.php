@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('tblregister', function (Blueprint $table) {
-            $table->foreign('emailUser')->references('email')->on('users');
+        Schema::table('bookings', function (Blueprint $table) {
+            // Add the foreign key constraint
+            $table->foreign('idUser')->references('id')->on('users')->onDelete('set null');
         });
     }
 
@@ -21,8 +22,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('tblregister', function (Blueprint $table) {
-            $table->dropForeign(['emailUser']);
+        Schema::table('bookings', function (Blueprint $table) {
+            // Drop the foreign key constraint
+            $table->dropForeign(['idUser']);
         });
     }
 };
