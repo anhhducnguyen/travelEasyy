@@ -105,10 +105,7 @@ class UserController extends Controller
     public function reset_password($token)
     {
         
-        $tokenData = passwordResetTokens::checkToken($token);
-        
-        // $user = $tokenData->user; 
-        // dd($user);   
+        $tokenData = passwordResetTokens::checkToken($token);  
         return view('account.reset_password',['token' => $token]);
     }
 
@@ -125,6 +122,7 @@ class UserController extends Controller
         ];
         $check = $user->update($data);
         dd($check);
+        // return redirect()->route('login')->with('success', 'Change password in successfully');
     }
     public function check_forgot_password(Request $req)
     {
@@ -133,7 +131,6 @@ class UserController extends Controller
         ]);
 
         $user = User::where('email', $req->email)->first();
-        // dd($user);
         $token = Str::random(50);
         $tokenData = [
             'email' => $req->email,

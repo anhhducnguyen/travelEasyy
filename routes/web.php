@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AgencyController;
+use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\HomeAdminController;
 use App\Http\Controllers\Admin\TourController;
 use App\Http\Controllers\Admin\TourGuideController;
@@ -11,7 +12,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\listingsController;
 
-// ===FE ROUTE===========================================================================
+// FE ROUTE
 
 Route::get('/', [LoginController::class, 'index'])->name('index');
 Route::get('/register', [UserController::class, 'register'])->name('register');
@@ -40,17 +41,10 @@ Route::post('/change-password', [UserController::class, 'changePassword'])->name
 Route::get('/forgot-password', [UserController::class, 'forgot_password'])->name('account.forgot-password');
 Route::post('/forgot-password', [UserController::class, 'check_forgot_password'])->name('account.check-forgot-password');
 
-
+// RESET PASSWORD
 Route::get('/reset_password/{token}', [UserController::class, 'reset_password'])->name('account.reset_password');
 Route::post('/reset_password/{token}', [UserController::class, 'check_reset_password'])->name('check_reset_password');
     
-
-
-
-
-
-
-
 
 
 
@@ -65,14 +59,15 @@ Route::get('admin/dasboard', [HomeAdminController::class, 'dashboard'])->name('a
 Route::get('admin/tours/view', [TourController::class, 'index'])->name('admin.tours.view');
 // Route::get('/listings/tour_detail/{idTour}', [TourDetailController::class, 'tour_detail'])->name('tour_detail');
 
+// CUSTOMER CREATE
+Route::get('admin/customer/create', [TourController::class, 'create'])->name('admin.customer.create');
+Route::get('admin/customer/create', [CustomerController::class, 'store'])->name('admin.customer.create');
+
+
 // Route cho admin
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('vehicles', VehicleController::class);
     Route::resource('tourguides', TourGuideController::class);
     Route::resource('agencies', AgencyController::class);
+    Route::resource('customer', CustomerController::class);
 });
-
-
-
-
-

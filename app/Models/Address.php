@@ -16,4 +16,8 @@ class Address extends Model
     protected $fillable = [
         'idAddress', 'city', 'district', 'ward', 'detailAddress'
     ];
+    public function users()
+    {
+        return $this->hasMany(User::class, 'idAddress', 'idAddress');
+    }
 }
