@@ -121,8 +121,8 @@ class UserController extends Controller
             'password' => bcrypt(request(('password')))
         ];
         $check = $user->update($data);
-        dd($check);
-        // return redirect()->route('login')->with('success', 'Change password in successfully');
+        // dd($check);
+        return redirect()->route('login')->with('success', 'Change password in successfully');
     }
     public function check_forgot_password(Request $req)
     {
@@ -145,12 +145,31 @@ class UserController extends Controller
         ) 
         {
             Mail::to($req->email)->send(new ForgotPassword($user, $token));
-            return redirect()->back()->with('success', 'Send changed successfully');
+            return redirect()->back()->with('success', 'Please check your email to change your password');
         }
 
         return redirect()->back()->with('no', 'Something successfully');
     }
 
+    // ============================================================================
+    public function updateProfile(Request $request)
+    {
+        $request->validate([
+            'phone' => 'required|string|max:15',
+        ]);
+
+        $user = Auth::user();
+
+        // Sử dụng DB::table để cập nhật thông tin người dùng
+        // DB::table('users')->where('id', $user->id)->update([
+        //     'phone' => $request->phone,
+        // ]);
+        
+
+        
+
+        return redirect()->route('account')->with('success', 'Profile updated successfully');
+    }
 }
 
 

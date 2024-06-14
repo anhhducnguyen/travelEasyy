@@ -51,6 +51,10 @@ Route::post('/forgot-password', [UserController::class, 'check_forgot_password']
 Route::get('/reset_password/{token}', [UserController::class, 'reset_password'])->name('account.reset_password');
 Route::post('/reset_password/{token}', [UserController::class, 'check_reset_password'])->name('check_reset_password');
     
+// UPDATE PROFILE
+Route::post('/account/update', [UserController::class, 'updateProfile'])->name('updateProfile');
+
+
 
 
 

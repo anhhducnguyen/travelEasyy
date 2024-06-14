@@ -32,4 +32,5 @@ class Address extends Model
     {
         return $this->hasMany(TourGuide::class, 'idAddress', 'idAddress');
     }
+    
 }

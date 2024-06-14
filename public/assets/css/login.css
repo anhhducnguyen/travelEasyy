@@ -174,8 +174,8 @@ header .logo a{
 input[type='email'],
 input[type='password']{
     border: 1px solid black;
-    /* height: 55px; */
-    height: 45px;
+    height: 55px;
+    /* height: 45px; */
     padding: 0 2rem;
     width: 100%;
     outline: none;
