@@ -8,6 +8,23 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+# Overview
+
+## Member
+1. **Nguyen Duc Anh**:
+- Login (Authentication, SSO)
+- Register (Confirm account by email)
+- Forgot password (Recover password by email)
+- Account information
+- Change password
+- Home page
+2. **Vu Minh Phong**
+
+
+## Report: 
+Link report: [Thiết kế web nâng cao](https://drive.google.com/drive/folders/1xLgb8YMsFQk0uTQHgyjuCHtLDfdMdnjp?usp=drive_link)
+
+
 # Framework: Laravel
 ## Setting:
 - **Step 1**: Install Composer and PHP
