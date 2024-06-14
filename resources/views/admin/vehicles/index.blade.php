@@ -7,6 +7,17 @@
 <body>
     <div class="container">
         <h1>Manage Vehicles</h1>
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        @if(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
         <a href="{{ route('admin.vehicles.create') }}" class="btn btn-primary mb-3">Create New Vehicle</a>
         <table class="table">
             <thead>

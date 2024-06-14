@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('tblhotel', function (Blueprint $table) {
             // Thêm khóa ngoại vào cột idAddress
-            $table->foreign('idAddress')->references('idAddress')->on('tbladdress')->onDelete('cascade');
+            $table->foreign('idAddress')->references('idAddress')->on('tbladdress')->onDelete('set null');
         });
     }
 

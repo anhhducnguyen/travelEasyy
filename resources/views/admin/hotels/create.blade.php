@@ -1,65 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Create New Tour</title>
-    <!-- <link rel="stylesheet" href="{{ asset('css/app.css') }}"> -->
+    <title>Create Hotel</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-
 </head>
 <body>
-    <div class="container">
+<div class="container">
         <header>
             <h1>Admin Dashboard</h1>
             <nav>
                 <ul>
-                    <li><a href="{{ route('admin.tours.index') }}">Manage Tours</a></li>
-                    <li><a href="{{ route('admin.tours.create') }}">Create Tour</a></li>
+                    <li><a href="{{ route('admin.hotels.index') }}">Manage Hotels</a></li>
+                    <li><a href="{{ route('admin.hotels.create') }}">Create Hotels</a></li>
                 </ul>
             </nav>
         </header>
 
         <main>
-            <h2>Create New Tour</h2>
-            <form action="{{ route('admin.tours.store') }}" method="POST">
-                @csrf
+            <h2>Create New Hotesl</h2>
 
+            <form action="{{ route('admin.hotels.store') }}" method="POST">
+                @csrf
+                
                 <div>
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name">
                 </div>
 
                 <div>
-                    <label for="startDay">Start Day</label>
-                    <input type="date" id="startDay" name="startDay">
-                </div>
-
-                <div>
-                    <label for="endDay">End Day</label>
-                    <input type="date" id="endDay" name="endDay">
-                </div>
-
-                <div>
-                    <label for="cost">Cost</label>
-                    <input type="text" id="cost" name="cost">
-                </div>
-
-                <div>
                     <label for="city">City</label>
-                    <select class="form-select form-select-sm mb-3" id="city" name="city">
+                    <select id="city" name="city" required>
                         <option value="" selected>Chọn tỉnh thành</option>
                     </select>
                 </div>
 
                 <div>
                     <label for="district">District</label>
-                    <select class="form-select form-select-sm mb-3" id="district" name="district">
+                    <select id="district" name="district" required>
                         <option value="" selected>Chọn quận huyện</option>
                     </select>
                 </div>
 
                 <div>
                     <label for="ward">Ward</label>
-                    <select class="form-select form-select-sm" id="ward" name="ward">
+                    <select id="ward" name="ward" required>
                         <option value="" selected>Chọn phường xã</option>
                     </select>
                 </div>
@@ -69,39 +53,12 @@
                     <input type="text" id="detailAddress" name="detailAddress">
                 </div>
 
-                <div>
-                    <label for="idHotel">Hotel</label>
-                    <select id="idHotel" name="idHotel">
-                        <option value="" selected>Select Hotel</option>
-                        @foreach($hotels as $hotel)
-                            <option value="{{ $hotel->idHotel }}">{{ $hotel->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div>
-                    <label for="idVehicle">Vehicle</label>
-                    <select id="idVehicle" name="idVehicle">
-                        <option value="" selected>Select Vehicle</option>
-                        @foreach($vehicles as $vehicle)
-                            <option value="{{ $vehicle->idVehicle }}">{{ $vehicle->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div>
-                    <label for="idTourGuide">Tour Guide</label>
-                    <select id="idTourGuide" name="idTourGuide">
-                        <option value="" selected>Select Tour Guide</option>
-                        @foreach($tourGuides as $tourGuide)
-                            <option value="{{ $tourGuide->idTourGuide }}">{{ $tourGuide->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <button type="submit">Create Tour</button>
+                <button type="submit">Create Hotel</button>
             </form>
+
         </main>
     </div>
+
     <script>
     var citis = document.getElementById("city");
     var districts = document.getElementById("district");
@@ -142,5 +99,6 @@
         };
     }
 </script>
+
 </body>
 </html>

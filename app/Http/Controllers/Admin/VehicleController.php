@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\ActiveTourChecker;
+use App\Helpers\IdGenerator;
 use App\Http\Controllers\Controller;
+use App\Models\Address;
+use App\Models\Tour;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
 
@@ -22,12 +26,16 @@ class VehicleController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'idVehicle' => 'required|string|max:15|unique:tblvehicle,idVehicle',
             'name' => 'nullable|string|max:50',
             'licensePlate' => 'nullable|string|max:20',
         ]);
+        $newId = IdGenerator::generateId('VH', Vehicle::class, 'idVehicle');   
 
-        Vehicle::create($data);
+        Vehicle::create([
+            'idVehicle' => $newId,
+            'name' => $data['name'],
+            'licensePlate' => $data['licensePlate'],
+        ]);
 
         return redirect()->route('admin.vehicles.index');
     }
@@ -54,8 +62,15 @@ class VehicleController extends Controller
     public function destroy($id)
     {
         $vehicle = Vehicle::findOrFail($id);
+        
+        // Kiểm tra xem Vehicle có liên kết với bất kỳ tour nào đang hoạt động hay không
+        if (ActiveTourChecker::hasActiveTours('idVehicle', $id)) {
+            // Nếu vehicle đang liên kết với tour chưa kết thúc, không cho phép xoá
+            return back()->with('error', 'Cannot delete this vehicle because it is linked to active tours.');
+        }
+        
         $vehicle->delete();
 
-        return redirect()->route('admin.vehicles.index');
+        return redirect()->route('admin.vehicles.index')->with('success', 'Vehicle deleted successfully.');
     }
 }

@@ -53,13 +53,19 @@ class User extends Authenticatable
         ];
     }
 
+
     public function hasVerifiedEmail()
     {
         return $this->email_verified_at !== null;
     }
+    
     public function address()
     {
-        return $this->belongsTo(User::class, 'idAddress', 'idAddress');
+        return $this->belongsTo(Address::class, 'idAddress', 'idAddress');
     }
-    
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class, 'idUser', 'id');
+    }
+ 
 }

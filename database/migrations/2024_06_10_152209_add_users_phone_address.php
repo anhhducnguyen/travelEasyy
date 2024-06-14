@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             // Thêm cột phone và idAddress vào bảng users
             $table->string('phone', 15)->nullable();
-            $table->string('idAddress', 15)->nullable();
+            $table->unsignedBigInteger('idAddress')->nullable();
         });
     }
 

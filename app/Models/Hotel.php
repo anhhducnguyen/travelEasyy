@@ -5,31 +5,27 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Agency extends Model
+class Hotel extends Model
 {
     use HasFactory;
 
-    protected $table = 'tblagency';
-    protected $primaryKey = 'idAgency';
+    protected $table = 'tblhotel';
+    protected $primaryKey = 'idHotel';
     public $incrementing = false;
-
     public $timestamps = false;
 
     protected $fillable = [
-        'idAgency',
+        'idHotel',
         'idAddress',
         'name',
-        'phone',
-        'idTourGuide',
     ];
-
-    public function tourGuide()
-    {
-        return $this->belongsTo(TourGuide::class, 'idTourGuide', 'idTourGuide');
-    }
 
     public function address()
     {
         return $this->belongsTo(Address::class, 'idAddress', 'idAddress');
+    }
+    public function tours()
+    {
+        return $this->hasMany(Tour::class, 'idHotel', 'idHotel');
     }
 }
