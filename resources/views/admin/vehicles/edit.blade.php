@@ -1,29 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Edit Vehicle</title>
-    <!-- <link rel="stylesheet" href="{{ asset('css/app.css') }}"> -->
-</head>
-<body>
-    <div class="container">
-        <h1>Edit Vehicle</h1>
-        <form action="{{ route('admin.vehicles.update', $vehicle->idVehicle) }}" method="POST">
-            @csrf
-            @method('PUT')
-            <div>
-                <label for="idVehicle">Vehicle ID</label>
-                <input type="text" id="idVehicle" name="idVehicle" value="{{ $vehicle->idVehicle }}" readonly>
+@extends('admin.layouts.app')
+
+@section('content')
+    <div class="col-lg-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Edit Vehicle</h4>
+                <form action="{{ route('admin.vehicles.update', $vehicle->idVehicle) }}" method="POST">
+                    @csrf
+                    @method('PUT')
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" value="{{ $vehicle->name }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="licensePlate">License Plate</label>
+                        <input type="text" class="form-control" id="licensePlate" name="licensePlate" value="{{ $vehicle->licensePlate }}">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update Vehicle</button>
+                </form>
             </div>
-            <div>
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" value="{{ $vehicle->name }}">
-            </div>
-            <div>
-                <label for="licensePlate">License Plate</label>
-                <input type="text" id="licensePlate" name="licensePlate" value="{{ $vehicle->licensePlate }}">
-            </div>
-            <button type="submit">Update Vehicle</button>
-        </form>
+        </div>
     </div>
-</body>
-</html>
+@endsection
