@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 
 class tourDetailController extends Controller
 {
-//     public function tour_detail($idTour)
-//     {
-//         $tour = Tour::where('idTour', $idTour)->firstOrFail();
-//         return view('tour_detail', compact('tour'));
-//     }
+    public function tour_detail($idTour)
+    {
+        $tour = Tour::where('idTour', $idTour)->firstOrFail();
+        return view('tour_detail', compact('tour'));
+    }
 //     public function create()
 //     {
 //         return view('admin.tours.create');

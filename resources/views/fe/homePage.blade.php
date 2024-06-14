@@ -36,7 +36,7 @@
             </div>
             <div class="home-listings-blog">
                 <a href="{{route('index')}}" id="home">Home</a>
-                <a href="{{route('listings')}}" id="listings">Listings</a>
+                <a href="{{route('tours.index')}}" id="listings">Listings</a>
                 <a href="#" id="blog">Blog</a>
                 
                 <!-- @if(Auth::check())

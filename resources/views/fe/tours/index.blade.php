@@ -21,7 +21,7 @@
         </div>
         <div class="home-listings-blog">
             <a href={{route('index')}} id="home">Home</a>
-            <a href={{route('listings')}} id="listings">Listings</a>
+            <a href={{route('tours.index')}} id="listings">Listings</a>
             <a href="W02-blog.html" id="blog">Blog</a>
             <a href="" id="log-in">Log in</a>
             <a href="" id="register">Register</a>
@@ -107,248 +107,58 @@
                     </div>
                 </div>
                 <div class="listings-list-booking">
+                @foreach($tours as $tour)
                     <div class="list-box" id="navi-to-ls-detail">
                         <div class="lr-box">
                             <div class="upper-img">
-                                <img src="./images/hcm1.png" alt="">
+                                <img src="{{ asset('/assets/images/hcm1.png') }}" alt="">
                             </div>
                             <div class="price">
-                                <a href="">$120/ night</a>
+                                <a href="">{{ number_format($tour->cost, 0, ',', '.') }} VND</a>
                             </div>
                             <div class="icon-heart">
                                 <i class="fa-regular fa-heart"></i>
                             </div>
-                            <img src="./images/star_9.png" alt="" class="star-ratings">
-                            <img src="./images/profile3.png" alt="" class="profile-lr">
+                            <img src="{{ asset('/assets/images/star_9.png') }}" alt="" class="star-ratings">
+                            <img src="{{ asset('/assets/images/profile3.png') }}" alt="" class="profile-lr">
                         </div>
                         <div class="desc-of-lr">
                             <div class="location">
-                                <img src="./images/pin.png" alt="">
-                                <span>District 1, Ho Chi Minh</span>
+                                <img src="{{ asset('images/pin.png') }}" alt="">
+                                <span>{{ $tour->address->district }}, {{ $tour->address->city }}</span>
                             </div>
-                            <h4>Spacious family home with modern amenities</h4>
-                            <p>Located in a vibrant neighbourhood, near an array of trendy shops, restaurants, cafe etc.</p>
+                            <h4>{{ $tour->name }}</h4>
+                            <p>{{ $tour->itineraryDetails }}</p>
                         </div>
-                        <button>Book now</button>
+                        <button onclick="document.getElementById('book-tour-{{ $tour->id }}').style.display='block'">Book now</button>
+
+                        <!-- <div id="book-tour-{{ $tour->id }}" style="display:none;">
+                            <form action="{{ route('tours.book') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="tour_id" value="{{ $tour->id }}">
+                                <div>
+                                    <label for="name">Name</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div>
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div>
+                                    <label for="phone">Phone</label>
+                                    <input type="text" id="phone" name="phone" required>
+                                </div>
+                                <div>
+                                    <label for="number_of_people">Number of People</label>
+                                    <input type="number" id="number_of_people" name="number_of_people" required>
+                                </div>
+                                <button type="submit">Book Tour</button>
+                            </form>
+                        </div> -->
                     </div>
-                    <div class="list-box">
-                        <div class="lr-box">
-                            <div class="upper-img">
-                                <img src="./images/hcm2.png" alt="">
-                            </div>
-                            <div class="price">
-                                <a href="">$120/ night</a>
-                            </div>
-                            <div class="icon-heart">
-                                <i class="fa-regular fa-heart"></i>
-                            </div>
-                            <img src="./images/star_9.png" alt="" class="star-ratings">
-                            <img src="./images/profile3.png" alt="" class="profile-lr">
-                        </div>
-                        <div class="desc-of-lr">
-                            <div class="location">
-                                <img src="./images/pin.png" alt="">
-                                <span>District 1, Ho Chi Minh</span>
-                            </div>
-                            <h4>Serene house with breathtaking lakeviews</h4>
-                            <p>Enjoy the view straight from the dining room, and also only 15 mins downtown.</p>
-                        </div>
-                        <button>Book now</button>
-                    </div>
-                    <div class="list-box">
-                        <div class="lr-box">
-                            <div class="upper-img">
-                                <img src="./images/hcm3.png" alt="">
-                            </div>
-                            <div class="price">
-                                <a href="">$120/ night</a>
-                            </div>
-                            <div class="icon-heart">
-                                <i class="fa-regular fa-heart"></i>
-                            </div>
-                            <img src="./images/star_9.png" alt="" class="star-ratings">
-                            <img src="./images/profile3.png" alt="" class="profile-lr">
-                        </div>
-                        <div class="desc-of-lr">
-                            <div class="location">
-                                <img src="./images/pin.png" alt="">
-                                <span>District 3, Ho Chi Minh</span>
-                            </div>
-                            <h4>Elegant house with panoramic views</h4>
-                            <p>Offering breathtaking skyline view and close proximity to high-end shopping mall.</p>
-                        </div>
-                        <button>Book now</button>
-                    </div>
-                    <div class="list-box">
-                        <div class="lr-box">
-                            <div class="upper-img">
-                                <img src="./images/hcm4.png" alt="">
-                            </div>
-                            <div class="price">
-                                <a href="">$120/ night</a>
-                            </div>
-                            <div class="icon-heart">
-                                <i class="fa-regular fa-heart"></i>
-                            </div>
-                            <img src="./images/star_9.png" alt="" class="star-ratings">
-                            <img src="./images/profile3.png" alt="" class="profile-lr">
-                        </div>
-                        <div class="desc-of-lr">
-                            <div class="location">
-                                <img src="./images/pin.png" alt="">
-                                <span>District 2, Ho Chi Minh</span>
-                            </div>
-                            <h4>Cosy and affordable: Quaint bungalow in a quiet neighborhood</h4>
-                            <p>Easy access to shopping, dining and various entertainment options.</p>
-                        </div>
-                        <button>Book now</button>
-                    </div>
-                    <div class="list-box">
-                        <div class="lr-box">
-                            <div class="upper-img">
-                                <img src="./images/hcm5.png" alt="">
-                            </div>
-                            <div class="price">
-                                <a href="">$120/ night</a>
-                            </div>
-                            <div class="icon-heart">
-                                <i class="fa-regular fa-heart"></i>
-                            </div>
-                            <img src="./images/star_9.png" alt="" class="star-ratings">
-                            <img src="./images/profile3.png" alt="" class="profile-lr">
-                        </div>
-                        <div class="desc-of-lr">
-                            <div class="location">
-                                <img src="./images/pin.png" alt="">
-                                <span>Thao Dien, Ho Chi Minh</span>
-                            </div>
-                            <h4>Fully furnished apartment near main campus</h4>
-                            <p>Near the university and other entertainment, restaurants and supermarkets.</p>
-                        </div>
-                        <button>Book now</button>
-                    </div>
-                    <div class="list-box">
-                        <div class="lr-box">
-                            <div class="upper-img">
-                                <img src="./images/hcm6.png" alt="">
-                            </div>
-                            <div class="price">
-                                <a href="">$120/ night</a>
-                            </div>
-                            <div class="icon-heart">
-                                <i class="fa-regular fa-heart"></i>
-                            </div>
-                            <img src="./images/star_9.png" alt="" class="star-ratings">
-                            <img src="./images/profile3.png" alt="" class="profile-lr">
-                        </div>
-                        <div class="desc-of-lr">
-                            <div class="location">
-                                <img src="./images/pin.png" alt="">
-                                <span>Binh Thanh, Ho Chi Minh</span>
-                            </div>
-                            <h4>Contemporary home with designer finishes</h4>
-                            <p>Minimal decor but having several services near the house such as: dining, shopping etc.</p>
-                        </div>
-                        <button>Book now</button>
-                    </div>
-                    <div class="list-box">
-                        <div class="lr-box">
-                            <div class="upper-img">
-                                <img src="./images/hcm7.png" alt="">
-                            </div>
-                            <div class="price">
-                                <a href="">$120/ night</a>
-                            </div>
-                            <div class="icon-heart">
-                                <i class="fa-regular fa-heart"></i>
-                            </div>
-                            <img src="./images/star_9.png" alt="" class="star-ratings">
-                            <img src="./images/profile3.png" alt="" class="profile-lr">
-                        </div>
-                        <div class="desc-of-lr">
-                            <div class="location">
-                                <img src="./images/pin.png" alt="">
-                                <span>Thu Duc, Ho Chi Minh</span>
-                            </div>
-                            <h4>Spacious townhouse in a vibrant neighborhood</h4>
-                            <p>Have a park for jogging, walking and a superior gym with personal trainers.</p>
-                        </div>
-                        <button>Book now</button>
-                    </div>
-                    <div class="list-box">
-                        <div class="lr-box">
-                            <div class="upper-img">
-                                <img src="./images/hcm8.png" alt="">
-                            </div>
-                            <div class="price">
-                                <a href="">$120/ night</a>
-                            </div>
-                            <div class="icon-heart">
-                                <i class="fa-regular fa-heart"></i>
-                            </div>
-                            <img src="./images/star_9.png" alt="" class="star-ratings">
-                            <img src="./images/profile3.png" alt="" class="profile-lr">
-                        </div>
-                        <div class="desc-of-lr">
-                            <div class="location">
-                                <img src="./images/pin.png" alt="">
-                                <span>District 9, Ho Chi Minh</span>
-                            </div>
-                            <h4>Peaceful house in a nature-filled setting</h4>
-                            <p>Nestled in nature, while still being within a short commute to the city centre.</p>
-                        </div>
-                        <button>Book now</button>
-                    </div>
-                    <div class="list-box">
-                        <div class="lr-box">
-                            <div class="upper-img">
-                                <img src="./images/hcm9.png" alt="">
-                            </div>
-                            <div class="price">
-                                <a href="">$120/ night</a>
-                            </div>
-                            <div class="icon-heart">
-                                <i class="fa-regular fa-heart"></i>
-                            </div>
-                            <img src="./images/star_9.png" alt="" class="star-ratings">
-                            <img src="./images/profile3.png" alt="" class="profile-lr">
-                        </div>
-                        <div class="desc-of-lr">
-                            <div class="location">
-                                <img src="./images/pin.png" alt="">
-                                <span>Phu My Hung, Ho Chi Minh</span>
-                            </div>
-                            <h4>Stylish apartment in the heart of the city</h4>
-                            <p>Offering convenient access to shops, restaurants and entertaiment</p>
-                        </div>
-                        <button>Book now</button>
-                    </div>
-                    <div class="list-box">
-                        <div class="lr-box">
-                            <div class="upper-img">
-                                <img src="./images/hcm10.png" alt="">
-                            </div>
-                            <div class="price">
-                                <a href="">$120/ night</a>
-                            </div>
-                            <div class="icon-heart">
-                                <i class="fa-regular fa-heart"></i>
-                            </div>
-                            <img src="./images/star_9.png" alt="" class="star-ratings">
-                            <img src="./images/profile3.png" alt="" class="profile-lr">
-                        </div>
-                        <div class="desc-of-lr">
-                            <div class="location">
-                                <img src="./images/pin.png" alt="">
-                                <span>Go Vap, Ho Chi Minh</span>
-                            </div>
-                            <h4>Unique house with stunning architectural features</h4>
-                            <p>Near the city centre, offer the convenience of proximity to urban amenities.</p>
-                        </div>
-                        <button>Book now</button>
-                    </div>
+                @endforeach
                 </div>
-                <div class="listings-list-booking">
+                <!-- <div class="listings-list-booking">
                     <div class="list-box">
                         <div class="lr-box">
                             <div class="upper-img">
@@ -1315,7 +1125,7 @@
                         </div>
                         <button>Book now</button>
                     </div>
-                </div>
+                </div> -->
                 <div class="pagination">
                     <img src="./images/Vector-1.png" alt="" id="vector1">
                     <p class="pagi">1</p>
@@ -1372,9 +1182,7 @@
             <div id="go-to-top"><i class="fa-solid fa-angle-up"></i></div>
         </div>
     </div>
-    <script>
-        var tourDetailUrl = "{{ route('tour_detail') }}";
-    </script>
+
     <script src="{{ asset('assets/js/listings.js') }}"></script>
 
 </body>

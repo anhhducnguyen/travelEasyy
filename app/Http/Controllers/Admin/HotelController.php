@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\ActiveTourChecker;
 use App\Helpers\IdGenerator;
 use App\Http\Controllers\Controller;
 use App\Models\Address;
@@ -88,31 +89,18 @@ class HotelController extends Controller
     public function destroy($id)
     {
         $hotel = Hotel::findOrFail($id);
+
         // Kiểm tra xem hotel có liên kết với bất kỳ tour nào đang hoạt động hay không
-        $activeTours = Tour::where('idHotel', $id)
-                           ->where('endDay', '>=', now()) // Chỉ xem xét các tour chưa kết thúc
-                           ->exists();
-        if ($activeTours) {
+        if (ActiveTourChecker::hasActiveTours('idHotel', $id)) {
             // Nếu hotel đang liên kết với tour chưa kết thúc, không cho phép xoá
             return back()->with('error', 'Cannot delete this hotel because it is linked to active tours.');
         }
-        // Lấy danh sách các tour liên kết với hotel
-        $tours = Tour::where('idHotel', $id)->get();
-
-        // Xoá địa chỉ của các tour liên kết
-        foreach ($tours as $tour) {
-            if ($tour->idAddress) {
-                $address = Address::find($tour->idAddress);
-                if ($address) {
-                    $address->delete();
-                }
-            }
-        }
+        
         $hotel->delete();
 
         $address = Address::findOrFail($hotel->idAddress);
         $address->delete();
 
-        return redirect()->route('admin.hotels.index');
+        return redirect()->route('admin.hotels.index')->with('success', 'Hotel deleted successfully.');
     }
 }

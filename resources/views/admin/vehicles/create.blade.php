@@ -9,10 +9,7 @@
         <h1>Create New Vehicle</h1>
         <form action="{{ route('admin.vehicles.store') }}" method="POST">
             @csrf
-            <div>
-                <label for="idVehicle">Vehicle ID</label>
-                <input type="text" id="idVehicle" name="idVehicle" required>
-            </div>
+        
             <div>
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name">
