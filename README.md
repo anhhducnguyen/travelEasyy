@@ -26,6 +26,24 @@ Link report: [Thiet ke web nang cao](https://drive.google.com/drive/folders/1xLg
 
 
 # Framework: Laravel
+`Laravel` is a powerful and popular PHP framework, chosen by many developers for web projects, including complex websites like travel websites. Here are some key reasons why Laravel is the ideal choice for building a `Travel Easy` website:
+
+- Clear MVC structure: Laravel uses the MVC (Model-View-Controller) model, which provides a clear separation between processing logic and user interface, making the source code easy to understand and maintain.
+
+- Rich ecosystem: Laravel offers a rich ecosystem with many supporting packages and tools, such as Laravel Passport for API authentication, Laravel Cashier for payments, and Laravel Socialite for social login. These tools help develop complex features with ease.
+
+- Eloquent ORM: Laravel's ORM system, Eloquent, makes working with databases easy and efficient. You can interact with data tables using PHP model classes, minimizing manual SQL code and increasing security.
+
+- Built-in security features: Laravel integrates many built-in security features such as protection against CSRF (Cross-Site Request Forgery) attacks, protecting user data with encryption and easy access control. easy.
+
+- Scalability and high performance: Laravel has good scalability and supports optimal performance, helping your website to handle a large number of users at the same time without problems.
+
+- Large community and rich documentation: Laravel has a large and active community, along with rich documentation and many learning resources, making it easy to find support and solve development problems project.
+
+- Ability to integrate with third-party services: Laravel supports easy integration with third-party services such as payment services, email, and external APIs, helping you create a complete system and flexible.
+
+- Convenient development tools: Laravel provides many convenient tools for developers such as Laravel Artisan (powerful CLI to perform common tasks), Laravel Mix (CSS and JavaScript compilation tool), and Laravel Tinker (REPL for PHP).
+  
 ## Setting:
 - **Step 1**: Install Composer and PHP
 - **Step 2**: After you have installed PHP and Composer, you can create a new Laravel project via Composer command (create-project):
