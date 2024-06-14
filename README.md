@@ -22,7 +22,7 @@
 
 
 ## Report: 
-Link report: [Thiết kế web nâng cao](https://drive.google.com/drive/folders/1xLgb8YMsFQk0uTQHgyjuCHtLDfdMdnjp?usp=drive_link)
+Link report: [Thiet ke web nang cao](https://drive.google.com/drive/folders/1xLgb8YMsFQk0uTQHgyjuCHtLDfdMdnjp?usp=drive_link)
 
 
 # Framework: Laravel
