@@ -6,7 +6,7 @@
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Manage Tours</h4>
-            <a href="{{ route('admin.tours.create') }}">Create New Tour</a>
+            <a href="{{ route('admin.tours.create') }}" class="btn btn-primary mb-3">Create New Tour</a>
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -46,11 +46,11 @@
                                     <label class="badge {{ $statusClass }}">{{ $statusText }}</label>
                                 </td>
                                 <td class="table-actions" >
-                                    <a href="{{ route('admin.tours.edit', $tour->idTour) }}">Edit</a>
+                                    <a href="{{ route('admin.tours.edit', $tour->idTour) }}" class="btn btn-sm">Edit</a>
                                     <form action="{{ route('admin.tours.destroy', $tour->idTour) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit">Delete</button>
+                                        <button type="submit"class="btn btn-danger btn-sm" >Delete</button>
                                     </form>
                                 </td>
                             </tr>

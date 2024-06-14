@@ -29,7 +29,7 @@
             </div> -->
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{ route('admin.users.index') }}">
                 <i class="mdi mdi-contacts menu-icon"></i>
                 <span class="menu-title">Users</span>
             </a>
@@ -38,6 +38,12 @@
             <a class="nav-link" href="">
                 <i class="mdi mdi-cart menu-icon"></i>
                 <span class="menu-title">Bookings</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.hotels.index') }}">
+                <i class="mdi mdi-hotel menu-icon"></i>
+                <span class="menu-title">Hotels</span>
             </a>
         </li>
         <li class="nav-item">
