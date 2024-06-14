@@ -20,6 +20,8 @@ class TourController extends Controller
         return view('admin.tours.index', compact('tours'));
     }
 
+    
+
     public function create()
     {
         $hotels = Hotel::all();

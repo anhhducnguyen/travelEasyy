@@ -20,60 +20,41 @@
           <a class="sidebar-brand brand-logo" href="index.html"><img src="{{ asset('assets/images/logo_web.png') }}" alt="logo" style="width: 170px;height: 70px;margin-bottom: 10px;" /></a>
           <a class="sidebar-brand brand-logo-mini pl-4 pt-3" href="index.html"><img src="{{ asset('assets/images/logo_mini.png') }}" alt="logo" /></a>
         </div>
+        <br><br>
         <ul class="nav">
-          <li class="nav-item nav-profile">
-            <a href="#" class="nav-link">
-              <div class="nav-profile-image">
-                <img src="{{asset('assets/images/faces/face1.jpg')}}" alt="profile" />
-                <span class="login-status online"></span>
-                <!--change to offline or busy as needed-->
-              </div>
-              <div class="nav-profile-text d-flex flex-column pr-3">
-                <span class="font-weight-medium mb-2">Admin</span>
-                <span class="font-weight-normal">$8,753.00</span>
-              </div>
-              <span class="badge badge-danger text-white ml-3 rounded">3</span>
-            </a>
-          </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="{{ route('admin.dashboard') }}">
               <i class="mdi mdi-home menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/icons/mdi.html">
+            <a class="nav-link" href="{{ route('admin.tours.index') }}">
               <i class="mdi mdi-format-list-bulleted menu-icon"></i>
               <span class="menu-title">Tours</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/icons/mdi.html">
+            <a class="nav-link" href="">
               <i class="mdi mdi-contacts menu-icon"></i>
               <span class="menu-title">Users</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/forms/basic_elements.html">
+            <a class="nav-link" href="">
               <i class="mdi mdi-cart menu-icon"></i>
               <span class="menu-title">Bookings</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/charts/chartjs.html">
+            <a class="nav-link" href="{{ route('admin.tourguides.index') }}">
               <i class="mdi mdi-account menu-icon"></i>
               <span class="menu-title">Tour Guide</span>
             </a>
           </li>
+                  
           <li class="nav-item">
-            <a class="nav-link" href="pages/tables/basic-table.html">
-              <i class="mdi mdi-information menu-icon"></i>
-              <span class="menu-title">Agency</span>
-            </a>
-          </li>
-        
-          <li class="nav-item">
-            <a class="nav-link" href="https://www.bootstrapdash.com/demo/breeze-free/documentation/documentation.html">
+            <a class="nav-link" href="{{ route('admin.vehicles.index') }}">
               <i class="mdi mdi-car menu-icon"></i>
               <span class="menu-title">Vehicle</span>
             </a>
@@ -93,21 +74,7 @@
         </ul>
       </nav>
       <div class="container-fluid page-body-wrapper">
-        <div id="theme-settings" class="settings-panel">
-          <i class="settings-close mdi mdi-close"></i>
-          <p class="settings-heading">SIDEBAR SKINS</p>
-          <div class="sidebar-bg-options selected" id="sidebar-default-theme">
-            <div class="img-ss rounded-circle bg-light border mr-3"></div> Default
-          </div>
-          <div class="sidebar-bg-options" id="sidebar-dark-theme">
-            <div class="img-ss rounded-circle bg-dark border mr-3"></div> Dark
-          </div>
-          <p class="settings-heading mt-2">HEADER SKINS</p>
-          <div class="color-tiles mx-0 px-4">
-            <div class="tiles light"></div>
-            <div class="tiles dark"></div>
-          </div>
-        </div>
+        
         <nav class="navbar col-lg-12 col-12 p-lg-0 fixed-top d-flex flex-row">
           <div class="navbar-menu-wrapper d-flex align-items-stretch justify-content-between">
             <a class="navbar-brand brand-logo-mini align-self-center d-lg-none" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
@@ -321,5 +288,7 @@
     <!-- Custom js for this page -->
     <script src="{{ asset('assets/js/admin/dashboard_1.js') }}"></script>
     <!-- End custom js for this page -->
+    <script src="{{ asset('assets/vendors/flot/jquery.flot.categories.js') }}"></script>
+
   </body>
 </html>

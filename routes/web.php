@@ -52,7 +52,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     // Route::resource('agencies', AgencyController::class);
     Route::resource('hotels', HotelController::class);
     Route::resource('tours', TourController::class);
-    Route::resource('customer', CustomerController::class);
+    // Route::resource('customer', CustomerController::class);
 
 });
 
