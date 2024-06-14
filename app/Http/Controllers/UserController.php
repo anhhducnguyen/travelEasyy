@@ -154,21 +154,31 @@ class UserController extends Controller
     // ============================================================================
     public function updateProfile(Request $request)
     {
-        $request->validate([
+        $data = $request->validate([
             'phone' => 'required|string|max:15',
+            'city' => 'required|string|max:50',
+            'district' => 'required|string|max:50',
+            'ward' => 'required|string|max:50',
+            'detailAddress' => 'nullable|string|max:50',
         ]);
+        // dd($data);
 
         $user = Auth::user();
 
-        // Sử dụng DB::table để cập nhật thông tin người dùng
-        // DB::table('users')->where('id', $user->id)->update([
-        //     'phone' => $request->phone,
-        // ]);
-        
+        $check1= DB::table('users')->where('id', $user->id)->update([
+            'phone' => $request->phone,
+        ]);
+        // dd($check1);
 
+        $check = DB::table('tbladdress')->where('idAddress', $user->id)->update([
+            'city' => $data['city'],
+            'district' => $data['district'],
+            'ward' => $data['ward'],
+            'detailAddress' => $data['detailAddress'],
+        ]);
+        dd($check);
         
-
-        return redirect()->route('account')->with('success', 'Profile updated successfully');
+        // return redirect()->route('account')->with('success', 'Profile updated successfully');
     }
 }
 

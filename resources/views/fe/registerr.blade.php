@@ -161,6 +161,7 @@
             </form>
         </div>
         <div class="login-right">
+            <img style="height:700px; width: 650px" src="{{asset('assets/images/travel_s3.jpg')}}" alt="">
         </div>
     </div>
 

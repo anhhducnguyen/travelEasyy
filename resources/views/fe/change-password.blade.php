@@ -113,6 +113,7 @@
                 <label for="new_password_confirmation">Confirm New Password:</label>
                 <input type="password" name="new_password_confirmation" required>
             </div>
+            
             <div class="login-footer">      
                 <button type="submit">Change Password</button>
             </div>
