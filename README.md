@@ -1,6 +1,17 @@
 # Overview
 
 ## Topic: **Build a website to introduce tours and book tours online**
+### Allow users
+- Search and view tour information
+- Book tours online with relevant requirements (such as number of guests, travel time
+tour, contact person, price...)
+- Receive and view the resulting installation tour
+  
+### Administrator permission
+- Update travel list and related information (list of locations, homes)
+restaurants, hotels... suitable for tours)
+- User management
+- Manage and process online orders
 
 ## Member
 1. **Nguyen Duc Anh**:
