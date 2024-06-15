@@ -442,8 +442,8 @@
     <div class="container" id="home">
         <div class="login-left">
             <div class="login-header">
-                <h1>Welcome</h1>
-                <p>Please login to continue......</p>
+                <h1>Login</h1>
+                <!-- <p>Please login to continue......</p> -->
             </div>
             <form action="/storeLogin" method="POST" id="loginForm" class="login-form" autocomplete="off">
                 <div>
@@ -498,9 +498,8 @@
                 </div>
             </form>
         </div>
-        <div class="login-right">
-            <img style="height:700px; width: 650px" src="{{asset('assets/images/travel_s3.jpg')}}" alt="">
-        </div>
+        <!-- <div class="login-right">
+        </div> -->
     </div>
 
     <div id="loadingSpinner" class="sk-fading-circle">

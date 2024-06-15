@@ -94,7 +94,7 @@
                 </li>
                 <div class="login" id="login">
                     <li>
-                        <a href="" class="navlogin">Login</a>
+                        <a href="{{ route('login') }}" class="navlogin">Login</a>
                     </li>
                 </div>
             </ul>
@@ -103,8 +103,8 @@
     <div class="container" id="home">
         <div class="login-left">
             <div class="login-header">
-                <h1>Welcome</h1>
-                <p>Please register to continue......</p>
+                <h1>Register</h1>
+                <!-- <p>Please register to continue......</p> -->
             </div>
             <form action="/store" method="POST" id="registerForm" class="login-form" autocomplete="off" onsubmit="validateForm(event)">
             <div>
@@ -160,9 +160,8 @@
                 </div>
             </form>
         </div>
-        <div class="login-right">
-            <img style="height:700px; width: 650px" src="{{asset('assets/images/travel_s3.jpg')}}" alt="">
-        </div>
+        <!-- <div class="login-right">
+        </div> -->
     </div>
 
     <script>

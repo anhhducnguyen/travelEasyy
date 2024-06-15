@@ -73,8 +73,8 @@ header .logo a{
     display: flex;
     flex-direction: column;
     justify-content: content;
-    /* padding-left: 550px; */
-    padding-left: 100px;
+    padding-left: 550px;
+    /* padding-left: 100px; */
     background-color: white;
 }
 /* .login-right{

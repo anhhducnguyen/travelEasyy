@@ -25,10 +25,16 @@ class UserController extends Controller
     }
     public function account()
     {
+        // $user = Auth::user();
+        // // return view('fe.account');
+        // $addresses = DB::table('tbladdress')
+        // ->where('idAddress', $user->id)
+        // ->get();
+
         $user = Auth::user();
         // return view('fe.account');
         $addresses = DB::table('tbladdress')
-        ->where('idAddress', $user->id)
+        ->where('idAddress', $user->idAddress)
         ->get();
 
         return view('fe.account', compact('addresses'));
@@ -101,7 +107,7 @@ class UserController extends Controller
 
         DB::table('users')->where('id', $user->id)->update(['password' => Hash::make($request->new_password)]);
 
-        return redirect()->route('account')->with('success', 'Password changed successfully');
+        return redirect()->route('login')->with('success', 'Password changed successfully');
     }
 
     public function forgot_password()
@@ -158,60 +164,97 @@ class UserController extends Controller
     }
 
     // ============================================================================
-    public function updateProfile(Request $request)
-    {
-        $data = $request->validate([
-            'phone' => 'required|string|max:15',
-            'city' => 'required|string|max:50',
-            'district' => 'required|string|max:50',
-            'ward' => 'required|string|max:50',
-            'detailAddress' => 'nullable|string|max:50',
+    // public function updateProfile(Request $request)
+    // {
+    //     $data = $request->validate([
+    //         'phone' => 'required|string|max:15',
+    //         'city' => 'required|string|max:50',
+    //         'district' => 'required|string|max:50',
+    //         'ward' => 'required|string|max:50',
+    //         'detailAddress' => 'nullable|string|max:50',
+    //     ]);
+
+    //     $user = Auth::user();
+    //     DB::table('users')->where('id', $user->id)->update([
+    //         'phone' => $request->phone,
+    //     ]);
+
+    //     $existingAddress = DB::table('tbladdress')->where('idAddress', $user->id)->first();
+
+    //     if ($existingAddress) {
+    //         DB::table('tbladdress')->where('idAddress', $user->id)->update([
+    //             'city' => $data['city'],
+    //             'district' => $data['district'],
+    //             'ward' => $data['ward'],
+    //             'detailAddress' => $data['detailAddress'],
+    //         ]);
+    //     } else {
+    //         DB::table('tbladdress')->insert([
+    //             'city' => $data['city'],
+    //             'district' => $data['district'],
+    //             'ward' => $data['ward'],
+    //             'detailAddress' => $data['detailAddress'],
+    //             'idAddress' => $user->id,
+    //         ]);
+    //     }
+    //     return redirect()->back()->with('success', 'Update successfully');
+    // }
+
+public function updateProfile(Request $request)
+{
+    $data = $request->validate([
+        'phone' => 'required|string|max:15',
+        'city' => 'required|string|max:50',
+        'district' => 'required|string|max:50',
+        'ward' => 'required|string|max:50',
+        'detailAddress' => 'nullable|string|max:50',
+    ]);
+
+    $user = Auth::user();
+
+    // Kiểm tra xem người dùng đã có địa chỉ hay chưa
+    $existingAddress = $existingAddress = DB::table('tbladdress')->where('idAddress', $user->idAddress)->first();
+
+    if ($existingAddress) {
+        // Địa chỉ đã tồn tại, chỉ cập nhật thông tin
+        DB::table('tbladdress')->where('idAddress', $existingAddress->idAddress)->update([
+            'city' => $data['city'],
+            'district' => $data['district'],
+            'ward' => $data['ward'],
+            'detailAddress' => $data['detailAddress'],
         ]);
 
-        $user = Auth::user();
-        DB::table('users')->where('id', $user->id)->update([
-            'phone' => $request->phone,
+        $idAddress = $existingAddress->idAddress;
+    } else {
+        // Địa chỉ không tồn tại, tạo địa chỉ mới
+        $maxId = DB::table('tbladdress')->max('idAddress');
+        $newId = $maxId + 1;
+
+        DB::table('tbladdress')->insert([
+            'idAddress' => $newId,
+            'city' => $data['city'],
+            'district' => $data['district'],
+            'ward' => $data['ward'],
+            'detailAddress' => $data['detailAddress'],
         ]);
 
-        $existingAddress = DB::table('tbladdress')->where('idAddress', $user->id)->first();
-
-        if ($existingAddress) {
-            DB::table('tbladdress')->where('idAddress', $user->id)->update([
-                'city' => $data['city'],
-                'district' => $data['district'],
-                'ward' => $data['ward'],
-                'detailAddress' => $data['detailAddress'],
-            ]);
-        } else {
-            DB::table('tbladdress')->insert([
-                'city' => $data['city'],
-                'district' => $data['district'],
-                'ward' => $data['ward'],
-                'detailAddress' => $data['detailAddress'],
-                'idAddress' => $user->id,
-            ]);
-        }
-        return redirect()->back()->with('success', 'Update successfully');
+        $idAddress = $newId;
     }
 
+    // Cập nhật thông tin người dùng
+    DB::table('users')->where('id', $user->id)->update([
+        'phone' => $request->phone,
+        'idAddress' => $idAddress,
+    ]);
+
+    return redirect()->back()->with('success', 'Profile updated successfully.');
+}
 
 }
 
 
 
 
-
-
-
-
-// $check = DB::table('tbladdress')
-        //     ->where('idAddress', $user->id)
-        //     ->update([
-        //         'city' => $data['city'],
-        //         'district' => $data['district'],
-        //         'ward' => $data['ward'],
-        //         'detailAddress' => $data['detailAddress'],
-        //     ]);
 
 
 

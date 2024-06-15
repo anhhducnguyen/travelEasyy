@@ -9,20 +9,29 @@
                 <table class="table">
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Phone</th>
-                            <th>Address</th>
+                            <th>City</th>
+                            <th>District</th>
+                            <th>Ward</th>
+                            <th>DetailAddress</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($users as $user)
                             <tr>
+                                <td>{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->phone ?? 'N/A' }}</td>
-                                <td>{{ $user->address->city ?? 'N/A'}}, {{ $user->address->district ?? 'N/A'}}, {{ $user->address->ward ?? 'N/A'}}, {{ $user->address->detailAddress?? 'N/A' }}</td>
+                                <!-- <td>{{ $user->address->city ?? 'N/A'}}, {{ $user->address->district ?? 'N/A'}}, {{ $user->address->ward ?? 'N/A'}}, {{ $user->address->detailAddress?? 'N/A' }}</td> -->
+                                <td>{{ $user->address->city ?? 'N/A'}}</td>
+                                <td>{{ $user->address->district ?? 'N/A'}}</td>
+                                <td>{{ $user->address->ward ?? 'N/A'}}</td>
+                                <td>{{ $user->address->detailAddress ?? 'N/A'}}</td>
                                 <td class="table-actions" >
                                     <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" style="display:inline;">
                                         @csrf

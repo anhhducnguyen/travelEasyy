@@ -183,6 +183,28 @@ input[type='password']{
     font-size: 18px;
     border-radius: 100px;
 }
+
+select.form-select {
+    border: 1px solid black;
+    height: 55px;
+    padding: 0 2rem;
+    width: 100%;
+    outline: none;
+    transition: background .5s;
+    font-size: 18px;
+    border-radius: 100px;
+    appearance: none; /* Ẩn mũi tên mặc định của thẻ select */
+    -webkit-appearance: none; /* Ẩn mũi tên mặc định trong các trình duyệt WebKit */
+    -moz-appearance: none; /* Ẩn mũi tên mặc định trong Firefox */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><polygon points="0,0 10,0 5,10" fill="black"/></svg>'); /* Tạo mũi tên tùy chỉnh */
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1rem;
+}
+select.form-select {
+    padding-right: 3rem; /* Đảm bảo khoảng cách cho mũi tên tùy chỉnh */
+}
+
 input[type='email']:hover{
     border: 1px solid rgb(18, 115, 156);
 }
