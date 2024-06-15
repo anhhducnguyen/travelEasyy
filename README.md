@@ -21,6 +21,7 @@ restaurants, hotels... suitable for tours)
 - Account information
 - Change password
 - Home page
+- Decentralize admin and user rights
 2. **Vu Minh Phong**
 
 
