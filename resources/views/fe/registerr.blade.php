@@ -94,7 +94,7 @@
                 </li>
                 <div class="login" id="login">
                     <li>
-                        <a href="{{ route('login') }}" class="navlogin">Login</a>
+                        <a href="{{ route('loginn') }}" class="navlogin">Login</a>
                     </li>
                 </div>
             </ul>
@@ -145,7 +145,7 @@
                     </div>
 
                     <div class="bg-grey">
-                        <div class="sing-up">Do you have an account? <a href="{{ route('login') }}"class="text-link" id="sign-up" >Login</a></div>
+                        <div class="sing-up">Do you have an account? <a href="{{ route('loginn') }}"class="text-link" id="sign-up" >Login</a></div>
                     </div>
     
                     <button type="submit">register</button>

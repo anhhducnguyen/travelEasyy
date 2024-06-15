@@ -18,7 +18,7 @@ use App\Models\CustomerModel;
 
 Route::get('/', [LoginController::class, 'index'])->name('index');
 Route::get('/register', [UserController::class, 'register'])->name('register');
-Route::get('/login', [UserController::class, 'login'])->name('login');
+Route::get('/loginn', [UserController::class, 'login'])->name('loginn');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 Route::get('/account', [UserController::class, 'account'])->name('account');
 Route::get('/logout_up', [UserController::class, 'logout_up'])->name('logout_up');
@@ -60,32 +60,43 @@ Route::post('/account/update', [UserController::class, 'updateProfile'])->name('
 
 //=====ADMIN==================
 
-Route::prefix('admin')->name('admin.')->group(function () {
-    // Route::get('/', [LoginController::class, 'login'])->name('login-admin');
-    Route::get('/', [HomeAdminController::class, 'dashboard'])->name('dashboard');
-    Route::resource('vehicles', VehicleController::class);
-    Route::resource('tourguides', TourGuideController::class);
-    Route::resource('users',  App\Http\Controllers\Admin\UserController::class);
-    Route::resource('hotels', HotelController::class);
-    Route::resource('tours', TourController::class);
-    Route::resource('bookings', BookingController::class);
-});
-// Định nghĩa route cho các hành động confirm và pay
-Route::post('admin/bookings/{booking}/confirm', [BookingController::class, 'confirm'])->name('admin.bookings.confirm');
-Route::post('admin/bookings/{booking}/pay', [BookingController::class, 'pay'])->name('admin.bookings.pay');
+// Route::prefix('admin')->name('admin.')->group(function () {
+//     Route::get('/', [HomeAdminController::class, 'dashboard'])->name('dashboard');
+//     Route::resource('vehicles', VehicleController::class);
+//     Route::resource('tourguides', TourGuideController::class);
+//     Route::resource('users',  App\Http\Controllers\Admin\UserController::class);
+//     Route::resource('hotels', HotelController::class);
+//     Route::resource('tours', TourController::class);
+//     Route::resource('bookings', BookingController::class);
+//     Route::post('bookings/{booking}/confirm', [BookingController::class, 'confirm'])->name('bookings.confirm');
+//     Route::post('bookings/{booking}/pay', [BookingController::class, 'pay'])->name('bookings.pay');
+// });
+
+
 
 // =====================================================================
 // Route để hiển thị form đăng nhập cho người dùng
 // Route::get('/user/login', [LoginController::class, 'show_login'])->name('user.login');
 
 // Route để hiển thị form đăng nhập cho admin
+
+// Route::get('/admin/login', [HomeAdminController::class, 'show_login'])->name('admin.login');
 Route::get('/login', [AdminLoginController::class, 'show_login'])->name('login');
+Route::post('/check_login', [AdminLoginController::class, 'check_login']);
 
-// Route để truy cập vào trang admin, bảo vệ bằng middleware 'auth'
-Route::get('/admin', function(){
-    return view('admin.index');
-})->middleware('auth');
-
+Route::middleware('auth')->group(function () {
+    Route::prefix('admin')->name('admin.')->group(function () {
+        Route::get('/', [HomeAdminController::class, 'dashboard'])->name('dashboard');
+        Route::resource('vehicles', VehicleController::class);
+        Route::resource('tourguides', TourGuideController::class);
+        Route::resource('users',  App\Http\Controllers\Admin\UserController::class);
+        Route::resource('hotels', HotelController::class);
+        Route::resource('tours', TourController::class);
+        Route::resource('bookings', BookingController::class);
+        Route::post('bookings/{booking}/confirm', [BookingController::class, 'confirm'])->name('bookings.confirm');
+        Route::post('bookings/{booking}/pay', [BookingController::class, 'pay'])->name('bookings.pay');
+    });
+});
 
 
 

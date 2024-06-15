@@ -60,7 +60,7 @@
                     <a href="#contact">Contact</a>
                 </li>
                 <div class="login" id="login">
-                    <li><a href="{{route('login')}}" class="navlogin">Login</a></li>
+                    <li><a href="{{route('loginn')}}" class="navlogin">Login</a></li>
                 </div>
             </ul>
         </nav>

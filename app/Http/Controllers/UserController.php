@@ -49,7 +49,7 @@ class UserController extends Controller
         try {
             if ($acc = User::create($req->all())){
                 Mail::to($req->email)->send(new VerifyAccount($acc));
-                return redirect()->route('login')->with('success','Your Account has been created succesfully!! Please check your email to confirm your email address in order to activate your account.');
+                return redirect()->route('loginn')->with('success','Your Account has been created succesfully!! Please check your email to confirm your email address in order to activate your account.');
             }
         } catch (\Throwable $th){
             // dd($th);
@@ -59,7 +59,7 @@ class UserController extends Controller
     {
         $acc = User::where('email', $email)->whereNull('email_verified_at')->firstOrFail();
         User::where('email', $email)->update(['email_verified_at'=>date('Y-m-d')]);
-        return redirect()->route('login')->with('success','Your account has been activated! Now, you can login.');
+        return redirect()->route('loginn')->with('success','Your account has been activated! Now, you can login.');
     }
     public function storeLogin(Request $req)
     {
@@ -98,7 +98,7 @@ class UserController extends Controller
         $user = Auth::user();
 
         if (!$user) {
-            return redirect()->route('login')->with('error', 'User not authenticated');
+            return redirect()->route('loginn')->with('error', 'User not authenticated');
         }
 
         if (!Hash::check($request->current_password, $user->password)) {
@@ -107,7 +107,7 @@ class UserController extends Controller
 
         DB::table('users')->where('id', $user->id)->update(['password' => Hash::make($request->new_password)]);
 
-        return redirect()->route('login')->with('success', 'Password changed successfully');
+        return redirect()->route('loginn')->with('success', 'Password changed successfully');
     }
 
     public function forgot_password()
@@ -134,7 +134,7 @@ class UserController extends Controller
         ];
         $check = $user->update($data);
         // dd($check);
-        return redirect()->route('login')->with('success', 'Change password in successfully');
+        return redirect()->route('loginn')->with('success', 'Change password in successfully');
     }
     public function check_forgot_password(Request $req)
     {

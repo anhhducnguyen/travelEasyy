@@ -141,4 +141,5 @@ class TourController extends Controller
         $address->delete();
         return redirect()->route('admin.tours.index');
     }
+
 }

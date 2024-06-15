@@ -51,7 +51,7 @@
                     <a href="{{route('logout')}}" id="a_logout">Log out</a>
                 @else
                     <!-- Hiển thị nếu người dùng chưa đăng nhập -->
-                    <a href="{{route('login')}}" id="login">Log in</a>
+                    <a href="{{route('loginn')}}" id="login">Log in</a>
                     <a href="{{route('register')}}" id="register">Register</a>
                 @endif
                 

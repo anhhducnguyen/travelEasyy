@@ -17,19 +17,19 @@ class BookingSeeder extends Seeder
             [
                 'idBooking' => 'BK1',
                 'idUser' => 1,
-                'idTour' => 'TO7',
+                'idTour' => 'TO1',
                 'quantityTicket' => 2,
                 'confirmation_status' => 'waiting_for_admin',
                 'payment_status' => 'unpaid',
             ],
-            [
-                'idBooking' => 'BK2',
-                'idUser' => 2,
-                'idTour' => 'TO8',
-                'quantityTicket' => 1,
-                'confirmation_status' => 'confirmed',
-                'payment_status' => 'paid',
-            ],
+            // [
+            //     'idBooking' => 'BK2',
+            //     'idUser' => 2,
+            //     'idTour' => 'TO1',
+            //     'quantityTicket' => 1,
+            //     'confirmation_status' => 'confirmed',
+            //     'payment_status' => 'paid',
+            // ],
             // Add more dummy data as needed
         ];
 
