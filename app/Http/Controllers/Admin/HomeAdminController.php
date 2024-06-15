@@ -15,6 +15,6 @@ class HomeAdminController extends Controller
         $tourCount = Tour::count(); // Lấy số lượng tour
         // $bookCount = Book::count(); // Lấy số lượng booking
         // $sale =                     //Tính sale
-        return view('admin.index', compact('userCount','tourCount')); 
+        return view('admin.index', compact('userCount','tourCount'));
     }
 }

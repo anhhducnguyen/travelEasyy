@@ -53,19 +53,19 @@ Route::post('/reset_password/{token}', [UserController::class, 'check_reset_pass
     
 // UPDATE PROFILE
 Route::post('/account/update', [UserController::class, 'updateProfile'])->name('updateProfile');
-
+    
 
 
 //=====ADMIN==================
 
 Route::prefix('admin')->name('admin.')->group(function () {
+    // Route::get('/', [LoginController::class, 'login'])->name('login-admin');
     Route::get('/', [HomeAdminController::class, 'dashboard'])->name('dashboard');
     Route::resource('vehicles', VehicleController::class);
     Route::resource('tourguides', TourGuideController::class);
     Route::resource('users',  App\Http\Controllers\Admin\UserController::class);
     Route::resource('hotels', HotelController::class);
     Route::resource('tours', TourController::class);
-
 });
 
 
