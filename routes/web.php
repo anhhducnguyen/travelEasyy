@@ -56,8 +56,6 @@ Route::post('/account/update', [UserController::class, 'updateProfile'])->name('
 
 
 
-
-
 //=====ADMIN==================
 
 Route::prefix('admin')->name('admin.')->group(function () {
