@@ -33,10 +33,10 @@ class TourController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'nullable|string|max:50',
-            'startDay' => 'nullable|date',
-            'endDay' => 'nullable|date',
-            'cost' => 'nullable|numeric',
+            'name' => 'string|max:50',
+            'startDay' => 'date',
+            'endDay' => 'date',
+            'cost' => 'numeric',
             'city' => 'required|string|max:50',
             'district' => 'required|string|max:50',
             'ward' => 'required|string|max:50',
@@ -44,8 +44,10 @@ class TourController extends Controller
             'idHotel' => 'nullable|string|max:15',
             'idVehicle' => 'nullable|string|max:15',
             'idTourGuide' => 'nullable|string|max:15',
+            'imagePath' => 'string|max:255',
+            'description' => 'nullable|string',
         ]);
-
+        
 
         $address = Address::updateOrCreate([
             'city' => $data['city'],
@@ -56,17 +58,21 @@ class TourController extends Controller
 
         $newId = IdGenerator::generateId('TO', Tour::class, 'idTour');   
 
-        Tour::create([
+        Tour::create ([
             'idTour' => $newId,
-            'name'=> $data['name'],
-            'startDay'=> $data['startDay'],
-            'endDay'=> $data['endDay'],
-            'cost'=> $data['cost'],
+            'name' => $data['name'],
+            'startDay' => $data['startDay'],
+            'endDay' => $data['endDay'],
+            'cost' => $data['cost'],
             'idAddress' => $address->idAddress,
-            'idHotel'=> $data['idHotel'],
+            'idHotel' => $data['idHotel'],
             'idVehicle' => $data['idVehicle'],
             'idTourGuide' => $data['idTourGuide'],
+            'description' => $data['description'], 
+            'imageTour' => $data['imagePath'],
         ]);
+        
+        
 
         return redirect()->route('admin.tours.index');
     }
@@ -83,10 +89,10 @@ class TourController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->validate([
-            'name' => 'nullable|string|max:50',
-            'startDay' => 'nullable|date',
-            'endDay' => 'nullable|date',
-            'cost' => 'nullable|numeric',
+            'name' => 'string|max:50',
+            'startDay' => 'date',
+            'endDay' => 'date',
+            'cost' => 'numeric',
             'city' => 'required|string|max:50',
             'district' => 'required|string|max:50',
             'ward' => 'required|string|max:50',
@@ -94,25 +100,34 @@ class TourController extends Controller
             'idHotel' => 'nullable|string|max:15',
             'idVehicle' => 'nullable|string|max:15',
             'idTourGuide' => 'nullable|string|max:15',
+            'imagePath' => 'string|max:255',
+            'description' => 'nullable|string',
         ]);
 
         $tour = Tour::findOrFail($id);
+       
+    
         $tour->update([
-            'name'=> $data['name'],
-            'startDay'=> $data['startDay'],
-            'endDay'=> $data['endDay'],
-            'cost'=> $data['cost'],
-            'idHotel'=> $data['idHotel'],
+            'name' => $data['name'],
+            'startDay' => $data['startDay'],
+            'endDay' => $data['endDay'],
+            'cost' => $data['cost'],
+            'idHotel' => $data['idHotel'],
             'idVehicle' => $data['idVehicle'],
             'idTourGuide' => $data['idTourGuide'],
+            'description' => $data['description'],
+            'imageTour' => $data['imagePath'],
         ]);
-        
+    
+        // Cập nhật dữ liệu địa chỉ
         $tour->address->update([
             'city' => $data['city'],
             'district' => $data['district'],
             'ward' => $data['ward'],
             'detailAddress' => $data['detailAddress'],
         ]);
+    
+        
 
         return redirect()->route('admin.tours.index');
     }

@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\HomeAdminController;
 use App\Http\Controllers\Admin\HotelController;
 use App\Http\Controllers\Admin\TourController;
 use App\Http\Controllers\Admin\TourGuideController;
 use App\Http\Controllers\Admin\VehicleController;
+use App\Http\Controllers\AdminLoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
@@ -66,8 +68,23 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('users',  App\Http\Controllers\Admin\UserController::class);
     Route::resource('hotels', HotelController::class);
     Route::resource('tours', TourController::class);
+    Route::resource('bookings', BookingController::class);
 });
+// Định nghĩa route cho các hành động confirm và pay
+Route::post('admin/bookings/{booking}/confirm', [BookingController::class, 'confirm'])->name('admin.bookings.confirm');
+Route::post('admin/bookings/{booking}/pay', [BookingController::class, 'pay'])->name('admin.bookings.pay');
 
+// =====================================================================
+// Route để hiển thị form đăng nhập cho người dùng
+// Route::get('/user/login', [LoginController::class, 'show_login'])->name('user.login');
+
+// Route để hiển thị form đăng nhập cho admin
+Route::get('/login', [AdminLoginController::class, 'show_login'])->name('login');
+
+// Route để truy cập vào trang admin, bảo vệ bằng middleware 'auth'
+Route::get('/admin', function(){
+    return view('admin.index');
+})->middleware('auth');
 
 
 

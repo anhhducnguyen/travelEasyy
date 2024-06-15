@@ -8,17 +8,20 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    public function login()
+    public function show_login()
     {
-        return view('admin.index');
+        return view('login_admin');
     }
+
     public function storeLogin(Request $req)
     {
-       if(Auth::attempt(['email'=>$req->email,'password'=>$req->password,'role'=>'admin']))
-       {
-            return redirect()->route('index')->with('success','Logged in successfully');
-       } else {
-            return redirect()->back()->with('error','Login failed, please log in again!');
-       }
+        if(Auth::attempt(['email' => $req->email, 'password' => $req->password, 'role' => 'admin']))
+        {
+            return redirect()->route('index')->with('success', 'Đăng nhập thành công');
+        }
+        else
+        {
+            return redirect()->back()->with('error', 'Đăng nhập thất bại, vui lòng thử lại!');
+        }
     }
 }
