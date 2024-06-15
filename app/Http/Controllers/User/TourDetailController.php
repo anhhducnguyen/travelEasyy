@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tour;
 use Illuminate\Http\Request;
 
-class tourDetailController extends Controller
+class TourDetailController extends Controller
 {
     public function tour_detail($idTour)
     {

@@ -25,14 +25,13 @@ class UserController extends Controller
     }
     public function account()
     {
-        // $user = Auth::user();
-        // // return view('fe.account');
-        // $addresses = DB::table('tbladdress')
-        // ->where('idAddress', $user->id)
-        // ->get();
-
+       
         $user = Auth::user();
-        // return view('fe.account');
+        
+        if ($user->role === 'admin') {
+            return back();
+        }
+
         $addresses = DB::table('tbladdress')
         ->where('idAddress', $user->idAddress)
         ->get();

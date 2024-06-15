@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\TourController;
 use App\Http\Controllers\Admin\TourGuideController;
 use App\Http\Controllers\Admin\VehicleController;
 use App\Http\Controllers\AdminLoginController;
+use App\Http\Middleware\CheckAdmin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
@@ -20,11 +21,6 @@ Route::get('/loginn', [UserController::class, 'login'])->name('loginn');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 Route::get('/account', [UserController::class, 'account'])->name('account');
 Route::get('/logout_up', [UserController::class, 'logout_up'])->name('logout_up');
-
-Route::namespace('App\Http\Controllers\User')->group(function () {
-    Route::get('/tours', 'tourController@index')->name('tours.index');
-    Route::post('/tours/book', 'tourController@book')->name('tours.book');
-});
 
 
 // EMAIL
@@ -57,12 +53,19 @@ Route::post('/account/update', [UserController::class, 'updateProfile'])->name('
 Route::get('/login', [AdminLoginController::class, 'show_login'])->name('login');
 Route::post('/check_login', [AdminLoginController::class, 'check_login']);
 
-Route::middleware('auth')->group(function () {
+
+Route::get('/admin', [HomeAdminController::class, 'index'])
+    ->middleware(CheckAdmin::class)
+    ->name('admin.index');
+
+// Các route khác dành cho admin
+
+Route::middleware(['auth', CheckAdmin::class])->group(function () {
     Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/', [HomeAdminController::class, 'dashboard'])->name('dashboard');
         Route::resource('vehicles', VehicleController::class);
         Route::resource('tourguides', TourGuideController::class);
-        Route::resource('users',  App\Http\Controllers\Admin\UserController::class);
+        Route::resource('users', App\Http\Controllers\Admin\UserController::class);
         Route::resource('hotels', HotelController::class);
         Route::resource('tours', TourController::class);
         Route::resource('bookings', BookingController::class);
@@ -73,3 +76,7 @@ Route::middleware('auth')->group(function () {
 
 
 
+Route::namespace('App\Http\Controllers\User')->group(function () {
+    Route::get('/tours', 'UserTourController@index')->name('tours.index');
+    Route::post('/tours/book', 'UserTourController@book')->name('tours.book');
+});

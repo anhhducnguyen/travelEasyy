@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Tour;
 use Illuminate\Http\Request;
 
-class tourController extends Controller
+class UserTourController extends Controller
 {
     public function index()
     {

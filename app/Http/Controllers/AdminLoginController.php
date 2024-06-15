@@ -9,7 +9,7 @@ class AdminLoginController extends Controller
 {
     public function show_login()
     {
-        return view('login_admin');
+        return view('account.login_admin');
     }
 
     public function check_login(Request $req)
