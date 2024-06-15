@@ -5,7 +5,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Manage Customer</h1>
+        <h1>Manage User</h1>
         <a href="{{ route('admin.customer.create') }}" class="btn btn-primary mb-3">Create New Customer</a>
         <table class="table" border="1">
             <thead>
@@ -28,7 +28,8 @@
                         <td>{{ $user->role }}</td>
                         <td>{{ $user->phone }}</td>
                         <!-- <td>{{ $user->idAddress }}</td> -->
-                        <td>{{ $user->address->city }}, {{ $user->address->district }}, {{ $user->address->ward }}, {{ $user->address->detailAddress }}</td>
+                        <td>{{ $user->address->detailAddress }}, {{ $user->address->ward }}, {{ $user->address->district }}, {{ $user->address->city }}</td>
+
                         <td>
                             <form action="{{ route('admin.customer.destroy', $user->id) }}" method="POST" style="display:inline-block;">
                                 @csrf

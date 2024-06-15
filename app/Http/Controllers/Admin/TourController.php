@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\ActiveTourChecker;
 use App\Helpers\IdGenerator;
 use App\Http\Controllers\Controller;
 use App\Models\Address;
@@ -48,33 +49,36 @@ class TourController extends Controller
             'description' => 'nullable|string',
         ]);
         
-
-        $address = Address::updateOrCreate([
-            'city' => $data['city'],
-            'district' => $data['district'],
-            'ward' => $data['ward'],
-            'detailAddress' => $data['detailAddress'],
-        ]);
-
-        $newId = IdGenerator::generateId('TO', Tour::class, 'idTour');   
-
-        Tour::create ([
-            'idTour' => $newId,
-            'name' => $data['name'],
-            'startDay' => $data['startDay'],
-            'endDay' => $data['endDay'],
-            'cost' => $data['cost'],
-            'idAddress' => $address->idAddress,
-            'idHotel' => $data['idHotel'],
-            'idVehicle' => $data['idVehicle'],
-            'idTourGuide' => $data['idTourGuide'],
-            'description' => $data['description'], 
-            'imageTour' => $data['imagePath'],
-        ]);
+        try {
+            $address = Address::updateOrCreate([
+                'city' => $data['city'],
+                'district' => $data['district'],
+                'ward' => $data['ward'],
+                'detailAddress' => $data['detailAddress'],
+            ]);
+    
+            $newId = IdGenerator::generateId('TO', Tour::class, 'idTour');   
+    
+            Tour::create ([
+                'idTour' => $newId,
+                'name' => $data['name'],
+                'startDay' => $data['startDay'],
+                'endDay' => $data['endDay'],
+                'cost' => $data['cost'],
+                'idAddress' => $address->idAddress,
+                'idHotel' => $data['idHotel'],
+                'idVehicle' => $data['idVehicle'],
+                'idTourGuide' => $data['idTourGuide'],
+                'description' => $data['description'], 
+                'imageTour' => $data['imagePath'],
+            ]);
+               
+            return redirect()->route('admin.tours.index')->with('success', 'Tour created successfully.');
+    
+        } catch (\Exception $e) {
+            return back()->withInput()->with('error', 'Failed to create tour.');
+        }
         
-        
-
-        return redirect()->route('admin.tours.index');
     }
 
     public function edit($id)
@@ -103,43 +107,51 @@ class TourController extends Controller
             'imagePath' => 'string|max:255',
             'description' => 'nullable|string',
         ]);
-
-        $tour = Tour::findOrFail($id);
-       
-    
-        $tour->update([
-            'name' => $data['name'],
-            'startDay' => $data['startDay'],
-            'endDay' => $data['endDay'],
-            'cost' => $data['cost'],
-            'idHotel' => $data['idHotel'],
-            'idVehicle' => $data['idVehicle'],
-            'idTourGuide' => $data['idTourGuide'],
-            'description' => $data['description'],
-            'imageTour' => $data['imagePath'],
-        ]);
-    
-        // Cập nhật dữ liệu địa chỉ
-        $tour->address->update([
-            'city' => $data['city'],
-            'district' => $data['district'],
-            'ward' => $data['ward'],
-            'detailAddress' => $data['detailAddress'],
-        ]);
-    
+        
+        try {
+            $tour = Tour::findOrFail($id);
+            $tour->update([
+                'name' => $data['name'],
+                'startDay' => $data['startDay'],
+                'endDay' => $data['endDay'],
+                'cost' => $data['cost'],
+                'idHotel' => $data['idHotel'],
+                'idVehicle' => $data['idVehicle'],
+                'idTourGuide' => $data['idTourGuide'],
+                'description' => $data['description'],
+                'imageTour' => $data['imagePath'],
+            ]);
         
 
-        return redirect()->route('admin.tours.index');
+            $tour->address->update([
+                'city' => $data['city'],
+                'district' => $data['district'],
+                'ward' => $data['ward'],
+                'detailAddress' => $data['detailAddress'],
+            ]);
+        
+            return redirect()->route('admin.tours.index')->with('success', 'Tour updated successfully.');    
+    
+        } catch (\Exception $e) {
+            return back()->withInput()->with('error', 'Failed to updated tour.');
+        }
+        
     }
 
     public function destroy($id)
     {
         $tour = Tour::findOrFail($id);
+        if (ActiveTourChecker::hasActiveTours('idTour', $id)) {
+            // Nếu vehicle đang liên kết với tour chưa kết thúc, không cho phép xoá
+            return back()->with('error', 'Cannot delete this tour because it is active.');
+        }
         $tour->delete();
 
         $address = Address::findOrFail($tour->idAddress);
         $address->delete();
-        return redirect()->route('admin.tours.index');
+        return redirect()->route('admin.tours.index')->with('success', 'Tour deleted successfully.');
     }
+
+
 
 }

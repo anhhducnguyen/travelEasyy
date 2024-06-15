@@ -11,7 +11,7 @@ use App\Models\Booking;
 class HomeAdminController extends Controller
 {
     public function dashboard(){
-        $userCount = User::count(); // Lấy số lượng người dùng
+        $userCount = User::where('role','user')->count(); // Lấy số lượng người dùng
         $tourCount = Tour::count(); // Lấy số lượng tour
 
         $bookCount = Booking::count(); // Lấy số lượng booking

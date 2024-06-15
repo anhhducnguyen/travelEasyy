@@ -1,6 +1,18 @@
 @extends('admin.layouts.app')
 
 @section('content')
+
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
@@ -13,10 +25,7 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Phone</th>
-                            <th>City</th>
-                            <th>District</th>
-                            <th>Ward</th>
-                            <th>DetailAddress</th>
+                            <th>Address</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -27,11 +36,8 @@
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->phone ?? 'N/A' }}</td>
-                                <!-- <td>{{ $user->address->city ?? 'N/A'}}, {{ $user->address->district ?? 'N/A'}}, {{ $user->address->ward ?? 'N/A'}}, {{ $user->address->detailAddress?? 'N/A' }}</td> -->
-                                <td>{{ $user->address->city ?? 'N/A'}}</td>
-                                <td>{{ $user->address->district ?? 'N/A'}}</td>
-                                <td>{{ $user->address->ward ?? 'N/A'}}</td>
-                                <td>{{ $user->address->detailAddress ?? 'N/A'}}</td>
+                                <td>{{ $user->address->detailAddress ?? 'N/A'}}, {{ $user->address->ward ?? 'N/A'}}, {{ $user->address->district ?? 'N/A'}}, {{ $user->address->city?? 'N/A' }}</td>
+
                                 <td class="table-actions" >
                                     <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" style="display:inline;">
                                         @csrf

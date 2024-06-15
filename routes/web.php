@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Admin\BookingController;
-use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\HomeAdminController;
 use App\Http\Controllers\Admin\HotelController;
 use App\Http\Controllers\Admin\TourController;
@@ -12,7 +11,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GoogleController;
-use App\Models\CustomerModel;
 
 // FE ROUTE
 
@@ -26,7 +24,6 @@ Route::get('/logout_up', [UserController::class, 'logout_up'])->name('logout_up'
 Route::namespace('App\Http\Controllers\User')->group(function () {
     Route::get('/tours', 'tourController@index')->name('tours.index');
     Route::post('/tours/book', 'tourController@book')->name('tours.book');
-    // Add other routes as needed
 });
 
 
@@ -56,31 +53,7 @@ Route::post('/reset_password/{token}', [UserController::class, 'check_reset_pass
 // UPDATE PROFILE
 Route::post('/account/update', [UserController::class, 'updateProfile'])->name('updateProfile');
     
-
-
 //=====ADMIN==================
-
-// Route::prefix('admin')->name('admin.')->group(function () {
-//     Route::get('/', [HomeAdminController::class, 'dashboard'])->name('dashboard');
-//     Route::resource('vehicles', VehicleController::class);
-//     Route::resource('tourguides', TourGuideController::class);
-//     Route::resource('users',  App\Http\Controllers\Admin\UserController::class);
-//     Route::resource('hotels', HotelController::class);
-//     Route::resource('tours', TourController::class);
-//     Route::resource('bookings', BookingController::class);
-//     Route::post('bookings/{booking}/confirm', [BookingController::class, 'confirm'])->name('bookings.confirm');
-//     Route::post('bookings/{booking}/pay', [BookingController::class, 'pay'])->name('bookings.pay');
-// });
-
-
-
-// =====================================================================
-// Route để hiển thị form đăng nhập cho người dùng
-// Route::get('/user/login', [LoginController::class, 'show_login'])->name('user.login');
-
-// Route để hiển thị form đăng nhập cho admin
-
-// Route::get('/admin/login', [HomeAdminController::class, 'show_login'])->name('admin.login');
 Route::get('/login', [AdminLoginController::class, 'show_login'])->name('login');
 Route::post('/check_login', [AdminLoginController::class, 'check_login']);
 

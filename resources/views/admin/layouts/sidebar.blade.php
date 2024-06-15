@@ -62,7 +62,7 @@
             <div style="height: 300px;"></div>
         </li>
         <li class="nav-item" style="font-size: 19px;">
-            <a class="nav-link"  href="{{ route('logout') }}">
+            <a class="nav-link"  href="{{route('logout_up')}}">
                 <i class="mdi mdi-logout"></i>
                 <span class="menu-title">Sign Out</span> 
             </a>

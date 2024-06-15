@@ -42,4 +42,10 @@ class BookingController extends Controller
 
         return view('admin.bookings.show', compact('booking'));
     }
+    public function destroy($id)
+    {
+        $booking = Booking::findOrFail($id);
+        $booking->delete();
+        return redirect()->route('admin.bookings.index')->with('success', 'Booking deleted successfully.');
+    }
 }

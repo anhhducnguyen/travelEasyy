@@ -17,11 +17,11 @@ class UserController extends Controller
 {
     public function register()
     {
-        return view('fe.registerr');
+        return view('account.registerr');
     }
     public function login()
     {
-        return view('fe.login');
+        return view('account.login');
     }
     public function account()
     {
@@ -37,11 +37,11 @@ class UserController extends Controller
         ->where('idAddress', $user->idAddress)
         ->get();
 
-        return view('fe.account', compact('addresses'));
+        return view('fe.profile.account', compact('addresses'));
     }
     public function showChangePasswordForm()
     {
-        return view('fe.change-password');
+        return view('fe.password.change-password');
     }
     public function store(Request $req)
     {

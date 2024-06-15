@@ -1,6 +1,19 @@
 @extends('admin.layouts.app')
 
 @section('content')
+
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
