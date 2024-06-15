@@ -32,25 +32,27 @@ class HotelController extends Controller
             'ward' => 'required|string|max:50',
             'detailAddress' => 'nullable|string|max:50',
         ]);
-
-        $address = Address::create([
-            'city' => $data['city'],
-            'district' => $data['district'],
-            'ward' => $data['ward'],
-            'detailAddress' => $data['detailAddress'],
-        ]);
-
+        try {
+            $address = Address::create([
+                'city' => $data['city'],
+                'district' => $data['district'],
+                'ward' => $data['ward'],
+                'detailAddress' => $data['detailAddress'],
+            ]);
+    
+            $newId = IdGenerator::generateId('HT', Hotel::class, 'idHotel');       
+    
+            Hotel::create([
+                'idHotel' => $newId,
+                'idAddress' => $address->idAddress,
+                'name' => $data['name'],
+            ]);
+    
+            return redirect()->route('admin.hotels.index')->with('success', 'Hotel created successfully.');
+        } catch (\Exception $e) {
+            return back()->withInput()->with('error', 'Failed to create hotel. ');
+        }
         
-        $newId = IdGenerator::generateId('HT', Hotel::class, 'idHotel');       
-
-        // Create the hotel
-        Hotel::create([
-            'idHotel' => $newId,
-            'idAddress' => $address->idAddress,
-            'name' => $data['name'],
-        ]);
-
-        return redirect()->route('admin.hotels.index');
     }
 
     public function edit($id)
@@ -71,19 +73,25 @@ class HotelController extends Controller
             'detailAddress' => 'nullable|string|max:50',
         ]);
 
-        $hotel = Hotel::findOrFail($id);
-        $hotel->update([
-            'name' => $data['name'],
-        ]);
+        try {
+            $hotel = Hotel::findOrFail($id);
+            $hotel->update([
+                'name' => $data['name'],
+            ]);
 
-        $hotel->address->update([
-            'city' => $data['city'],
-            'district' => $data['district'],
-            'ward' => $data['ward'],
-            'detailAddress' => $data['detailAddress'],
-        ]);
+            $hotel->address->update([
+                'city' => $data['city'],
+                'district' => $data['district'],
+                'ward' => $data['ward'],
+                'detailAddress' => $data['detailAddress'],
+            ]);
 
-        return redirect()->route('admin.hotels.index');
+            return redirect()->route('admin.hotels.index')->with('success', 'Hotel updated successfully.');
+    
+        } catch (\Exception $e) {
+            return back()->withInput()->with('error', 'Failed to update hotel.');
+        }
+        
     }
 
     public function destroy($id)
