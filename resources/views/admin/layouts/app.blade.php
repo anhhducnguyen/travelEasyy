@@ -31,15 +31,11 @@
     <script src="{{ asset('assets/vendors/typeahead.js/typeahead.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/off-canvas.js') }}"></script>
     <script src="{{ asset('assets/js/hoverable-collapse.js') }}"></script>
-    <script src="{{ asset('assets/js/admin/dashboard_2.js') }}"></script>
-    <script src="{{ asset('assets/js/admin/dashboard_1.js') }}"></script>
+    <script src="{{ asset('assets/js/dashboard_2.js') }}"></script>
+    <script src="{{ asset('assets/js/dashboard_1.js') }}"></script>
     <script src="{{ asset('assets/vendors/flot/jquery.flot.categories.js') }}"></script>
     <script src="{{ asset('assets/js/address.js') }}"></script>
     <script src="{{ asset('assets/js/file-upload.js') }}"></script>
-    <script>
-        function clearForm() {
-            document.getElementById('form').reset();
-        }
-    </script>
+    <script src="{{ asset('assets/js/clearForm.js') }}"></script>   
 </body>
 </html>

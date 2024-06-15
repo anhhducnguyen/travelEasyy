@@ -20,6 +20,8 @@ class Tour extends Model
         'startDay',
         'endDay',
         'cost',
+        'imageTour',
+        'description',
         'idAddress',
         'idHotel',
         'idVehicle',

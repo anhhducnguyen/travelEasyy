@@ -91,27 +91,28 @@
                                 <label class="form-group" for="detailAddress">Detail Address</label>
                                 <input class="form-control" type="text" id="detailAddress" name="detailAddress" value="{{ $tour->address->detailAddress }}">
                             </div>
-
-                            <div style="margin-top:-4px;" class="form-group">
-                                <label>Image Tour</label>
-                                <input type="file" name="img[]" class="file-upload-default" />
-                                <div class="input-group col-xs-12">
-                                    <input type="text" class="form-control file-upload-info" value="{{ $tour->imageTour }}" disabled placeholder="Upload Image" />
-                                    <span class="input-group-append">
-                                        <button class="file-upload-browse btn btn-primary" type="button"> Upload </button>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
+                            <div style="margin-top: -5px;" class="form-group">
                                 <label for="exampleTextarea1">Description</label>
                                 <textarea
                                     class="form-control"
                                     id="exampleTextarea1"
-                                    rows="32"
-                                    value="{{ $tour->description }}"
-                                ></textarea>
+                                    rows="10"
+                                    name="description"
+                                >{{ $tour->description }}</textarea>
+                            </div>
+                            
+                        </div>
+                        <div class="col-md-4">
+                            <div style="margin-top:-4px;" class="form-group">
+                                <label>Image Tour</label>
+                                <input type="file" id="imageTourInput" class="file-upload-default" />
+                                <div class="input-group col-xs-12">
+                                    <input type="text" id="imagePath" name="imagePath" class="form-control file-upload-info" value="{{ $tour->imageTour }}" placeholder="Upload Image" />
+                                    <span class="input-group-append">
+                                        <button class="file-upload-browse btn btn-primary" type="button" onclick="updateImagePath()">Upload</button>
+                                    </span>
+                                <img id="imgPrev" src="{{ asset( $tour->imageTour) }}" alt="Preview Image" style="max-width: 100%; margin-top: 10px;">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -123,3 +124,4 @@
     </div>
 
 @endsection
+

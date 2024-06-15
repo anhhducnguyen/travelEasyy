@@ -12,42 +12,42 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Name" />
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Name" required/>
                             </div>
                             <div class="form-group">
                                 <label for="phone">Phone</label>
-                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" />
+                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" required/>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Email" />
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email" required/>
                             </div>
                             
                         </div>
                         <div class="col-md-6">
                         <div class="form-group">
                                 <label for="city">City</label>
-                                <select class="form-control" id="city" name="city">
+                                <select class="form-control" id="city" name="city" required>
                                     <option value="" selected>Chọn tỉnh thành</option>
                                 </select>
                             </div>
                             <div style="height: 5px;"></div>
                             <div class="form-group">
                                 <label for="district">District</label>
-                                <select class="form-control" id="district" name="district">
+                                <select class="form-control" id="district" name="district" required>
                                     <option value="" selected>Chọn quận huyện</option>
                                 </select>
                             </div>
                             <div style="height: 5px;"></div>
                             <div class="form-group">
                                 <label for="ward">Ward</label>
-                                <select class="form-control" id="ward" name="ward">
+                                <select class="form-control" id="ward" name="ward" required >
                                     <option value="" selected>Chọn phường xã</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="detailAddress">Detail Address</label>
-                                <input type="text" class="form-control" id="detailAddress" name="detailAddress" placeholder="Detail Address" />
+                                <input type="text" class="form-control" id="detailAddress" name="detailAddress" placeholder="Detail Address" required/>
                             </div>
                         </div>
                     </div>    

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\HomeAdminController;
 use App\Http\Controllers\Admin\HotelController;
@@ -47,9 +48,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('users',  App\Http\Controllers\Admin\UserController::class);
     Route::resource('hotels', HotelController::class);
     Route::resource('tours', TourController::class);
-    
-
+    Route::resource('bookings', BookingController::class);
 });
+// Định nghĩa route cho các hành động confirm và pay
+Route::post('admin/bookings/{booking}/confirm', [BookingController::class, 'confirm'])->name('admin.bookings.confirm');
+Route::post('admin/bookings/{booking}/pay', [BookingController::class, 'pay'])->name('admin.bookings.pay');
 
 
 
