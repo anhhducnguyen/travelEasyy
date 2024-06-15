@@ -15,7 +15,6 @@ use App\Http\Controllers\GoogleController;
 use App\Models\CustomerModel;
 
 // FE ROUTE
-
 Route::get('/', [LoginController::class, 'index'])->name('index');
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::get('/loginn', [UserController::class, 'login'])->name('loginn');
@@ -58,29 +57,7 @@ Route::post('/account/update', [UserController::class, 'updateProfile'])->name('
     
 
 
-//=====ADMIN==================
-
-// Route::prefix('admin')->name('admin.')->group(function () {
-//     Route::get('/', [HomeAdminController::class, 'dashboard'])->name('dashboard');
-//     Route::resource('vehicles', VehicleController::class);
-//     Route::resource('tourguides', TourGuideController::class);
-//     Route::resource('users',  App\Http\Controllers\Admin\UserController::class);
-//     Route::resource('hotels', HotelController::class);
-//     Route::resource('tours', TourController::class);
-//     Route::resource('bookings', BookingController::class);
-//     Route::post('bookings/{booking}/confirm', [BookingController::class, 'confirm'])->name('bookings.confirm');
-//     Route::post('bookings/{booking}/pay', [BookingController::class, 'pay'])->name('bookings.pay');
-// });
-
-
-
-// =====================================================================
-// Route để hiển thị form đăng nhập cho người dùng
-// Route::get('/user/login', [LoginController::class, 'show_login'])->name('user.login');
-
-// Route để hiển thị form đăng nhập cho admin
-
-// Route::get('/admin/login', [HomeAdminController::class, 'show_login'])->name('admin.login');
+//ADMIN
 Route::get('/login', [AdminLoginController::class, 'show_login'])->name('login');
 Route::post('/check_login', [AdminLoginController::class, 'check_login']);
 

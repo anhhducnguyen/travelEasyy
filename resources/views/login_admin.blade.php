@@ -1,11 +1,3 @@
-<!-- <h1>Trang Login</h1>
-<form action="/check_login" method="POST">
-    @csrf
-    <input type="email" name="email" placeholder="Email">
-    <input type="password" name="password" placeholder="Password">
-    <button type="submit">Login</button>
-</form> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

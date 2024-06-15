@@ -53,21 +53,7 @@
                     <!-- Hiển thị nếu người dùng chưa đăng nhập -->
                     <a href="{{route('loginn')}}" id="login">Log in</a>
                     <a href="{{route('register')}}" id="register">Register</a>
-                @endif
-                
-                <!-- <a href="{{route('login')}}" id="blog">Đăng nhập</a>
-                <a href="{{route('register')}}" id="blog">Đăng ký</a>
-                
-                
-                <a href="{{route('logout')}}" id="a_logout">Đăng xuất</a> -->
-
-
-                <!-- <a href="#" id="a_login" onclick="document.querySelector('.modal-search').style.display='block'">Login</i></a> -->
-                <!-- <a href="#" id="a_login" onclick="document.querySelector('.modal-search').style.display='block'">Login</a> -->
-                <!-- <a href="#" id="a_register" onclick="document.querySelector('.modal').style.display='block'">Register</a> -->
-                <!-- <a href="#" id="user-name"></a> -->
-                <!-- <a href="#" id="a_logout" style="display:none;">Logout</a> -->
-                
+                @endif           
             </div>
         </div>
         <div class="header-mid">
