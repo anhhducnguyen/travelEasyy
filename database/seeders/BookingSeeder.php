@@ -17,7 +17,7 @@ class BookingSeeder extends Seeder
             [
                 'idBooking' => 'BK1',
                 'idUser' => 1,
-                'idTour' => 'TO7',
+                'idTour' => 'TO1',
                 'quantityTicket' => 2,
                 'confirmation_status' => 'waiting_for_admin',
                 'payment_status' => 'unpaid',
@@ -25,7 +25,7 @@ class BookingSeeder extends Seeder
             [
                 'idBooking' => 'BK2',
                 'idUser' => 2,
-                'idTour' => 'TO8',
+                'idTour' => 'TO2',
                 'quantityTicket' => 1,
                 'confirmation_status' => 'confirmed',
                 'payment_status' => 'paid',

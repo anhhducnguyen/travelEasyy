@@ -49,8 +49,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('hotels', HotelController::class);
     Route::resource('tours', TourController::class);
     Route::resource('bookings', BookingController::class);
-    Route::post('bookings/{booking}/confirm', [BookingController::class, 'confirm']);
-    Route::post('bookings/{booking}/pay', [BookingController::class, 'pay']);
+    Route::post('bookings/{booking}/confirm', [BookingController::class, 'confirm'])->name('bookings.confirm');
+    Route::post('bookings/{booking}/pay', [BookingController::class, 'pay'])->name('bookings.pay');
 });
 
 

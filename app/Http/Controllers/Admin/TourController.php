@@ -142,17 +142,6 @@ class TourController extends Controller
         return redirect()->route('admin.tours.index');
     }
 
-    public function filterHotels(Request $request)
-{
-    $city = $request->get('city');
-    $district = $request->get('district');
 
-    $hotels = Hotel::whereHas('address', function ($query) use ($city, $district) {
-        $query->where('city', $city)
-              ->where('district', $district);
-    })->get();
-
-    return response()->json($hotels);
-}
 
 }
