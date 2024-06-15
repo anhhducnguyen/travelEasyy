@@ -15,21 +15,21 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="name">Name</label>
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="Name" />
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Name" required />
                                 </div>
                                 <div class="form-group">
                                     <label for="startDay">Start Day</label>
-                                    <input type="date" class="form-control" id="startDay" name="startDay" />
+                                    <input type="date" class="form-control" id="startDay" name="startDay" required/>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="endDay">End Day</label>
-                                    <input type="date" class="form-control" id="endDay" name="endDay" />
+                                    <input type="date" class="form-control" id="endDay" name="endDay" required />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="cost">Cost</label>
-                                    <input type="text" class="form-control" id="cost" name="cost" placeholder="Cost" />
+                                    <input type="text" class="form-control" id="cost" name="cost" placeholder="Cost" required/>
                                 </div>
                         
                                 <div class="form-group">
@@ -67,7 +67,7 @@
 
                                 <div class="form-group">
                                     <label for="city">City</label>
-                                    <select class="form-control"  id="city" name="city">
+                                    <select class="form-control"  id="city" name="city" required>
                                         <option value="" selected>Chọn tỉnh thành</option>
                                     </select>
                                 </div>
@@ -76,7 +76,7 @@
 
                                 <div class="form-group">
                                     <label for="district">District</label>
-                                    <select class="form-control" id="district" name="district">
+                                    <select class="form-control" id="district" name="district" required>
                                         <option value="" selected>Chọn quận huyện</option>
                                     </select>
                                 </div>
@@ -85,7 +85,7 @@
 
                                 <div class="form-group">
                                     <label for="ward">Ward</label>
-                                    <select class="form-control" id="ward" name="ward">
+                                    <select class="form-control" id="ward" name="ward" required>
                                         <option value="" selected>Chọn phường xã</option>
                                     </select>
                                 </div>
@@ -93,7 +93,7 @@
 
                                 <div class="form-group">
                                     <label for="detailAddress">Detail Address</label>
-                                    <input type="text" class="form-control" id="detailAddress" name="detailAddress">
+                                    <input type="text" class="form-control" id="detailAddress" name="detailAddress" required>
                                 </div>
                                 
                                 
@@ -104,6 +104,7 @@
                                     id="exampleTextarea1"
                                     rows="10"
                                     name="description"
+                                    required
                                     ></textarea>
                                 </div>
                             </div>

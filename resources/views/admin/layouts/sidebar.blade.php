@@ -35,7 +35,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{ route('admin.bookings.index') }}">
                 <i class="mdi mdi-cart menu-icon"></i>
                 <span class="menu-title">Bookings</span>
             </a>

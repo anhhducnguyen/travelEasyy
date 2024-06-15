@@ -20,7 +20,7 @@
                           <div class="d-flex justify-content-between align-items-start">
                               <div class="color-card">
                                   <p class="mb-0 color-card-head">Sales</p>
-                                  <h2 class="text-white">$8,753.<span class="h5">00</span></h2>
+                                  <h2 class="text-white">{{ number_format($totalSale) }} <span class="h4">$</span></h2>
                               </div>
                               <i class="card-icon-indicator mdi mdi-basket bg-inverse-icon-warning"></i>
                           </div>
@@ -48,7 +48,7 @@
                           <div class="d-flex justify-content-between align-items-start">
                               <div class="color-card">
                                   <p class="mb-0 color-card-head">Orders</p>
-                                  <h2 class="text-white">$1,753.<span class="h5">00</span></h2>
+                                  <h2 class="text-white">{{$bookCount}}</h2>
                               </div>
                               <i class="card-icon-indicator mdi mdi-briefcase-outline bg-inverse-icon-primary"></i>
                           </div>

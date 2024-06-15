@@ -49,10 +49,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('hotels', HotelController::class);
     Route::resource('tours', TourController::class);
     Route::resource('bookings', BookingController::class);
+    Route::post('bookings/{booking}/confirm', [BookingController::class, 'confirm']);
+    Route::post('bookings/{booking}/pay', [BookingController::class, 'pay']);
 });
-// Định nghĩa route cho các hành động confirm và pay
-Route::post('admin/bookings/{booking}/confirm', [BookingController::class, 'confirm'])->name('admin.bookings.confirm');
-Route::post('admin/bookings/{booking}/pay', [BookingController::class, 'pay'])->name('admin.bookings.pay');
+
+
 
 
 
