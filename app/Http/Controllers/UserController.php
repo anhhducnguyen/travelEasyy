@@ -92,7 +92,7 @@ class UserController extends Controller
     {
         $request->validate([
             'current_password' => 'required',
-            'new_password' => 'required|min:8|confirmed',
+            'new_password' => 'required|min:4|confirmed',
         ]);
 
         $user = Auth::user();
@@ -104,7 +104,7 @@ class UserController extends Controller
         if (!Hash::check($request->current_password, $user->password)) {
             return back()->withErrors(['current_password' => 'Current password is incorrect']);
         }
-
+        Auth::logout();
         DB::table('users')->where('id', $user->id)->update(['password' => Hash::make($request->new_password)]);
 
         return redirect()->route('loginn')->with('success', 'Password changed successfully');
@@ -164,42 +164,6 @@ class UserController extends Controller
     }
 
     // ============================================================================
-    // public function updateProfile(Request $request)
-    // {
-    //     $data = $request->validate([
-    //         'phone' => 'required|string|max:15',
-    //         'city' => 'required|string|max:50',
-    //         'district' => 'required|string|max:50',
-    //         'ward' => 'required|string|max:50',
-    //         'detailAddress' => 'nullable|string|max:50',
-    //     ]);
-
-    //     $user = Auth::user();
-    //     DB::table('users')->where('id', $user->id)->update([
-    //         'phone' => $request->phone,
-    //     ]);
-
-    //     $existingAddress = DB::table('tbladdress')->where('idAddress', $user->id)->first();
-
-    //     if ($existingAddress) {
-    //         DB::table('tbladdress')->where('idAddress', $user->id)->update([
-    //             'city' => $data['city'],
-    //             'district' => $data['district'],
-    //             'ward' => $data['ward'],
-    //             'detailAddress' => $data['detailAddress'],
-    //         ]);
-    //     } else {
-    //         DB::table('tbladdress')->insert([
-    //             'city' => $data['city'],
-    //             'district' => $data['district'],
-    //             'ward' => $data['ward'],
-    //             'detailAddress' => $data['detailAddress'],
-    //             'idAddress' => $user->id,
-    //         ]);
-    //     }
-    //     return redirect()->back()->with('success', 'Update successfully');
-    // }
-
 public function updateProfile(Request $request)
 {
     $data = $request->validate([

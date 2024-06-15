@@ -73,7 +73,7 @@ header .logo a{
     display: flex;
     flex-direction: column;
     justify-content: content;
-    padding-left: 550px;
+    padding-left: 511px;
     /* padding-left: 100px; */
     background-color: white;
 }

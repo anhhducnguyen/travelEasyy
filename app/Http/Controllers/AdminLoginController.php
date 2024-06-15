@@ -25,6 +25,6 @@ class AdminLoginController extends Controller
         {
                 return redirect('admin');
         } 
-        return redirect()->back(); 
+        return redirect()->back()->with('error', 'Login failed, please log in again!'); 
     }
 }
