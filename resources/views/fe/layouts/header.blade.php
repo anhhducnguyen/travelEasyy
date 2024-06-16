@@ -8,7 +8,16 @@
         <a href={{ route('index') }} id="home">Home</a>
         <a href={{ route('tours.index') }} id="listings">Listings</a>
         <a href="W02-blog.html" id="blog">Blog</a>
-        <a href="" id="log-in">Log in</a>
-        <a href="" id="register">Register</a>
+        <!-- <a href="" id="log-in">Log in</a>
+        <a href="" id="register">Register</a> -->
+        @if(Auth::check())
+             <!-- Hiển thị nếu người dùng đã đăng nhập -->
+            <a href="{{route('account')}}" id="account">{{ Auth::user()->name }}</a>
+            <a href="{{route('logout')}}" id="a_logout">Log out</a>
+        @else
+            <!-- Hiển thị nếu người dùng chưa đăng nhập -->
+            <a href="{{route('loginn')}}" id="login">Log in</a>
+            <a href="{{route('register')}}" id="register">Register</a>
+        @endif
     </div>
 </div>
