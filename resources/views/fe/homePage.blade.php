@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}"> -->
-    <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/user/home.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7b9d8c4ddc.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js"></script>
     <!-- <link rel="shortcut icon" href="../../../assets/images/logo_web.ico" type="image/x-icon"> -->
-    <link rel="shortcut icon" href="{{asset('assets/images/logo_web.ico')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('assets/images/logo_mini.png')}}" type="image/x-icon">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Travel Easy</title>
 </head>
@@ -747,55 +747,7 @@
 <!-- ===============================================END FORM LOGIN AND REGISTER=============================================== -->
 
 <!-- ==================================================FOOTER================================================================= -->
-<div class="footer">
-        <div class="footer-top">
-            <div class="contact-us">
-                <h4>Contact-us</h4>
-                <div class="address">
-                    <!-- <img src="../../../assets/images/pin2.png" alt=""> -->
-                    <img src="{{asset('assets/images/pin2.png')}}" alt="">
-                    <p>01 Độc Lập, Quán Thánh, Ba Đình, Hà Nội</p>
-                </div>
-                <div class="phone-number">
-                    <!-- <img src="../../../assets/images/phone.png" alt=""> -->
-                    <img src="{{asset('assets/images/phone.png')}}" alt="">
-                    <p>080 41532</p>
-                </div>
-                <div class="email">
-                    <!-- <img src="../../../assets/images/email.png" alt=""> -->
-                    <img src="{{asset('assets/images/email.png')}}" alt="">
-                    <p>21011601@st.phenikaa-uni.edu.vn</p>
-                </div>
-            </div>
-            <div class="company">
-                <h4>About Travel experience</h4>
-                <p><a href="#">Booking</a></p>
-                <p><a href="#">Contact us</a></p>
-                <p><a href="#">Recruitment</a></p>
-                <p><a href="#">About us</a></p>
-            </div>
-            <div class="Other">
-                <h4>Other</h4>
-                <p><a href="#">Travel experience Affiliate</a></p>
-                <p><a href="#">Privacy policy</a></p>
-                <p><a href="#">Terms and condition</a></p>
-                <p><a href="#">Operating regulations</a></p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <!-- <img src="../../../assets/images/copyright.png" alt="" id="copyright"> -->
-            <img src="{{asset('assets/images/copyright.png')}}" alt="" id="copyright">
-            <img src="{{asset('assets/images/logo.png')}}" alt="" id="logo-footer">
-            <!-- <img src="../../../assets/images/logo.png" alt="" id="logo-footer"> -->
-            <div class="media">
-                <i class="fa-brands fa-facebook-f"></i>
-                <i class="fa-brands fa-x-twitter"></i>
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-linkedin-in"></i>
-            </div>
-            <div id="go-to-top"><i class="fa-solid fa-angle-up"></i></div>
-        </div>
-    </div>
+@include('fe.layouts.footer')
 <!-- ==================================================END FOOTER============================================================= -->
     <script src="{{ asset('assets/js/home.js') }}"></script>
 </body>

@@ -7,50 +7,7 @@
 a {
     text-decoration: none;
 }
-.header {
-    display: flex;
-    align-items: center;
-    background-color: #ED4949;
-    height: 80px;
-    width: 100%;
-}
-.header>a>img {
-    margin: 5px 70px 0px 30px;
-    width: 194px;
-    height: 39px;
-}
-.search-bar-looking-for {
-    margin-right: 380px;
-    display: flex;
-    align-items: center;
-}
-.search-bar-looking-for input {
-    background-color: rgba(255, 255, 255, 0);
-    border: none;
-    outline: none;
-    margin-right: 25px;
-    width: 170px;
-    height: 15.5px;
-}
-.search-bar-looking-for input::placeholder {
-    color: white;
-}
-.search-bar-looking-for input:focus {
-    color: white;
-}
-.search-bar-looking-for img {
-    width: 14px;
-    height: 15.5px;
-}
-.home-listings-blog a{
-    color: white;
-    margin-right: 30px;
-    font-size: 15px;
-    line-height: 21px;
-}
-.home-listings-blog a:nth-child(3) {
-    margin-right: 100px;
-}
+
 .content {
     padding: 0px 18%;
     margin-top: 60px;
@@ -526,72 +483,4 @@ th, td {
 }
 #view-all-ls:hover {
     background-color: #be3737;
-}
-.footer {
-    background-color: #1d293e;
-    width: 100%;
-    height: 395px;
-}
-.footer-top {
-    height: 320px;
-    border-bottom: 1px solid #2d3649;
-    display: flex;
-    color: white;
-    align-items: start;
-    justify-content: space-evenly;
-    padding: 50px 0px;
-}
-.footer-top h4 {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-.address, .phone-number, .email {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-.contact-us img {
-    width: 16px;
-    height: 16px;
-    margin-right: 10px;
-}
-.company a, .Other a {
-    margin-bottom: 10px;
-    color: white;
-}
-.footer-bottom {
-    height: 75px;
-    display: flex;
-    align-items: center;
-}
-#copyright {
-    margin: 0px 280px 0px 200px;
-}
-#logo-footer {
-    width: 194px;
-    height: 40px;
-    margin-right: 250px;
-}
-.fa-brands {
-    color: white;
-    font-size: 20px;
-    margin-right: 20px;
-}
-#go-to-top{
-    position: absolute;
-    right: 25px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #333e51;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-#go-to-top:hover {
-    background-color: #313a4a;
-}
-.fa-angle-up {
-    color: #999fa8;
 }

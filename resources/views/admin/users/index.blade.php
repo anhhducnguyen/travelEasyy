@@ -18,7 +18,7 @@
         <div class="card-body">
             <h4 class="card-title">Users List</h4>
             <div class="table-responsive">
-                <table class="table">
+                <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>ID</th>
