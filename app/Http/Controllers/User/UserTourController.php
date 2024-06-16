@@ -16,12 +16,13 @@ class UserTourController extends Controller
     public function show($id)
     {
         $tour = Tour::with('address')->find($id);
+        $tours = Tour::all();
 
         if (!$tour) {
             abort(404);
         }
 
-        return view('fe.tours.show', compact('tour'));
+        return view('fe.tours.show', compact('tour','tours'));
     }
 
 }
