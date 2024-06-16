@@ -71,5 +71,6 @@ class User extends Authenticatable
     {
         return $this->hasMany(Booking::class, 'idUser', 'id');
     }
+
  
 }

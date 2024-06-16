@@ -36,7 +36,7 @@
             <div class="login-header">
                 <h1>Account Information</h1>
             </div>
-            <form action="{{ route('updateProfile') }}" method="POST" id="registerForm" class="login-form" autocomplete="off">
+            <form action="{{ route('updateProfile', Auth::user()->id) }}" method="POST" id="registerForm" class="login-form" autocomplete="off">
                 <div>
                     @if ($message = Session::get('success'))
                         <div class="success-message">

@@ -25,7 +25,9 @@ Route::get('/logout_up', [UserController::class, 'logout_up'])->name('logout_up'
 // PROFILE AND UPDATE PROFILE
 Route::get('/account', [ProfileController::class, 'account'])->name('account');
 Route::post('/account/update', [ProfileController::class, 'updateProfile'])->name('updateProfile');
-
+// Route::post('/account/update', [ProfileController::class, 'update'])->name('updateProfile');
+// Route::post('/account/update', [ProfileController::class, 'store'])->name('updateProfile');
+// Route::post('/account/update/{id}', [ProfileController::class, 'update'])->name('updateProfile');
 // EMAIL
 Route::get('/verify_account/{email}', [UserController::class, 'verify'])->name('account.verify');
 
@@ -48,8 +50,6 @@ Route::post('/forgot-password', [PasswordResetController::class, 'check_forgot_p
 // RESET PASSWORD
 Route::get('/reset_password/{token}', [PasswordResetController::class, 'reset_password'])->name('account.reset_password');
 Route::post('/reset_password/{token}', [PasswordResetController::class, 'check_reset_password'])->name('check_reset_password');
-    
-
     
 //=====ADMIN==================
 Route::get('/login', [AdminLoginController::class, 'show_login'])->name('login');
