@@ -21,7 +21,7 @@ use App\Http\Controllers\GoogleController;
 // REGISTER__LOGIN__LOGOUT
 Route::get('/', [AccountController::class, 'index'])->name('index');
 Route::get('/register', [AccountController::class, 'register'])->name('register');
-Route::get('/loginn', [AccountController::class, 'login'])->name('loginn');
+Route::get('/user-login', [AccountController::class, 'login'])->name('loginn');
 Route::get('/logout', [AccountController::class, 'logout'])->name('logout');
 Route::get('/account', [AccountController::class, 'account'])->name('account');
 Route::get('/logout_up', [AccountController::class, 'logout_up'])->name('logout_up');
