@@ -37,9 +37,13 @@
 .home-listings-blog a{
     color: white;
     margin-right: 30px;
-    font-size: 15px;
+    font-size: 17px;
     line-height: 21px;
 }
 .home-listings-blog a:nth-child(3) {
     margin-right: 100px;
+}
+.home-listings-blog a:hover{
+    color: rgb(150, 1, 1);
+    text-decoration: underline;
 }

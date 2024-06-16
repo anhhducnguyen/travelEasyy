@@ -4,11 +4,6 @@ $(document).ready(function() {
     });
 });
 
-const naviToListings = document.getElementById("view-all-ls");
-naviToListings.addEventListener("click", () => {
-    window.location.href = "W04-listings.html";
-});
-
 const paragraph = document.getElementById("para-text");
 const hideAndShow = document.getElementById("hide-and-show-text");
 let isExpanded = false;
@@ -23,27 +18,27 @@ hideAndShow.addEventListener("click", () => {
     isExpanded = !isExpanded;
 })
 
-// const faqBoxes = document.querySelectorAll(".faq-box");
-    
-// faqBoxes.forEach(function(faqBox) {
-//     const icon = faqBox.querySelector("i");
-//     icon.addEventListener("click", function() {
-//         const content = faqBox.querySelector(".content-faq");
-//         const headerFaq = faqBox.querySelector(".header-faq");
-//         const isExpanded = content.style.display !== "none";
-        
-//         if (isExpanded) {
-//             content.style.display = "none";
-//             icon.classList.replace("fa-minus", "fa-plus");
-//             headerFaq.style.marginBottom = "0";
-//         } else {
-//             content.style.display = "block";
-//             icon.classList.replace("fa-plus", "fa-minus");
-//             headerFaq.style.marginBottom = "15px";
-//             faqBox.style.alignItems = "normal"
-//         }
-//     });
-// });
+document.addEventListener('DOMContentLoaded', function() {
+    var viewAllButton = document.getElementById('view-all-ls');
+    var listBoxes = document.querySelectorAll('.list-box');
+
+    // Ẩn các tour sau tour thứ 3 ban đầu
+    for (var i = 3; i < listBoxes.length; i++) {
+        listBoxes[i].style.display = 'none';
+    }
+
+
+    viewAllButton.addEventListener('click', function() {
+
+        listBoxes.forEach(function(listBox) {
+            listBox.style.display = 'block';
+        });
+
+        viewAllButton.style.display = 'none';
+    });
+});
+
+
 
 $(document).ready(function() {
     $(".faq-box i").click(function() {
@@ -58,4 +53,32 @@ $(document).ready(function() {
         }
     });
 });
+
+// Định nghĩa hàm tính toán tổng giá
+function calculateTotal() {
+
+    let basePrice = parseFloat(document.getElementById('basePrice').textContent);
+
+    let serviceFee = parseFloat(document.getElementById('serviceFee').textContent);
+
+    // Lấy số lượng khách từ input
+    let guestCount = parseInt(document.getElementById('guestCount').value);
+
+    if (isNaN(guestCount) || guestCount < 1) {
+        guestCount = 1;
+    }
+    
+    let totalPrice = basePrice * guestCount + serviceFee;
+
+    document.getElementById('basePrice').textContent = basePrice.toFixed(2);
+    document.getElementById('totalPrice').textContent = totalPrice.toFixed(2);
+}
+
+document.getElementById('guestCount').addEventListener('input', calculateTotal);
+
+calculateTotal();
+
+
+
+
 

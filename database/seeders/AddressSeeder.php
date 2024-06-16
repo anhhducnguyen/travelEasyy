@@ -63,16 +63,16 @@ class AddressSeeder extends Seeder
                 'detailAddress' => '456 Doi Can',
             ],
             [
-                'city' => 'Thành phố Hà Nội',
-                'district' => 'Quận Ba Đình',
-                'ward' => 'Phường Điện Biên',
-                'detailAddress' => '789 Dien Bien',
+                'city' => 'Tỉnh Quảng Ninh',
+                'district' => 'Thành phố Hạ Long',
+                'ward' => 'Phường Bãi Cháy',
+                'detailAddress' => 'Bai Chay',
             ],
             [
-                'city' => 'Thành phố Hà Nội',
-                'district' => 'Quận Ba Đình',
-                'ward' => 'Phường Ngọc Hà',
-                'detailAddress' => '357 Ngoc Ha',
+                'city' => 'Tỉnh Ninh Bình',
+                'district' => 'Thành phố Ninh Bình',
+                'ward' => 'Xã Trường Yên',
+                'detailAddress' => 'Trang An',
             ],
         ];
 

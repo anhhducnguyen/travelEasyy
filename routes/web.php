@@ -29,9 +29,7 @@ Route::get('/logout_up', [AccountController::class, 'logout_up'])->name('logout_
 // PROFILE AND UPDATE PROFILE
 Route::get('/account', [ProfileController::class, 'account'])->name('account');
 Route::post('/account/update', [ProfileController::class, 'updateProfile'])->name('updateProfile');
-// Route::post('/account/update', [ProfileController::class, 'update'])->name('updateProfile');
-// Route::post('/account/update', [ProfileController::class, 'store'])->name('updateProfile');
-// Route::post('/account/update/{id}', [ProfileController::class, 'update'])->name('updateProfile');
+
 // EMAIL
 Route::get('/verify_account/{email}', [AccountController::class, 'verify'])->name('account.verify');
 
