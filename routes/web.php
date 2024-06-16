@@ -7,26 +7,29 @@ use App\Http\Controllers\Admin\TourController;
 use App\Http\Controllers\Admin\TourGuideController;
 use App\Http\Controllers\Admin\VehicleController;
 use App\Http\Controllers\AdminLoginController;
+use App\Http\Controllers\PasswordResetController;
+use App\Http\Controllers\User\ProfileController;
 use App\Http\Middleware\CheckAdmin;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GoogleController;
 
 // FE ROUTE
-
-Route::get('/', [LoginController::class, 'index'])->name('index');
+// REGISTER__LOGIN__LOGOUT
+Route::get('/', [UserController::class, 'index'])->name('index');
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::get('/loginn', [UserController::class, 'login'])->name('loginn');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
-Route::get('/account', [UserController::class, 'account'])->name('account');
 Route::get('/logout_up', [UserController::class, 'logout_up'])->name('logout_up');
 
+// PROFILE AND UPDATE PROFILE
+Route::get('/account', [ProfileController::class, 'account'])->name('account');
+Route::post('/account/update', [ProfileController::class, 'updateProfile'])->name('updateProfile');
 
 // EMAIL
 Route::get('/verify_account/{email}', [UserController::class, 'verify'])->name('account.verify');
 
-// REGISTER__LOGIN__LOGOUT
+// STORE REGISTER__LOGIN__LOGOUT
 Route::post('/store', [UserController::class, 'store'])->name('store');
 Route::post('/storeLogin', [UserController::class, 'storeLogin'])->name('storeLogin');
 
@@ -35,19 +38,18 @@ Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name(
 Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('auth.google.callback');
 
 // CHANGE PASSWORD
-Route::get('/change-password', [UserController::class, 'showChangePasswordForm'])->name('password.change');
-Route::post('/change-password', [UserController::class, 'changePassword'])->name('password.update');
+Route::get('/change-password', [PasswordResetController::class, 'showChangePasswordForm'])->name('password.change');
+Route::post('/change-password', [PasswordResetController::class, 'changePassword'])->name('password.update');
 
 // FORGOT PASSWORD
-Route::get('/forgot-password', [UserController::class, 'forgot_password'])->name('account.forgot-password');
-Route::post('/forgot-password', [UserController::class, 'check_forgot_password'])->name('account.check-forgot-password');
+Route::get('/forgot-password', [PasswordResetController::class, 'forgot_password'])->name('account.forgot-password');
+Route::post('/forgot-password', [PasswordResetController::class, 'check_forgot_password'])->name('account.check-forgot-password');
 
 // RESET PASSWORD
-Route::get('/reset_password/{token}', [UserController::class, 'reset_password'])->name('account.reset_password');
-Route::post('/reset_password/{token}', [UserController::class, 'check_reset_password'])->name('check_reset_password');
+Route::get('/reset_password/{token}', [PasswordResetController::class, 'reset_password'])->name('account.reset_password');
+Route::post('/reset_password/{token}', [PasswordResetController::class, 'check_reset_password'])->name('check_reset_password');
     
-// UPDATE PROFILE
-Route::post('/account/update', [UserController::class, 'updateProfile'])->name('updateProfile');
+
     
 //=====ADMIN==================
 Route::get('/login', [AdminLoginController::class, 'show_login'])->name('login');
@@ -59,7 +61,6 @@ Route::get('/admin', [HomeAdminController::class, 'index'])
     ->name('admin.index');
 
 // Các route khác dành cho admin
-
 Route::middleware(['auth', CheckAdmin::class])->group(function () {
     Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/', [HomeAdminController::class, 'dashboard'])->name('dashboard');

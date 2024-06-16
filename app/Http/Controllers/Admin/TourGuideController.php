@@ -134,7 +134,6 @@ class TourGuideController extends Controller
             // Nếu tour guide đang liên kết với tour chưa kết thúc, không cho phép xoá
             return back()->with('error', 'Cannot delete this tour guide because it is linked to active tours.');
         }
-        
         $tourGuide->delete();
         $address = Address::findOrFail($tourGuide->idAddress);
         $address->delete();
