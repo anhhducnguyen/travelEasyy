@@ -1,19 +1,4 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <title>Booking Confirmed</title>
-</head>
-<body>
-    <h1>Booking Confirmed</h1>
-    <p>Dear: {{ $customerName }},</p>
-    <p>Booking Id: {{ $bookingId }} has been confirmed.</p>
-    <p>Name Tour: {{ $nameTour }},</p>
-    <p>Quantity Ticket: {{ $quantityTicket }}</p>
-    <p>Start day: {{ $startDay }},</p>
-    <p>End day: {{ $endDay }},</p>
-    <p>tourCost: {{ $tourCost }}</p>
-</body>
-</html> -->
+
 
 
 <!DOCTYPE html>
@@ -51,6 +36,12 @@
                 font-family: 'Lato';
                 font-style: italic;
                 font-weight: 700;
+                src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v11/HkF_qI1x_noxlxhrhMQYELO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+            }
+            @font-face {
+                font-family: 'Lato';
+                font-style: italic;
+                font-weight: 900;
                 src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v11/HkF_qI1x_noxlxhrhMQYELO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
             }
         }
@@ -126,7 +117,7 @@
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <!-- LOGO -->
         <tr>
-            <td bgcolor="#FFA73B" align="center">
+            <td bgcolor="#F3F3F5" align="center">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td align="center" valign="top" style="padding: 40px 10px 40px 10px;"> </td>
@@ -135,59 +126,61 @@
             </td>
         </tr>
         <tr>
-            <td bgcolor="#FFA73B" align="center" style="padding: 0px 10px 0px 10px;">
+            <td bgcolor="#F3F3F5" align="center" style="padding: 0px 10px 0px 10px;">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
-                        <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;">
-                            <h1 style="font-size: 48px; font-weight: 400; margin: 2;">Booking Confirmed!</h1> <img src=" https://img.icons8.com/clouds/100/000000/handshake.png" width="125" height="120" style="display: block; border: 0px;" />
+                        <td bgcolor="#ffffff" align="center" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #EE7402; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; letter-spacing: 4px; line-height: 48px;">
+                            <h1 style="font-size: 28px; font-weight: 900; margin: 2;">RESERVATION SUCCESSFUL</h1> <img src="https://p.kindpng.com/picc/s/10-106627_green-tick-icon-png-transparent-png.png" width="100" height="100" style="display: block; border: 0px;" />
+                            <!-- <hr style="border: none;border-top: 2px solid gray;margin: 20px 0;"> -->
+                             
                         </td>
                     </tr>
                 </table>
             </td>
         </tr>
+        
         <tr>
             <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px;">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;">Dear: {{ $customerName }},</p>
-                            <p style="margin: 0;">Booking Id: {{ $bookingId }} has been confirmed.</p>
+                            <p>Dear  <strong>{{ $customerName }},</strong></p>
+                            <p>We are pleased to inform you that your reservation has been successfully confirmed!</p>
+                            <p><strong>Reservation Details:</strong></p>
+                            <p style="margin: 0;">Reservation Code: {{ $bookingId }}</p>
+                            <p style="margin: 0;">Reservation Date: 16-06-2024</p>
                             <p style="margin: 0;">Name Tour: {{ $nameTour }},</p>
-                            <p style="margin: 0;">Quantity Ticket: {{ $quantityTicket }}</p>
+                            <p style="margin: 0;">Quantity: {{ $quantityTicket }}</p>  
                             <p style="margin: 0;">Start day: {{ $startDay }},</p>
                             <p style="margin: 0;">End day: {{ $endDay }},</p>
                             <p style="margin: 0;">Tour Cost: {{ $tourCost }}</p>
                         </td>
                     </tr>
                     <tr>
-                        <td bgcolor="#ffffff" align="left">
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td bgcolor="#ffffff" align="center" style="padding: 20px 30px 60px 30px;">
-                                        <table border="0" cellspacing="0" cellpadding="0">
-                                            <tr>
-                                                <td align="center" style="border-radius: 3px;" bgcolor="#FFA73B"><a href="#" target="_blank" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #FFA73B; display: inline-block;">View Booking</a></td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr> <!-- COPY -->
-                    <tr>
-                        <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 0px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;">If you have any questions, just reply to this email&mdash;we're always happy to help out.</p>
+                        <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 40px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                            <p><strong>Contact Details:</strong></p>
+                            <p style="margin: 0;">Email: 21012478@st.phenikaa-uni.edu.vn</p>
+                            <p style="margin: 0;">Phone Number: 0981.402.765</p>
+                            
                         </td>
                     </tr>
+                    
                     <tr>
-                        <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 40px 30px; border-radius: 0px 0px 4px 4px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
-                            <p style="margin: 0;">Cheers,<br>BBB Team</p>
+                        <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 0px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                            <p style="margin: 0;">If you have any questions or need further assistance, please do not hesitate to contact us via this email or call us at <strong>0981.402.765</strong></p>
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td bgcolor="#ffffff" align="left" style="padding: 15px 30px 40px 30px; border-radius: 0px 0px 4px 4px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
+                            <p style="margin: 0;">Best regards,<br>Travel Easy</p>
                         </td>
                     </tr>
                 </table>
             </td>
         </tr>
-        <tr>
+        <!-- <tr>
             <td bgcolor="#f4f4f4" align="center" style="padding: 30px 10px 0px 10px;">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
@@ -198,13 +191,13 @@
                     </tr>
                 </table>
             </td>
-        </tr>
+        </tr> -->
         <tr>
             <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px;">
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                     <tr>
                         <td bgcolor="#f4f4f4" align="left" style="padding: 0px 30px 30px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 18px;"> <br>
-                            <p style="margin: 0;">If these emails get annoying, please feel free to <a href="#" target="_blank" style="color: #111111; font-weight: 700;">unsubscribe</a>.</p>
+                            <!-- <p style="margin: 0;">You’re receiving this email because you are subscribed to <a href="#" target="_blank" style="color: #111111; font-weight: 700;">Travel Easy</a>.</p> -->
                         </td>
                     </tr>
                 </table>
