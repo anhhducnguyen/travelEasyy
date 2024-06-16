@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 
-class UserController extends Controller
+class AccountController extends Controller
 {
     public function index()
     {

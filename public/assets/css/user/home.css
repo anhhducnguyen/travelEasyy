@@ -393,8 +393,8 @@ body {
 .header {
     width: 100%;
     height: 606px;
-    background-image: url('../images/background1.png');
-    background-image: url('../images/background1.png');
+    background-image: url('../../images/background1.png');
+    background-image: url('../../images/background1.png');
     background-size: cover;
 }
 .header-top {
@@ -796,7 +796,7 @@ select.form-control:focus {
     margin-top: 80px;
     width: 100%;
     height: 504px;
-    background-image: url('../images/how-it-works-bg.png');
+    background-image: url('../../images/how-it-works-bg.png');
     background-size: cover;
     padding: 100px 18% 0px;
 }
@@ -1015,6 +1015,8 @@ select.form-control:focus {
 #navi-to-blog:hover {
     background-color: #be3737;
 }
+
+
 .footer {
     margin-top: 80px;
     background-color: #1d293e;
@@ -1057,15 +1059,14 @@ select.form-control:focus {
     margin: 0px 280px 0px 200px;
 }
 #logo-footer {
-    width: 194px;
-    height: 40px;
+    width: 170px;
+    height: 60px;
     margin-right: 250px;
 }
 .fa-brands {
     color: white;
     font-size: 20px;
     margin-right: 20px;
-    cursor: pointer;
 }
 #go-to-top{
     position: absolute;
@@ -1077,7 +1078,6 @@ select.form-control:focus {
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
 }
 #go-to-top:hover {
     background-color: #313a4a;
@@ -1085,7 +1085,6 @@ select.form-control:focus {
 .fa-angle-up {
     color: #999fa8;
 }
-
 
 /* Custom styles for success messages */
 .success-message {

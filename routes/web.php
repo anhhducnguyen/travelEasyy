@@ -1,14 +1,17 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\Admin\HomeAdminController;
 use App\Http\Controllers\Admin\HotelController;
+use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\TourController;
 use App\Http\Controllers\Admin\TourGuideController;
 use App\Http\Controllers\Admin\VehicleController;
 use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\User\ProfileController;
+use App\Http\Controllers\User\UserTourController;
 use App\Http\Middleware\CheckAdmin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -16,11 +19,12 @@ use App\Http\Controllers\GoogleController;
 
 // FE ROUTE
 // REGISTER__LOGIN__LOGOUT
-Route::get('/', [UserController::class, 'index'])->name('index');
-Route::get('/register', [UserController::class, 'register'])->name('register');
-Route::get('/loginn', [UserController::class, 'login'])->name('loginn');
-Route::get('/logout', [UserController::class, 'logout'])->name('logout');
-Route::get('/logout_up', [UserController::class, 'logout_up'])->name('logout_up');
+Route::get('/', [AccountController::class, 'index'])->name('index');
+Route::get('/register', [AccountController::class, 'register'])->name('register');
+Route::get('/loginn', [AccountController::class, 'login'])->name('loginn');
+Route::get('/logout', [AccountController::class, 'logout'])->name('logout');
+Route::get('/account', [AccountController::class, 'account'])->name('account');
+Route::get('/logout_up', [AccountController::class, 'logout_up'])->name('logout_up');
 
 // PROFILE AND UPDATE PROFILE
 Route::get('/account', [ProfileController::class, 'account'])->name('account');
@@ -29,11 +33,11 @@ Route::post('/account/update', [ProfileController::class, 'updateProfile'])->nam
 // Route::post('/account/update', [ProfileController::class, 'store'])->name('updateProfile');
 // Route::post('/account/update/{id}', [ProfileController::class, 'update'])->name('updateProfile');
 // EMAIL
-Route::get('/verify_account/{email}', [UserController::class, 'verify'])->name('account.verify');
+Route::get('/verify_account/{email}', [AccountController::class, 'verify'])->name('account.verify');
 
 // STORE REGISTER__LOGIN__LOGOUT
-Route::post('/store', [UserController::class, 'store'])->name('store');
-Route::post('/storeLogin', [UserController::class, 'storeLogin'])->name('storeLogin');
+Route::post('/store', [AccountController::class, 'store'])->name('store');
+Route::post('/storeLogin', [AccountController::class, 'storeLogin'])->name('storeLogin');
 
 // SSO
 Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
@@ -55,7 +59,6 @@ Route::post('/reset_password/{token}', [PasswordResetController::class, 'check_r
 Route::get('/login', [AdminLoginController::class, 'show_login'])->name('login');
 Route::post('/check_login', [AdminLoginController::class, 'check_login']);
 
-
 Route::get('/admin', [HomeAdminController::class, 'index'])
     ->middleware(CheckAdmin::class)
     ->name('admin.index');
@@ -76,8 +79,11 @@ Route::middleware(['auth', CheckAdmin::class])->group(function () {
 });
 
 
+// FE ROUTE
+Route::get('/tours', [UserTourController::class, 'index'])->name('tours.index');
+Route::get('/tours/{id}', [UserTourController::class, 'show'])->name('tours.show');
 
-Route::namespace('App\Http\Controllers\User')->group(function () {
-    Route::get('/tours', 'UserTourController@index')->name('tours.index');
-    Route::post('/tours/book', 'UserTourController@book')->name('tours.book');
-});
+
+
+
+

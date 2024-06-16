@@ -1,7 +1,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="text-center sidebar-brand-wrapper d-flex align-items-center">
-        <a class="sidebar-brand brand-logo" href="index.html"><img src="{{ asset('assets/images/logo_web.png') }}" alt="logo" style="width: 170px;height: 70px;margin-bottom: 10px;" /></a>
-        <a class="sidebar-brand brand-logo-mini pl-4 pt-3" href="index.html"><img src="{{ asset('assets/images/logo_mini.png') }}" alt="logo" /></a>
+        <a class="sidebar-brand brand-logo" href="{{route('index')}}"><img src="{{ asset('assets/images/logo_web.png') }}" alt="logo" style="width: 170px;height: 70px;margin-bottom: 10px;" /></a>
+        <a class="sidebar-brand brand-logo-mini pl-4 pt-3" href="{{route('index')}}"><img src="{{ asset('assets/images/logo_mini.png') }}" alt="logo" /></a>
     </div>
     <br><br>
     <ul class="nav">
@@ -15,18 +15,7 @@
             <a class="nav-link" href="{{ route('admin.tours.index') }}">
                 <i class="mdi mdi-format-list-bulleted menu-icon"></i>
                 <span class="menu-title">Tours</span>
-                <!-- <i class="menu-arrow"></i> -->
             </a>
-            <!-- <div class="collapse" id="ui-basic">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ route('admin.tours.create') }}">Create Tour</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ route('admin.tours.index') }}">Manage Tour</a>
-                </li>
-              </ul>
-            </div> -->
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{ route('admin.users.index') }}">
