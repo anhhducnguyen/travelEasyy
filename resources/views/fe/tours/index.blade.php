@@ -14,9 +14,6 @@
         </div>
         <div class="content-listings">
             <div class="search-filter-listings">
-                <!-- <div class="what-are-you-looking-for-filter">
-                    <input type="search" name="" id="" placeholder="What are you looking for?">
-                </div> -->
                 <div class="what-are-you-looking-for-filter">
                     <input type="search" name="tour_search" id="tour_search" placeholder="What are you looking for?" autocomplete="off">
                 </div>
@@ -33,10 +30,6 @@
                     <input type="range" name="" id="" min="0" max="160" value="50">
                     <p id="kilometer-range">50 km</p>
                 </div>
-                <!-- <div class="price-range-filter">
-                    <p>Price range</p>
-                    <i class="fa-solid fa-angle-down"></i>
-                </div> -->
                 <div class="price-range-filter">
                     <p>Price range</p>
                     <select id="price_range_select">
@@ -86,17 +79,6 @@
                         <span class="color-span">Showing</span>
                         <span>1 - 8 of 10 results</span>
                     </div>
-                    <!-- <div class="sort-listings">
-                        <div class="sort-by">
-                            <span class="color-span">Sort By:</span>
-                            <span>Default</span>
-                            <i class="fa-solid fa-angle-down"></i>  
-                        </div>
-                        <div class="arrange-filter-menu">
-                            <img src="{{asset('assets/images/grid-arrange.png')}}" alt="grid">
-                            <img src="{{asset('assets/images/list-menu.png')}}" alt="menu">
-                        </div>
-                    </div> -->
                     <div class="sort-listings">
                         <label for="sort_by">Sort By:</label>
                         <select id="sort_by">
@@ -135,7 +117,7 @@
                                 <span>{{ $tour->address->district }}, {{ $tour->address->city }}</span>
                             </div>
                             <h4>{{ $tour->name }}</h4>
-                            <p>{{ $tour->description }}</p>
+                            <p class="description">{{ $tour->description }}</p>
                         </div>
                         <a href="{{ route('tours.show', $tour->idTour) }}">
                             <button>Book now</button>

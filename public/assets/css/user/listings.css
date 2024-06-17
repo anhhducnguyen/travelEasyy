@@ -331,3 +331,15 @@ a {
 #vector2 {
     cursor: pointer;
 }
+
+/* sua o day */
+.description {
+    overflow: hidden;
+    max-height: 60px; 
+    transition: max-height 0.3s ease;
+}
+
+.list-box.expanded .description {
+    max-height: none; /* Mở rộng nội dung */
+}
+/* ------- */
