@@ -93,10 +93,10 @@ Route::middleware(['auth', CheckLogin::class])->group(function () {
 
 //RESTful API
 
-    Route::get('/api/tours', [ApiTourController::class, 'index']);           // Lấy danh sách tất cả các tour
-    Route::post('/api/tours', [ApiTourController::class, 'store']);          // Tạo mới một tour
-    Route::get('/api/tours/{id}', [ApiTourController::class, 'show']);       // Xem chi tiết một tour
-    Route::put('/api/tours/{id}', [ApiTourController::class, 'update']);     // Cập nhật thông tin một tour
-    Route::delete('/api/tours/{id}', [ApiTourController::class, 'destroy']); // Xóa một tour
+    // Route::get('/api/tours', [ApiTourController::class, 'index']);           // Lấy danh sách tất cả các tour
+    // Route::post('/api/tours', [ApiTourController::class, 'store']);          // Tạo mới một tour
+    // Route::get('/api/tours/{id}', [ApiTourController::class, 'show']);       // Xem chi tiết một tour
+    // Route::put('/api/tours/{id}', [ApiTourController::class, 'update']);     // Cập nhật thông tin một tour
+    // Route::delete('/api/tours/{id}', [ApiTourController::class, 'destroy']); // Xóa một tour
 
 
