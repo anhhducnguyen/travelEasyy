@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ApiTourController;
+use App\Http\Controllers\Api\ApiUserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,4 @@ Route::get('/user', function (Request $request) {
     // Route::delete('/tours/{id}', [ApiTourController::class, 'destroy']);
 // });
 
+Route::post("register", [ApiUserController::class, "register"]);

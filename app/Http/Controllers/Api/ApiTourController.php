@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Validator;
 class ApiTourController extends Controller
 {
     
+
+
     /**
      * Display a listing of the resource.
      *
