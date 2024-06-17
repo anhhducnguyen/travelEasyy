@@ -4,13 +4,16 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Tour;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class UserTourController extends Controller
 {
     public function index()
     {
-        $tours = Tour::with(['hotel', 'vehicle', 'tourGuide', 'address'])->get();
+        $tours = Tour::with(['hotel', 'vehicle', 'tourGuide', 'address'])
+                ->where('endDay', '>', Carbon::now())
+                ->get();
         return view('fe.tours.index', compact('tours'));
     }
     public function show($id)

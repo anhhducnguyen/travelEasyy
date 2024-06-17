@@ -168,7 +168,7 @@ a {
 .paragraph {
     font-size: 14px;
     display: -webkit-box;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-align: justify;
@@ -387,6 +387,10 @@ th, td {
     border-radius: 8px;
     border: 1px solid #f1f0ed;
     cursor: pointer;
+    display: none;
+}
+.list-box.visible {
+    display: block;
 }
 .lr-box {
     height: 160px;

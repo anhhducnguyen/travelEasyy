@@ -111,7 +111,7 @@
                                 <span>{{ $tour->address->district }}, {{ $tour->address->city }}</span>
                             </div>
                             <h4>{{ $tour->name }}</h4>
-                            <p>{{ $tour->description }}</p>
+                            <p class="description">{{ $tour->description }}</p>
                         </div>
                         <a href="{{ route('tours.show', $tour->idTour) }}">
                             <button>Book now</button>

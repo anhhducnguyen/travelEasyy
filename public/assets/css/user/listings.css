@@ -331,3 +331,10 @@ a {
 #vector2 {
     cursor: pointer;
 }
+
+.description {
+    overflow: hidden;
+    max-height: 60px; 
+    max-width: 290px;
+    transition: max-height 0.3s ease;
+}

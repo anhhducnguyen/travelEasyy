@@ -4,7 +4,7 @@
             <h4>Contact-us</h4>
             <div class="address">
                 <img src="{{ asset('assets/images/pin2.png')}}" alt="">
-                <p>Ngõ 14 Quang Trung, Hà Đông, Hà Nội</p>
+                <p>14 Quang Trung, Ha Đong, Haa Noi</p>
             </div>
             <div class="phone-number">
                 <img src="{{ asset('assets/images/phone.png')}}" alt="">
@@ -17,7 +17,7 @@
         </div>
         <div class="company">
             <h4>About Travel experience</h4>
-            <p><a href="#">Booking</a></p>
+            <p><a href="{{route('tours.index')}}">Booking</a></p>
             <p><a href="#">Contact us</a></p>
             <p><a href="#">Recruitment</a></p>
             <p><a href="#">About us</a></p>

@@ -62,6 +62,7 @@
 }
 #go-to-top:hover {
     background-color: #313a4a;
+    cursor: pointer;
 }
 .fa-angle-up {
     color: #999fa8;

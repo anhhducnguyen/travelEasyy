@@ -33,23 +33,23 @@ class TourController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'name' => 'string|max:50',
-            'startDay' => 'date',
-            'endDay' => 'date',
-            'cost' => 'numeric',
-            'city' => 'required|string|max:50',
-            'district' => 'required|string|max:50',
-            'ward' => 'required|string|max:50',
-            'detailAddress' => 'nullable|string|max:50',
-            'idHotel' => 'nullable|string|max:15',
-            'idVehicle' => 'nullable|string|max:15',
-            'idTourGuide' => 'nullable|string|max:15',
-            'imagePath' => 'string|max:255',
-            'description' => 'nullable|string',
-        ]);
-        
         try {
+            $data = $request->validate([
+                'name' => 'string|max:50',
+                'startDay' => 'date',
+                'endDay' => 'date',
+                'cost' => 'numeric',
+                'city' => 'required|string|max:50',
+                'district' => 'required|string|max:50',
+                'ward' => 'required|string|max:50',
+                'detailAddress' => 'nullable|string|max:50',
+                'idHotel' => 'nullable|string|max:15',
+                'idVehicle' => 'nullable|string|max:15',
+                'idTourGuide' => 'nullable|string|max:15',
+                'imagePath' => 'string|max:255',
+                'description' => 'nullable|string',
+            ]);
+            
             $address = Address::updateOrCreate([
                 'city' => $data['city'],
                 'district' => $data['district'],
@@ -76,7 +76,7 @@ class TourController extends Controller
             return redirect()->route('admin.tours.index')->with('success', 'Tour created successfully.');
     
         } catch (\Exception $e) {
-            return back()->withInput()->with('error', 'Failed to create tour.');
+            return back()->withInput()->with('error', 'Failed to create tour. ' . $e->getMessage());
         }
         
     }
@@ -92,23 +92,23 @@ class TourController extends Controller
 
     public function update(Request $request, $id)
     {
-        $data = $request->validate([
-            'name' => 'string|max:50',
-            'startDay' => 'date',
-            'endDay' => 'date',
-            'cost' => 'numeric',
-            'city' => 'required|string|max:50',
-            'district' => 'required|string|max:50',
-            'ward' => 'required|string|max:50',
-            'detailAddress' => 'nullable|string|max:50',
-            'idHotel' => 'nullable|string|max:15',
-            'idVehicle' => 'nullable|string|max:15',
-            'idTourGuide' => 'nullable|string|max:15',
-            'imagePath' => 'string|max:255',
-            'description' => 'nullable|string',
-        ]);
-        
         try {
+            $data = $request->validate([
+                'name' => 'string|max:50',
+                'startDay' => 'date',
+                'endDay' => 'date',
+                'cost' => 'numeric',
+                'city' => 'required|string|max:50',
+                'district' => 'required|string|max:50',
+                'ward' => 'required|string|max:50',
+                'detailAddress' => 'nullable|string|max:50',
+                'idHotel' => 'nullable|string|max:15',
+                'idVehicle' => 'nullable|string|max:15',
+                'idTourGuide' => 'nullable|string|max:15',
+                'imagePath' => 'string|max:255',
+                'description' => 'nullable|string',
+            ]);
+        
             $tour = Tour::findOrFail($id);
             $tour->update([
                 'name' => $data['name'],
@@ -133,7 +133,7 @@ class TourController extends Controller
             return redirect()->route('admin.tours.index')->with('success', 'Tour updated successfully.');    
     
         } catch (\Exception $e) {
-            return back()->withInput()->with('error', 'Failed to updated tour.');
+            return back()->withInput()->with('error', 'Failed to updated tour. ' .$e->getMessage());
         }
         
     }

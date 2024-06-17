@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('quantityTicket')->nullable();
             $table->enum('confirmation_status', ['waiting_for_admin', 'confirmed'])->default('waiting_for_admin'); // Trạng thái xác nhận
             $table->enum('payment_status', ['paid', 'unpaid'])->default('unpaid'); // Trạng thái thanh toán
+            $table->timestamps();
         });
     }
 

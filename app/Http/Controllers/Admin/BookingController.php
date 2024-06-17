@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\AdminConfirmation;
 use App\Models\Booking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class BookingController extends Controller
 {
@@ -23,6 +25,9 @@ class BookingController extends Controller
         $booking->confirmation_status = 'confirmed';
         $booking->save();
 
+        $booking->load('user', 'tour');
+        
+        Mail::to($booking->user->email)->send(new AdminConfirmation($booking->user, $booking->tour, $booking));
         return redirect()->back()->with('success', 'Booking confirmed successfully.');
     }
     public function pay(Request $request, $id)
