@@ -27,13 +27,13 @@ class VehicleController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'name' => 'nullable|string|max:50',
-            'licensePlate' => ['nullable','string','max:20',Rule::unique('tblvehicle', 'licensePlate'),],
-        ]);
-        $newId = IdGenerator::generateId('VH', Vehicle::class, 'idVehicle');   
-
         try {
+            $data = $request->validate([
+                'name' => 'nullable|string|max:50',
+                'licensePlate' => ['nullable','string','max:20',Rule::unique('tblvehicle', 'licensePlate'),],
+            ]);
+            $newId = IdGenerator::generateId('VH', Vehicle::class, 'idVehicle');   
+
             Vehicle::create([
                 'idVehicle' => $newId,
                 'name' => $data['name'],
@@ -41,8 +41,8 @@ class VehicleController extends Controller
             ]);
     
             return redirect()->route('admin.vehicles.index')->with('success', 'Vehicle created successfully.');
-        } catch (\Exception) {
-            return back()->withInput()->with('error', 'Failed to create vehicle.');
+        } catch (\Exception $e) {
+            return back()->withInput()->with('error', 'Failed to create vehicle.' . $e->getMessage());
         }
     }
 
@@ -54,16 +54,16 @@ class VehicleController extends Controller
 
     public function update(Request $request, $id)
     {
-        $data = $request->validate([
-            'name' => 'nullable|string|max:50',
-            'licensePlate' => [
-            'nullable',
-            'string',
-            'max:20',
-            Rule::unique('tblvehicle', 'licensePlate')->ignore($id, 'idVehicle'), ],
-        ]);
-
         try {
+            $data = $request->validate([
+                'name' => 'nullable|string|max:50',
+                'licensePlate' => [
+                'nullable',
+                'string',
+                'max:20',
+                Rule::unique('tblvehicle', 'licensePlate')->ignore($id, 'idVehicle'), ],
+            ]);
+
             $vehicle = Vehicle::findOrFail($id);
             
             $vehicle->update([
@@ -73,7 +73,7 @@ class VehicleController extends Controller
     
             return redirect()->route('admin.vehicles.index')->with('success', 'Vehicle updated successfully.');
         } catch (\Exception $e) {
-            return back()->withInput()->with('error', 'Failed to update vehicle.');
+            return back()->withInput()->with('error', 'Failed to update vehicle.' . $e->getMessage());
         }
     }
 

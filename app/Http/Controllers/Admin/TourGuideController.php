@@ -26,29 +26,29 @@ class TourGuideController extends Controller
 
     public function store(Request $request)
     {
-        // Validate the request data
-        $data = $request->validate([
-            'name' => 'nullable|string|max:50',
-            'city' => 'required|string|max:50',
-            'district' => 'required|string|max:50',
-            'ward' => 'required|string|max:50',
-            'detailAddress' => 'nullable|string|max:50',
-            'phone' => [
-                'nullable',
-                'string',
-                'max:50',
-                Rule::unique('tbltourguide', 'phone'), 
-            ],
-
-            'email' => [
-                'nullable',
-                'string',
-                'max:50',
-                Rule::unique('tbltourguide', 'email'), 
-            ],
-        ]);
-
         try {
+            // Validate the request data
+            $data = $request->validate([
+                'name' => 'nullable|string|max:50',
+                'city' => 'required|string|max:50',
+                'district' => 'required|string|max:50',
+                'ward' => 'required|string|max:50',
+                'detailAddress' => 'nullable|string|max:50',
+                'phone' => [
+                    'nullable',
+                    'string',
+                    'max:50',
+                    Rule::unique('tbltourguide', 'phone'), 
+                ],
+
+                'email' => [
+                    'nullable',
+                    'string',
+                    'max:50',
+                    Rule::unique('tbltourguide', 'email'), 
+                ],
+            ]);
+        
             $address = Address::create([
                 'city' => $data['city'],
                 'district' => $data['district'],
@@ -67,7 +67,7 @@ class TourGuideController extends Controller
     
             return redirect()->route('admin.tourguides.index')->with('success', 'Tour Guide created successfully.');
         } catch (\Exception $e) {
-            return back()->withInput()->with('error', 'Failed to create tour guide.');
+            return back()->withInput()->with('error', 'Failed to create tour guide.' . $e->getMessage());
         }
 
     }
@@ -81,29 +81,29 @@ class TourGuideController extends Controller
 
     public function update(Request $request, $id)
     {
-        $data = $request->validate([
-            'city' => 'required|string|max:50',
-            'district' => 'required|string|max:50',
-            'ward' => 'required|string|max:50',
-            'detailAddress' => 'nullable|string|max:50',
-            'name' => 'nullable|string|max:50',
-            
-            'phone' => [
-                'nullable',
-                'string',
-                'max:50',
-                Rule::unique('tbltourguide', 'phone')->ignore($id, 'idTourGuide'), 
-            ],
-
-            'email' => [
-                'nullable',
-                'string',
-                'max:50',
-                Rule::unique('tbltourguide', 'email')->ignore($id, 'idTourGuide'), 
-            ],
-        ]);
-
         try {
+            $data = $request->validate([
+                'city' => 'required|string|max:50',
+                'district' => 'required|string|max:50',
+                'ward' => 'required|string|max:50',
+                'detailAddress' => 'nullable|string|max:50',
+                'name' => 'nullable|string|max:50',
+                
+                'phone' => [
+                    'nullable',
+                    'string',
+                    'max:50',
+                    Rule::unique('tbltourguide', 'phone')->ignore($id, 'idTourGuide'), 
+                ],
+
+                'email' => [
+                    'nullable',
+                    'string',
+                    'max:50',
+                    Rule::unique('tbltourguide', 'email')->ignore($id, 'idTourGuide'), 
+                ],
+            ]);
+        
             $tourGuide = TourGuide::findOrFail($id);
     
             $tourGuide->update([
@@ -121,7 +121,7 @@ class TourGuideController extends Controller
     
             return redirect()->route('admin.tourguides.index')->with('success', 'Tour guide updated successfully.');
         } catch (\Exception $e) {
-            return back()->withInput()->with('error', 'Failed to update tour guide.');
+            return back()->withInput()->with('error', 'Failed to update tour guide. ' . $e->getMessage());
         }
     }
 

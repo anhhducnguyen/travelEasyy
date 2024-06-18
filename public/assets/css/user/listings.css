@@ -332,6 +332,7 @@ a {
     cursor: pointer;
 }
 
+<<<<<<< HEAD
 /* sua o day */
 .description {
     overflow: hidden;
@@ -343,3 +344,11 @@ a {
     max-height: none; /* Mở rộng nội dung */
 }
 /* ------- */
+=======
+.description {
+    overflow: hidden;
+    max-height: 60px; 
+    max-width: 290px;
+    transition: max-height 0.3s ease;
+}
+>>>>>>> phongvu

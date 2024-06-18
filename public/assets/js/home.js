@@ -1,63 +1,64 @@
-// $(document).ready(function() {
-//     $("#go-to-top").click(function() {
-//         $("html, body").animate({ scrollTop: 0 }, 2000);
-//     });
-// });
-
-// // control listings box
-const boxGroups = document.querySelectorAll(".box-group");
-const dots = document.querySelectorAll(".dot-ls");
-// const listingsRatings = document.querySelector(".listings-ratings");
-let currentIndex = 0;
-
-function showBoxGroup(index) {
-    boxGroups.forEach((group) => {
-        group.style.display = "none";
-    });
-    boxGroups[index].style.display = "flex";
-    boxGroups[index].style.gap = "20px";
-    updateDots(index);
-}
-function updateDots(index) {
-    dots.forEach((dot, dotIndex) => {
-        dot.classList.remove("active");
-        if (dotIndex === index) {
-            dot.style.width = "15px";
-            dot.style.height = "5px";
-            dot.style.backgroundColor = "#222222";
-            dot.style.borderRadius = "20px";
-            dot.style.marginRight = "10px";
-        } else {
-            dot.style.width = "5px";
-            dot.style.height = "5px";
-            dot.style.backgroundColor = "#dedede";
-            dot.style.borderRadius = "50%";
-            dot.style.marginRight = "10px";
-        }
-    });
-    dots[index].classList.add("active");
-}
-
-dots.forEach((dot, index) => {
-    dot.addEventListener("click", () => {
-        showBoxGroup(index);
-        currentIndex = index;
+$(document).ready(function() {
+    $("#go-to-top").click(function() {
+        $("html, body").animate({ scrollTop: 0 }, 1000);
     });
 });
-const prevButton = document.querySelector(".prev-button");
-const nextButton = document.querySelector(".next-button");
 
-prevButton.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + boxGroups.length) % boxGroups.length;
+
+document.addEventListener("DOMContentLoaded", function() {
+    const boxGroups = document.querySelectorAll(".box-group");
+    const dots = document.querySelectorAll(".dot-ls");
+    let currentIndex = 0;
+
+    function showBoxGroup(index) {
+        boxGroups.forEach((group, groupIndex) => {
+            group.style.display = groupIndex === index ? "flex" : "none";
+        });
+        updateDots(index);
+    }
+
+    function updateDots(index) {
+        dots.forEach((dot, dotIndex) => {
+            dot.classList.toggle("active", dotIndex === index);
+            if (dotIndex === index) {
+                dot.style.width = "15px";
+                dot.style.height = "5px";
+                dot.style.backgroundColor = "#222222";
+                dot.style.borderRadius = "20px";
+                dot.style.marginRight = "10px";
+            } else {
+                dot.style.width = "5px";
+                dot.style.height = "5px";
+                dot.style.backgroundColor = "#dedede";
+                dot.style.borderRadius = "50%";
+                dot.style.marginRight = "10px";
+            }
+        });
+    }
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            showBoxGroup(index);
+            currentIndex = index;
+        });
+    });
+
+    const prevButton = document.querySelector(".prev-button");
+    const nextButton = document.querySelector(".next-button");
+
+    prevButton.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + boxGroups.length) % boxGroups.length;
+        showBoxGroup(currentIndex);
+    });
+
+    nextButton.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % boxGroups.length;
+        showBoxGroup(currentIndex);
+    });
+
     showBoxGroup(currentIndex);
 });
 
-nextButton.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % boxGroups.length;
-    showBoxGroup(currentIndex);
-});
-
-showBoxGroup(currentIndex);
 
 
 // Sử dụng flatpickr cho input chọn ngày

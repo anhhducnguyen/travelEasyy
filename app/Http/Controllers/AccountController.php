@@ -12,10 +12,7 @@ use Illuminate\Support\Facades\Mail;
 
 class AccountController extends Controller
 {
-    public function index()
-    {
-        return view('fe.homePage');
-    }
+
     public function register()
     {
         return view('account.registerr');

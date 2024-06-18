@@ -17,11 +17,14 @@ class CheckAdmin
     public function handle(Request $request, Closure $next): Response
     {
         // Check if user is authenticated and has an 'admin' role
-        if (Auth::check() && Auth::user()->role === 'admin') {
-            return $next($request);
+        if (Auth::check()) {
+            if (Auth::user()->role === 'admin') {
+                return $next($request);
+            } elseif (Auth::user()->role === 'user') {
+                return redirect('/')->with('error', 'You do not have access to this page');
+            }
         }
-
-        // Redirect to home page or show a forbidden message
-        return redirect('/')->with('error', 'You do not have access to this page');
+        // Redirect to admin login page if not authenticated or not admin
+        return redirect('/login');
     }
 }

@@ -174,7 +174,7 @@
                 <h6>Price detail</h6>
                 <div class="price-detail-booking">
                     <div class="fee-row">
-                        <p>{{ $tour->cost }} $ x Guest(s)</p>
+                        <p>Cost</p>
                         <p class="fee-b" id="basePrice">{{ $tour->cost }}</p>
                     </div>
                     <div class="fee-row">
@@ -186,7 +186,14 @@
                     <h6>Total</h6>
                     <p id="totalPrice">{{ $tour->cost + 3 }}</p>
                 </div>
-                <button id="btn-book">Book now</button>
+                <form id="bookingForm" action="{{ route('checkout.storeSession') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="tourId" value="{{ $tour->idTour }}">
+                    <input type="hidden" name="serviceFee" value="3">
+                    <input type="hidden" name="totalPrice" id="formTotalPrice" value="{{ $tour->cost + 3 }}">
+                    <input type="hidden" name="guestCount" id="formGuestCount" value="1">
+                    <button type="submit" id="btn-book">Book now</button>
+                </form>
             </div>
 
 
@@ -287,7 +294,7 @@
                     
                 @endforeach
         </div>
-        <button id="view-all-ls">View all listings</button>
+        <button id="view-all-ls" onclick="toggleListings()">View all listings</button>
     </div>
 @endsection
 
