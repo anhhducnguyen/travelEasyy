@@ -98,5 +98,3 @@ Route::middleware(['auth', CheckLogin::class])->group(function () {
     // Route::get('/api/tours/{id}', [ApiTourController::class, 'show']);       // Xem chi tiết một tour
     // Route::put('/api/tours/{id}', [ApiTourController::class, 'update']);     // Cập nhật thông tin một tour
     // Route::delete('/api/tours/{id}', [ApiTourController::class, 'destroy']); // Xóa một tour
-
-

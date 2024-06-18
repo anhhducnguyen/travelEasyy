@@ -329,7 +329,7 @@
             <button id="navi-to-blog">View all articles</button>
         </div>
 @include('fe.layouts.footer')
-
+<!-- test -->
     <script src="{{ asset('assets/js/home.js') }}"></script>
 
 </body>

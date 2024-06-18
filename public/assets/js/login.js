@@ -57,3 +57,30 @@ document.getElementById('loginButton').addEventListener('click', function(event)
 
 // ============================================================
 
+let eyeicon = document.getElementById("eyeicon");
+        let password = document.getElementById("password");
+
+        let eyeOpenUrl = "assets/images/eye-open.png";
+        let eyeCloseUrl = "assets/images/eye-close.png";
+
+        eyeicon.onclick = function() {
+            if (password.type == "password") {
+                password.type = "text";
+                eyeicon.src = eyeOpenUrl;
+            } else {
+                password.type = "password";
+                eyeicon.src = eyeCloseUrl;
+            }
+        }
+
+        document.getElementById('loginButton').addEventListener('click', function(event) {
+            event.preventDefault(); 
+
+            document.body.classList.add('body-loading');
+            document.querySelector('.container').classList.add('hidden');
+            document.getElementById('loadingSpinner').style.display = 'block';
+
+            setTimeout(function() {
+                document.getElementById('loginForm').submit();
+            }, 500);
+        });
