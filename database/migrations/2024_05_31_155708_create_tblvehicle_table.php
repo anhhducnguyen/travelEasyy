@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('tblvehicle', function (Blueprint $table) {
             $table->string('idVehicle', 15)->primary();
-            $table->string('name', 50)->nullable();
-            $table->string('licensePlate', 20)->nullable();
-            $table->timestamps();
+            $table->string('name', 50);
+            $table->string('licensePlate', 20)->unique();
         });
     }
 

@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('tblhotel', function (Blueprint $table) {
             $table->string('idHotel', 15)->primary();
-            $table->string('idAddress', 15)->nullable();
-            $table->string('name', 50)->nullable();
-            $table->timestamps();
+            $table->string('name', 50);
+            $table->unsignedBigInteger('idAddress')->nullable();
         });
     }
 

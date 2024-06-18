@@ -6,17 +6,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable;
+    protected $table = 'users';
+    protected $primaryKey = 'id';
     protected $fillable = [
         'name', 
         'email', 
         'email_verified_at', 
         'password',
-        'google_id'
+        'google_id',
+        'phone',
+        'idAdress'
     ];
 
     /**
@@ -52,4 +56,21 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+    public function hasVerifiedEmail()
+    {
+        return $this->email_verified_at !== null;
+    }
+    
+    public function address()
+    {
+        return $this->belongsTo(Address::class, 'idAddress', 'idAddress');
+    }
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class, 'idUser', 'id');
+    }
+
+ 
 }

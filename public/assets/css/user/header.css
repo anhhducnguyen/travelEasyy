@@ -1,0 +1,49 @@
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #ED4949;
+    height: 80px;
+    width: 100%;
+    justify-content: space-around;
+}
+.header>a>img {
+    margin: 5px 70px 0px 30px;
+    width: 170px;
+    height: 70px;
+}
+.search-bar-looking-for {
+    margin-right: 380px;
+    display: flex;
+    align-items: center;
+}
+.search-bar-looking-for input {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    outline: none;
+    margin-right: 25px;
+    width: 170px;
+    height: 15.5px;
+}
+.search-bar-looking-for input::placeholder {
+    color: white;
+}
+.search-bar-looking-for input:focus {
+    color: white;
+}
+.search-bar-looking-for img {
+    width: 14px;
+    height: 15.5px;
+}
+.home-listings-blog a{
+    color: white;
+    margin-right: 30px;
+    font-size: 17px;
+    line-height: 21px;
+}
+.home-listings-blog a:nth-child(3) {
+    margin-right: 100px;
+}
+.home-listings-blog a:hover{
+    color: rgb(150, 1, 1);
+    text-decoration: underline;
+}
