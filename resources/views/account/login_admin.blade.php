@@ -1,26 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login</title>
-</head>
-<body>
-    <h1>Trang Login</h1>
-    <form action="/check_login" method="POST">
-        @csrf
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <button type="submit">Login</button>
-    </form>
-</body>
-</html> -->
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -201,7 +178,6 @@
         <div class="login-left">
             <div class="login-header">
                 <h1>Login</h1>
-                <!-- <p>Please login to continue......</p> -->
             </div>
             <form action="/check_login" method="POST" id="loginForm" class="login-form" autocomplete="off">
                 <div>
@@ -246,8 +222,6 @@
                
             </form>
         </div>
-        <!-- <div class="login-right">
-        </div> -->
     </div>
 
     <div id="loadingSpinner" class="sk-fading-circle">
@@ -294,6 +268,7 @@
             }, 500);
         });
     </script>
+    <script src="{{ asset('assets/js/login.js') }}"></script>
 </body>
 
 </html>

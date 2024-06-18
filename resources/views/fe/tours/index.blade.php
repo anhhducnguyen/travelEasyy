@@ -14,8 +14,11 @@
         </div>
         <div class="content-listings">
             <div class="search-filter-listings">
-                <div class="what-are-you-looking-for-filter">
+                <!-- <div class="what-are-you-looking-for-filter">
                     <input type="search" name="" id="" placeholder="What are you looking for?">
+                </div> -->
+                <div class="what-are-you-looking-for-filter">
+                    <input type="search" name="tour_search" id="tour_search" placeholder="What are you looking for?" autocomplete="off">
                 </div>
                 <div class="categories-filter">
                     <p>All Categories</p>
@@ -30,9 +33,18 @@
                     <input type="range" name="" id="" min="0" max="160" value="50">
                     <p id="kilometer-range">50 km</p>
                 </div>
-                <div class="price-range-filter">
+                <!-- <div class="price-range-filter">
                     <p>Price range</p>
                     <i class="fa-solid fa-angle-down"></i>
+                </div> -->
+                <div class="price-range-filter">
+                    <p>Price range</p>
+                    <select id="price_range_select">
+                        <option value="all">All</option>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
                 </div>
                 <div class="tags-filter">
                     <h4>Tags</h4>
@@ -74,12 +86,24 @@
                         <span class="color-span">Showing</span>
                         <span>1 - 8 of 10 results</span>
                     </div>
-                    <div class="sort-listings">
+                    <!-- <div class="sort-listings">
                         <div class="sort-by">
                             <span class="color-span">Sort By:</span>
                             <span>Default</span>
                             <i class="fa-solid fa-angle-down"></i>  
                         </div>
+                        <div class="arrange-filter-menu">
+                            <img src="{{asset('assets/images/grid-arrange.png')}}" alt="grid">
+                            <img src="{{asset('assets/images/list-menu.png')}}" alt="menu">
+                        </div>
+                    </div> -->
+                    <div class="sort-listings">
+                        <label for="sort_by">Sort By:</label>
+                        <select id="sort_by">
+                            <option value="default">Default</option>
+                            <option value="price_low_to_high">Price: Low to High</option>
+                            <option value="price_high_to_low">Price: High to Low</option>
+                        </select>
                         <div class="arrange-filter-menu">
                             <img src="{{asset('assets/images/grid-arrange.png')}}" alt="grid">
                             <img src="{{asset('assets/images/list-menu.png')}}" alt="menu">

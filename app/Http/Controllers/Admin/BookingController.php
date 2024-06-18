@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Mail\AdminConfirmation;
+use App\Mail\BookingConfirmed;
 use App\Models\Booking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -17,18 +17,36 @@ class BookingController extends Controller
         return view('admin.bookings.index', compact('bookings'));
     }
 
+    // public function confirm(Request $request, $id)
+    // {
+    //     $booking = Booking::findOrFail($id);
+
+    //     // Update trạng thái
+    //     $booking->confirmation_status = 'confirmed';
+    //     $booking->save();
+        
+
+    //     return redirect()->back()->with('success', 'Booking confirmed successfully.');
+    // }
     public function confirm(Request $request, $id)
     {
         $booking = Booking::findOrFail($id);
 
-        // Update trạng thái
-        $booking->confirmation_status = 'confirmed';
-        $booking->save();
+        // Tìm người dùng liên quan đến booking
+        $user = $booking->user;
 
-        $booking->load('user', 'tour');
-        
-        Mail::to($booking->user->email)->send(new AdminConfirmation($booking->user, $booking->tour, $booking));
-        return redirect()->back()->with('success', 'Booking confirmed successfully.');
+        if ($user && !empty($user->email)) {
+            // Update trạng thái
+            $booking->confirmation_status = 'confirmed';
+            $booking->save();
+
+            // Gửi email xác nhận
+            Mail::to($user->email)->send(new BookingConfirmed($booking));
+
+            return redirect()->back()->with('success', 'Booking confirmed successfully and email sent.');
+        } else {
+            return redirect()->back()->with('error', 'Booking confirmed but customer email is missing.');
+        }
     }
     public function pay(Request $request, $id)
     {
