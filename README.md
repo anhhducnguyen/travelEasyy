@@ -24,6 +24,16 @@ restaurants, hotels... suitable for tours)
 - Decentralize admin and user rights
 2. **Vu Minh Phong**
 
+## Web:  
+Link Web: [Travel Easy](https://still-fortress-15846-1eacd8faf222.herokuapp.com/)
+
+### Administrator account: 
+- Email: admin@gmail.com
+- Password: 1234
+
+### User account (You can register to create a new one): 
+- Email: user@gmail.com
+- Password: 123456
 
 
 ## Report: 
