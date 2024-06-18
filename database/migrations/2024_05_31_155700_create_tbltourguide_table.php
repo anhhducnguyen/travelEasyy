@@ -13,11 +13,10 @@ return new class extends Migration
     {
         Schema::create('tbltourguide', function (Blueprint $table) {
             $table->string('idTourGuide', 15)->primary();
-            $table->string('idAddress', 15)->nullable();
-            $table->string('name', 50)->nullable();
+            $table->unsignedBigInteger('idAddress')->nullable();
+            $table->string('name', 50);
             $table->string('phone', 50)->nullable();
-            $table->string('email', 50)->nullable();
-            $table->timestamps();
+            $table->string('email', 50)->unique();
         });
     }
 

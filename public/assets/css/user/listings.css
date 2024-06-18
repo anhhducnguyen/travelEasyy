@@ -1,0 +1,354 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Jost', sans-serif;
+}
+a {
+    text-decoration: none;
+}
+
+.content {
+    padding: 0px 18%;
+}
+.listings-header {
+    text-align: center;
+    margin: 80px 0px 40px 0px;
+}
+.listings-header h2 {
+    font-size: 25px;
+    line-height: 30px;
+    margin-bottom: 10px;
+}
+.listings-header p {
+    color: #717171;
+    line-height: 18px;
+}
+.content-listings {
+    display: flex;
+    gap: 20px;
+}
+.search-filter-listings {
+    background-color: #f4f4f4;
+    flex-basis: 30%;
+    padding: 0px 20px;
+    color: #717171;
+    height: fit-content;
+}
+.listings-container {
+    flex-basis: 70%;
+}
+.what-are-you-looking-for-filter {
+    width: 100%;
+    margin-top: 30px;
+}
+.what-are-you-looking-for-filter input{
+    width: 100%;
+    height: 45px;
+    display: flex;
+    padding: 0px 20px;
+    border: 1px solid #234DD4;
+    outline: none;
+    border-radius: 8px;
+}
+.categories-filter {
+    width: 100%;
+    height: 45px;
+    background-color: #fff;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+    border-radius: 8px;
+    border: 1px solid #eaeaea;
+}
+.fa-angle-down {
+    font-size: 14px;
+}
+.location-filter {
+    width: 100%;
+    height: 45px;
+    background-color: #fff;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+    border-radius: 8px;
+    border: 1px solid #eaeaea;
+}
+.radius-around-filter {
+    margin-top: 20px;  
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+.radius-around-filter p {
+    font-size: 14px;
+}
+.radius-around-filter input {
+    margin: 10px 0px;
+    accent-color: #234DD4;
+}
+#kilometer-range {
+    width: 60px;
+    height: 30px;
+    background-color: #dfdfdf;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    margin-left: 60px;
+}
+.price-range-filter {
+    width: 100%;
+    height: 45px;
+    background-color: #fff;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+    border-radius: 8px;
+    border: 1px solid #eaeaea;
+}
+.tags-filter {
+    margin-top: 20px;
+}
+.tags-filter h4 {
+    margin-bottom: 20px;
+    color: black;
+}
+.tags-box {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.tags-box input {
+    width: 16px;
+    height: 16px;
+    accent-color: #234DD4;
+}
+#search-filter {
+    width: 100%;
+    height: 45px;
+    background-color: #ED4949;
+    border: none;
+    border-radius: 8px;
+    margin-top: 10px;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+}
+#search-filter:hover {
+    background-color: #be3737;
+}
+#reset-filter {
+    text-align: center;
+    margin: 15px 0px 20px 0px;
+    font-size: 13px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.listings-container-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.listings-container-header span {
+    font-size: 14px;
+}
+.color-span {
+    color: #717171;
+}
+.sort-by .fa-angle-down {
+    margin-left: 10px;
+}
+.sort-listings {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.arrange-filter-menu {
+    margin-left: 40px;
+    display: flex;
+    gap: 10px;
+}
+.arrange-filter-menu img {
+    width: 35px;
+    height: 35px;
+}
+.listings-list-booking {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Tạo 2 cột */
+    grid-gap: 20px; 
+}
+.list-box {
+    width: 100%;
+    height: 360px;
+    padding: 8px 5px 5px 5px;
+    background-color: white;
+    border-radius: 8px;
+    border: 2px solid #f1f0ed;
+    cursor: pointer;
+}
+.lr-box {
+    height: 160px;
+    width: 100%;
+}
+.upper-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px; 
+    overflow: hidden;
+    cursor: pointer;
+}
+.upper-img img{
+    width: 100%;
+    height: 100%;
+    transition: transform .5s ease;
+}
+.upper-img:hover img {
+    transform: scale(1.2);
+}
+.star-ratings {
+    width: 100px;
+    height: 14px;
+    position: relative;
+    bottom: 100px;
+    left: 12px;
+}
+.price{
+    width: 68px;
+    height: 26px;
+    border: 1px solid white;
+    text-align: center;
+    border-radius: 8px;
+    position: relative;
+    bottom: 150px;
+    left: 10px;
+}
+.price a {
+    font-weight: 700;
+    font-size: 12px;
+    color: white; 
+    line-height: 26px;
+}
+.icon-heart {
+    width: 25px;
+    height: 25px;
+    border: 1px solid white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    bottom: 177px;
+    left: 260px;
+}
+.fa-heart {
+    color: white;
+    font-size: 13px;
+    font-weight: 200;
+    transition: transform 0.3s ease;
+}
+.profile-lr {
+    width: 35px;
+    height: 35px;
+    position: relative;
+    bottom: 68px;
+    left: 145px;
+}
+.bottom-img {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.location {
+    margin-bottom: 10px;
+}
+.location img {
+    width: 13px;
+    height: 13px;
+    margin-right: 5px;
+}
+.location span {
+    font-size: 13px;
+}
+.desc-of-lr {
+    padding: 10px;
+    height: 130px;
+}
+.desc-of-lr h4 {
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 10px;
+    /* height: 36px; */
+}
+.desc-of-lr p {
+    font-size: 12px;
+    line-height: 15px;
+    color: #717171;
+}
+.list-box button {
+    border-radius: 8px;
+    width: 67px;
+    height: 28px;
+    background-color: #ed4949;
+    border: none;
+    color: white;
+    font-size: 10px;
+    position: relative;
+    left: 225px;
+    top: 15px;
+    cursor: pointer;
+}
+.list-box button:hover {
+    background-color: #be3737;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+.pagi {
+    margin-right: 25px;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+#vector1 {
+    margin-right: 25px;
+    cursor: pointer;
+}
+#vector2 {
+    cursor: pointer;
+}
+
+<<<<<<< HEAD
+/* sua o day */
+.description {
+    overflow: hidden;
+    max-height: 60px; 
+    transition: max-height 0.3s ease;
+}
+
+.list-box.expanded .description {
+    max-height: none; /* Mở rộng nội dung */
+}
+/* ------- */
+=======
+.description {
+    overflow: hidden;
+    max-height: 60px; 
+    max-width: 290px;
+    transition: max-height 0.3s ease;
+}
+>>>>>>> phongvu
