@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\HomeAdminController;
 use App\Http\Controllers\Admin\HotelController;
 use App\Http\Controllers\Admin\TourController;
 use App\Http\Controllers\Admin\TourGuideController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VehicleController;
 
 use App\Http\Controllers\Api\ApiTourController;
@@ -17,9 +18,13 @@ use App\Http\Controllers\User\UserTourController;
 use App\Http\Middleware\CheckAdmin;
 use App\Http\Middleware\CheckLogin;
 use App\Http\Middleware\EnsureTokenIsValid;
+
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\User\UserHomeController;
+use Illuminate\Support\Facades\URL;
+
 
 // FE ROUTE
 // REGISTER__LOGIN__LOGOUT
@@ -68,7 +73,7 @@ Route::middleware(['auth', CheckAdmin::class])->group(function () {
         Route::get('/', [HomeAdminController::class, 'dashboard'])->name('dashboard');
         Route::resource('vehicles', VehicleController::class);
         Route::resource('tourguides', TourGuideController::class);
-        Route::resource('users', App\Http\Controllers\Admin\UserController::class);
+        Route::resource('users', UserController::class);
         Route::resource('hotels', HotelController::class);
         Route::resource('tours', TourController::class);
         Route::resource('bookings', BookingController::class);
@@ -90,6 +95,9 @@ Route::middleware(['auth', CheckLogin::class])->group(function () {
     Route::post('/bookings-confirm', [CheckoutController::class, 'confirmBooking'])->name('bookings.confirm');
 });
 
+if(App::environment('production')){
+    URL::forceScheme('https');
+}
 
 //RESTful API
 
