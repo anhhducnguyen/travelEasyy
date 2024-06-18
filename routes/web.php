@@ -78,7 +78,7 @@ Route::middleware(['auth', CheckAdmin::class])->group(function () {
 });
 
 
-
+//Test
 // FE ROUTE
 Route::get('/', [UserHomeController::class, 'index'])->name('index');
 Route::get('/tours', [UserTourController::class, 'index'])->name('tours.index');
