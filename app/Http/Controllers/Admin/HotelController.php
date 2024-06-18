@@ -25,14 +25,15 @@ class HotelController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'name' => 'nullable|string|max:50',
-            'city' => 'required|string|max:50',
-            'district' => 'required|string|max:50',
-            'ward' => 'required|string|max:50',
-            'detailAddress' => 'nullable|string|max:50',
-        ]);
         try {
+            $data = $request->validate([
+                'name' => 'nullable|string|max:50',
+                'city' => 'required|string|max:50',
+                'district' => 'required|string|max:50',
+                'ward' => 'required|string|max:50',
+                'detailAddress' => 'nullable|string|max:50',
+            ]);
+        
             $address = Address::create([
                 'city' => $data['city'],
                 'district' => $data['district'],
@@ -50,7 +51,7 @@ class HotelController extends Controller
     
             return redirect()->route('admin.hotels.index')->with('success', 'Hotel created successfully.');
         } catch (\Exception $e) {
-            return back()->withInput()->with('error', 'Failed to create hotel. ');
+            return back()->withInput()->with('error', 'Failed to create hotel. ' . $e->getMessage());
         }
         
     }
@@ -65,15 +66,15 @@ class HotelController extends Controller
 
     public function update(Request $request, $id)
     {
-        $data = $request->validate([
-            'name' => 'nullable|string|max:50',
-            'city' => 'required|string|max:50',
-            'district' => 'required|string|max:50',
-            'ward' => 'required|string|max:50',
-            'detailAddress' => 'nullable|string|max:50',
-        ]);
-
         try {
+            $data = $request->validate([
+                'name' => 'nullable|string|max:50',
+                'city' => 'required|string|max:50',
+                'district' => 'required|string|max:50',
+                'ward' => 'required|string|max:50',
+                'detailAddress' => 'nullable|string|max:50',
+            ]);
+        
             $hotel = Hotel::findOrFail($id);
             $hotel->update([
                 'name' => $data['name'],
@@ -89,7 +90,7 @@ class HotelController extends Controller
             return redirect()->route('admin.hotels.index')->with('success', 'Hotel updated successfully.');
     
         } catch (\Exception $e) {
-            return back()->withInput()->with('error', 'Failed to update hotel.');
+            return back()->withInput()->with('error', 'Failed to update hotel. ' . $e->getMessage());
         }
         
     }

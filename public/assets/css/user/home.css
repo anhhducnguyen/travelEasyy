@@ -572,6 +572,21 @@ select.form-control:focus {
     font-size: 30px;
     cursor: pointer;
 }
+.description {
+    overflow: hidden;
+    max-height: 60px; 
+    transition: max-height 0.3s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+.active {
+    display: flex;
+    gap: 20px;
+}
+
 .box-of-lr {
     width: 272px;
     height: 360px;
@@ -1016,7 +1031,6 @@ select.form-control:focus {
     background-color: #be3737;
 }
 
-
 .footer {
     margin-top: 80px;
     background-color: #1d293e;
@@ -1081,6 +1095,7 @@ select.form-control:focus {
 }
 #go-to-top:hover {
     background-color: #313a4a;
+    cursor: pointer;
 }
 .fa-angle-up {
     color: #999fa8;

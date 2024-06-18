@@ -66,7 +66,7 @@ class Tour extends Model
                 $now = now();
                 $endDay = \Carbon\Carbon::parse($this->endDay);
                 if ($endDay->lessThan($now)) {
-                    $totalCost += $this->cost;
+                    $totalCost += $this->cost *$booking->quantityTicket;
                 }
             }
         }

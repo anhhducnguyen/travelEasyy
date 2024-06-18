@@ -40,6 +40,16 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins', // Đặt tên provider cho admin (nếu có)
+        ],
+        'api' => [
+            'driver' => 'sanctum',
+            'provider' => 'users',
+            'hash' => false,
+        ],
     ],
 
     /*
