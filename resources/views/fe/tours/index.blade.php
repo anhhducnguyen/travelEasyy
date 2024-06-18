@@ -77,7 +77,7 @@
             <div class="listings-container-header">
                 <div class="showing-results">
                     <span class="color-span">Showing</span>
-                    <span>1 - 8 of 10 results</span>
+                    <span>1 - 6 results</span>
                 </div>
                 <div class="sort-listings">
                     <label for="sort_by">Sort By:</label>
@@ -99,18 +99,8 @@
                         <div class="upper-img">
                             <img src="{{ $tour->imageTour }}" alt="">
                         </div>
-<<<<<<< HEAD
                         <div class="price">
                             <a href="">{{ number_format($tour->cost, 0, ',', '.') }} $</a>
-=======
-                        <div class="desc-of-lr">
-                            <div class="location">
-                                <img src="{{ asset('/assets/images/pin.png')}}" alt="">
-                                <span>{{ $tour->address->district }}, {{ $tour->address->city }}</span>
-                            </div>
-                            <h4>{{ $tour->name }}</h4>
-                            <p class="description">{{ $tour->description }}</p>
->>>>>>> phongvu
                         </div>
                         <div class="icon-heart">
                             <i class="fa-regular fa-heart"></i>

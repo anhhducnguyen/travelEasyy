@@ -1,6 +1,6 @@
 $(document).ready(function() {
     let currentPageIndex = 0;
-    const listingsPerPage = 6;
+    const listingsPerPage = 4;
     const Listings_book = $(".list-box");
     const pagi = $(".pagi");
 

@@ -52,7 +52,7 @@
                     </div>
 
                     <div class="bg-grey">
-                        <div class="sing-up">Do you have an account? <a href="{{ route('loginn') }}"class="text-link" id="sign-up" >Login</a></div>
+                        <div class="sing-up">Do you have an account? <a href="{{ route('login') }}"class="text-link" id="sign-up" >Login</a></div>
                     </div>
     
                     <button type="submit">register</button>

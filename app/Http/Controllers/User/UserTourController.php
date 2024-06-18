@@ -19,7 +19,9 @@ class UserTourController extends Controller
     public function show($id)
     {
         $tour = Tour::with('address')->find($id);
-        $tours = Tour::all();
+        $tours = Tour::with(['hotel', 'vehicle', 'tourGuide', 'address'])
+                ->where('endDay', '>', Carbon::now())
+                ->get();
 
         if (!$tour) {
             abort(404);
