@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -103,25 +102,6 @@
             </form>
         </div>
     </div>
-
-    <script>
-        let eyeicon = document.getElementById("eyeicon");
-        let password = document.getElementById("password");
-
-        let eyeOpenUrl = "{{ asset('assets/images/eye-open.png') }}";
-        let eyeCloseUrl = "{{ asset('assets/images/eye-close.png') }}";
-
-        eyeicon.onclick = function() {
-            if (password.type == "password") {
-                password.type = "text";
-                eyeicon.src = eyeOpenUrl;
-            } else {
-                password.type = "password";
-                eyeicon.src = eyeCloseUrl;
-            }
-        }
-    </script>
-
-    <script src="{{ asset('assets/js/login.js') }}"></script>
+    <script src="{{ asset('assets/js/registerr.js') }}"></script>
 </body>
 </html>
