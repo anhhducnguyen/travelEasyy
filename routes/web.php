@@ -24,7 +24,7 @@ use App\Http\Controllers\User\UserHomeController;
 // FE ROUTE
 // REGISTER__LOGIN__LOGOUT
 Route::get('/register', [AccountController::class, 'register'])->name('register');
-Route::get('/user-login', [AccountController::class, 'login'])->name('loginn');
+Route::get('/user-login', [AccountController::class, 'login'])->name('login');
 Route::get('/logout', [AccountController::class, 'logout'])->name('logout');
 Route::get('/account', [AccountController::class, 'account'])->name('account');
 Route::get('/logout_up', [AccountController::class, 'logout_up'])->name('logout_up');
