@@ -1,21 +1,29 @@
 $(document).ready(function() {
-    let currentPageIndex = 0;
-    const listingsPerPage = 4;
-    const Listings_book = $(".list-box");
-    const pagi = $(".pagi");
+    // Function to handle search input
+    $("#tour_search").on("input", function() {
+        let searchTerm = $(this).val().trim().toLowerCase();
+        filterListings(searchTerm);
+    });
 
-    // Hàm lọc danh sách theo từ khóa tìm kiếm
+    // Function to filter listings based on search term
     function filterListings(searchTerm) {
-        Listings_book.each(function() {
+        $(".list-box").each(function() {
             let tourName = $(this).find("h4").text().toLowerCase();
             if (tourName.includes(searchTerm)) {
-                $(this).show();
+                $(this).show();  // Show the listing if the tour name matches search term
             } else {
-                $(this).hide();
+                $(this).hide();  // Hide the listing if it does not match
             }
         });
-        paginateListings(0); // Reset lại trang đầu tiên sau khi lọc
     }
+});
+
+
+$(document).ready(function() {
+    let currentPageIndex = 0;
+    const listingsPerPage = 6;
+    const Listings_book = $(".list-box");
+    const pagi = $(".pagi");
 
     // Chức năng tìm kiếm
     $("#tour_search").on("input", function() {
