@@ -159,3 +159,18 @@ $(document).ready(function() {
 
     paginateListings(0); // Hiển thị trang đầu tiên mặc định
 });
+
+
+// Lấy các phần tử từ DOM
+const radiusSlider = document.getElementById('radius-slider');
+const kilometerRange = document.getElementById('kilometer-range');
+
+// Hàm cập nhật giá trị km
+function updateKilometerRange() {
+    kilometerRange.textContent = radiusSlider.value + ' km';
+}
+
+// Lắng nghe sự kiện thay đổi giá trị của thanh trượt
+radiusSlider.addEventListener('input', updateKilometerRange);
+
+
