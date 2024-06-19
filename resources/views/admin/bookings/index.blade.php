@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('content')
-
+<!-- test -->
 <li class="nav-item nav-search border-0 ml-1 ml-md-3 ml-lg-5 d-none d-md-flex">
     <form class="nav-link form-inline mt-2 mt-md-0">
         <div class="input-group">
