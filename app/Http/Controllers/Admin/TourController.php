@@ -152,6 +152,6 @@ class TourController extends Controller
         return redirect()->route('admin.tours.index')->with('success', 'Tour deleted successfully.');
     }
 
-
+    
 
 }

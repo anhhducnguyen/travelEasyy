@@ -73,7 +73,7 @@
                     <h6 class="p-3 mb-0">See all activity</h6>
                 </div>
             </li>
-            <li class="nav-item nav-search border-0 ml-1 ml-md-3 ml-lg-5 d-none d-md-flex">
+            <!-- <li class="nav-item nav-search border-0 ml-1 ml-md-3 ml-lg-5 d-none d-md-flex">
                 <form class="nav-link form-inline mt-2 mt-md-0">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search" />
@@ -84,7 +84,7 @@
                         </div>
                     </div>
                 </form>
-            </li>
+            </li> -->
         </ul>
         <ul class="navbar-nav navbar-nav-right ml-lg-auto">
             <li class="nav-item dropdown d-none d-xl-flex border-0">
