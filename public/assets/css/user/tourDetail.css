@@ -378,6 +378,8 @@ th, td {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
+    grid-auto-rows: 1fr;
+
 }
 .list-box {
     width: 100%;
@@ -489,6 +491,7 @@ th, td {
 .desc-of-lr {
     padding: 10px;
     height: 130px;
+    width: 300px;
 }
 .desc-of-lr h4 {
     font-size: 14px;

@@ -261,37 +261,7 @@
                         <a href="{{ route('tours.show', $tour->idTour) }}">
                             <button>Book now</button>
                         </a>
-                    </div>
-                    <div class="list-box" id="navi-to-ls-detail">
-                        <div class="lr-box">
-                            <div class="upper-img">
-                                <img src="{{ asset($tour->imageTour) }}" alt="">
-                            </div>
-                            <div class="price">
-                                <a href="">{{ number_format($tour->cost, 0, ',', '.') }} $</a>
-                            </div>
-                            <div class="icon-heart">
-                                <i class="fa-regular fa-heart"></i>
-                            </div>
-                            @php
-                                $randomImageIndex = rand(1, 3);
-                            @endphp
-                            <img src="{{ asset('/assets/images/star_9.png') }}" alt="" class="star-ratings">
-                            <img src="{{ asset('/assets/images/profile' . $randomImageIndex . '.png') }}" alt="" class="profile-lr">
-                        </div>
-                        <div class="desc-of-lr">
-                            <div class="location">
-                                <img src="{{ asset('/assets/images/pin.png')}}" alt="">
-                                <span>{{ $tour->address->district }}, {{ $tour->address->city }}</span>
-                            </div>
-                            <h4>{{ $tour->name }}</h4>
-                            <p class="description">{{ $tour->description }}</p>
-                        </div>
-                        <a href="{{ route('tours.show', $tour->idTour) }}">
-                            <button>Book now</button>
-                        </a>
-                    </div>
-                    
+                    </div>                
                 @endforeach
         </div>
         <button id="view-all-ls" onclick="toggleListings()">View all listings</button>

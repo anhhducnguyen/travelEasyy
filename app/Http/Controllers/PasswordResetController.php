@@ -32,7 +32,7 @@ class PasswordResetController extends Controller
         $user = Auth::user();
 
         if (!$user) {
-            return redirect()->route('loginn')->with('error', 'User not authenticated');
+            return redirect()->route('login')->with('error', 'User not authenticated');
         }
 
         if (!Hash::check($request->current_password, $user->password)) {
@@ -41,7 +41,7 @@ class PasswordResetController extends Controller
         Auth::logout();
         DB::table('users')->where('id', $user->id)->update(['password' => Hash::make($request->new_password)]);
 
-        return redirect()->route('loginn')->with('success', 'Password changed successfully');
+        return redirect()->route('login')->with('success', 'Password changed successfully');
     }
     public function reset_password($token)
     {
@@ -63,7 +63,7 @@ class PasswordResetController extends Controller
         ];
         $check = $user->update($data);
         // dd($check);
-        return redirect()->route('loginn')->with('success', 'Change password in successfully');
+        return redirect()->route('login')->with('success', 'Change password in successfully');
     }
     public function check_forgot_password(Request $req)
     {

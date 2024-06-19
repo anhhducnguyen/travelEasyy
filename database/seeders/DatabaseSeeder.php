@@ -22,9 +22,19 @@ class DatabaseSeeder extends Seeder
             'password' => '1234',
             'role' => 'admin',
         ]);
+        User::factory()->create([
+            'name' => 'phong vu',
+            'email' => 'user@gmail.com',
+            'password' => '1234',
+            'email_verified_at' => now(),
+            'role' => 'user',
+        ]);
         // User::factory()->create([
-        //     'name' => 'Test User 2',
-        //     'email' => 'test2@example.com',
+        //     'name' => 'Duc Anh',
+        //     'email' => '21012478@st.phenikaa-uni.edu.vn',
+        //     'password' => '1234',
+        //     'email_verified_at' => now(),
+        //     'role' => 'user',
         // ]);
 
         $this->call([

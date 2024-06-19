@@ -77,7 +77,7 @@
             <div class="listings-container-header">
                 <div class="showing-results">
                     <span class="color-span">Showing</span>
-                    <span>1 - 8 of 10 results</span>
+                    <span>1 - 6 results</span>
                 </div>
                 <div class="sort-listings">
                     <label for="sort_by">Sort By:</label>
