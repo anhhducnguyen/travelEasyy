@@ -27,7 +27,7 @@
             </div>
             <div class="radius-around-filter">
                 <p>Radius around selected destination</p>
-                <input type="range" name="" id="" min="0" max="160" value="50">
+                <input type="range" id="radius-slider" min="0" max="160" value="50">
                 <p id="kilometer-range">50 km</p>
             </div>
             <div class="price-range-filter">
@@ -124,6 +124,7 @@
                     </a>
 
                 </div>
+                
             @endforeach
             </div>
   

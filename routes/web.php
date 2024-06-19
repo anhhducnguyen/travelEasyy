@@ -62,6 +62,9 @@ Route::post('/forgot-password', [PasswordResetController::class, 'check_forgot_p
 Route::get('/reset_password/{token}', [PasswordResetController::class, 'reset_password'])->name('account.reset_password');
 Route::post('/reset_password/{token}', [PasswordResetController::class, 'check_reset_password'])->name('check_reset_password');
     
+
+
+
 //=====ADMIN==================
 Route::get('/login-admin', [AdminLoginController::class, 'show_login'])->name('login-admin');
 Route::post('/check_login', [AdminLoginController::class, 'check_login']);
