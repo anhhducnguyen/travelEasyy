@@ -1,18 +1,66 @@
+
+// search tour
 $(document).ready(function() {
-    // Function to handle search input
     $("#tour_search").on("input", function() {
         let searchTerm = $(this).val().trim().toLowerCase();
         filterListings(searchTerm);
     });
 
-    // Function to filter listings based on search term
     function filterListings(searchTerm) {
         $(".list-box").each(function() {
             let tourName = $(this).find("h4").text().toLowerCase();
             if (tourName.includes(searchTerm)) {
-                $(this).show();  // Show the listing if the tour name matches search term
+                $(this).show();  
             } else {
-                $(this).hide();  // Hide the listing if it does not match
+                $(this).hide();  
+            }
+        });
+    }
+});
+
+// listings.js
+// Lọc danh sách theo khoảng giá
+$(document).ready(function() {
+    // Function to handle price range selection
+    $("#price_range_select").change(function() {
+        filterListingsByPriceRange($(this).val());
+    });
+
+    // Function to filter listings by price range
+    function filterListingsByPriceRange(range) {
+        $(".list-box").each(function() {
+            let tourPrice = parseFloat($(this).find(".price a").text().replace('$', '').replace('.', ''));
+            let showListing = false;
+
+            switch (range) {
+                case 'all':
+                    showListing = true;  // Show all listings if 'All' is selected
+                    break;
+                case 'low':
+                    if (tourPrice < 1000) {  // Adjust this threshold based on your price categories
+                        showListing = true;
+                    }
+                    break;
+                case 'medium':
+                    if (tourPrice >= 1000 && tourPrice <= 5000) {  // Adjust these thresholds based on your price categories
+                        showListing = true;
+                    }
+                    break;
+                case 'high':
+                    if (tourPrice > 5000) {  // Adjust this threshold based on your price categories
+                        showListing = true;
+                    }
+                    break;
+                default:
+                    showListing = true;  // Show by default if no range is selected
+                    break;
+            }
+
+            // Show or hide the listing based on the showListing flag
+            if (showListing) {
+                $(this).show();
+            } else {
+                $(this).hide();
             }
         });
     }
@@ -31,42 +79,6 @@ $(document).ready(function() {
         filterListings(searchTerm);
     });
 
-    // Lọc danh sách theo khoảng giá
-    $("#price_range_select").change(function() {
-        filterListingsByPriceRange($(this).val());
-    });
-
-    function filterListingsByPriceRange(range) {
-        Listings_book.each(function() {
-            let tourPrice = parseFloat($(this).find(".price a").text().replace('$', '').replace('.', ''));
-            let showListing = false;
-
-            switch (range) {
-                case 'all':
-                    showListing = true;
-                    break;
-                case 'low':
-                    if (tourPrice < 1000) showListing = true;
-                    break;
-                case 'medium':
-                    if (tourPrice >= 1000 && tourPrice <= 5000) showListing = true;
-                    break;
-                case 'high':
-                    if (tourPrice > 5000) showListing = true;
-                    break;
-                default:
-                    showListing = true;
-                    break;
-            }
-
-            if (showListing) {
-                $(this).show();
-            } else {
-                $(this).hide();
-            }
-        });
-        paginateListings(0); // Reset lại trang đầu tiên sau khi lọc
-    }
 
     // Chức năng sắp xếp
     $("#sort_by").change(function() {
