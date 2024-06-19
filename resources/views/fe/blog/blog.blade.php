@@ -17,7 +17,7 @@
 <body>
     <div class="header">
         <div class="header-top">
-            <a href="{{route('index')}}l"><img class="logo" src="{{asset('assets/images/logo_web_home.png')}}" alt=""></a>
+            <a href="{{route('index')}}"><img class="logo" src="{{asset('assets/images/logo_web_home.png')}}" alt=""></a>
             <div class="search-bar-looking-for">
                 <input type="search" name="" id="" placeholder="What are you looking for?">
                 <img src="{{ asset('assets/images/loupe 1.png')}}" alt="">
