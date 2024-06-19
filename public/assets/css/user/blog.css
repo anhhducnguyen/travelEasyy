@@ -137,11 +137,11 @@ h2 {
 .article-group {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Thiết lập grid 2 cột với tỷ lệ tự động */
-    gap: 20px; /* Khoảng cách giữa các cột */
+    gap: 20px; 
 }
 .article {
     height: 280px;
-    width: calc(100% - 25px); 
+    width: calc(100% - 20px); 
     background-color: #fff;
     padding: 8px 5px 5px;
     margin: 10px; 

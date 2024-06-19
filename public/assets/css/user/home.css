@@ -886,21 +886,21 @@ select.form-control:focus {
     color: #717171;
 }
 .articles-container {
-    margin-top: 35px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; /* Các box sẽ căn đều về hai bên */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Thiết lập grid 2 cột với tỷ lệ tự động */
+    gap: 20px; /* Khoảng cách giữa các cột */
 }
   
 .article {
     height: 280px;
-    width: calc(33.33% - 20px); /* 33.33% để tạo 3 cột, trừ đi khoảng cách giữa các box */
+    width: calc(100% - 20px); 
     background-color: #fff;
     margin: 10px; /* Khoảng cách giữa các box */
     padding: 8px 5px 5px;
     border-radius: 8px;
     border: 2px solid #eaeaea;
     cursor: pointer;
+    overflow: hidden;
 }
 .ar_img {
     width: 100%;
