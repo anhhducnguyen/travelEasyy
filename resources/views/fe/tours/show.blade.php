@@ -157,11 +157,11 @@
                     <tr>
                         <th id="th-border">
                             <p class="cin-cout">CHECK - IN</p>
-                            <p class="date-ch">{{ $tour->startDay }}</p>
+                            <p class="date-ch">{{\Carbon\Carbon::parse($tour->startDay)->format('d F, Y')}}</p>
                         </th>
                         <th>
                             <p class="cin-cout">CHECK - OUT</p>
-                            <p class="date-ch">{{ $tour->endDay }}</p>
+                            <p class="date-ch">{{ \Carbon\Carbon::parse($tour->endDay)->format('d F, Y') }}</p>
                         </th>
                     </tr>
                     <tr>

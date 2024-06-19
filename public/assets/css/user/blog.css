@@ -1,0 +1,319 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Jost', sans-serif;
+}
+a {
+    text-decoration: none;
+}
+body {
+    background-color: #f9f7f1;
+}
+.header {
+    width: 100%;
+    height: 450px;
+    background-image: url(../../images/bgi-blog.png);
+    background-size: cover;
+}
+.header-top .logo{
+    width: 200px;
+    height: 75px;
+}
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.header-top>a>img {
+    margin: 20px 70px 20px 30px;
+    width: 194px;
+    height: 39px;
+}
+
+.search-bar-looking-for { 
+    margin-right: 350px;
+    display: flex;
+    align-items: center;
+}
+.search-bar-looking-for input {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    outline: none;
+    margin-right: 25px;
+    width: 170px;
+    height: 15.5px;
+
+}
+.search-bar-looking-for input::placeholder {
+    color: white;
+}
+.search-bar-looking-for input:focus {
+    color: white;
+}
+.search-bar-looking-for img {
+    width: 14px;
+    height: 15.5px;
+}
+
+.home-listings-blog a{
+    color: white;
+    margin-right: 30px;
+    font-size: 17px;
+    line-height: 21px;
+    width: 50px;
+}
+
+.home-listings-blog a:hover{
+    color: red;
+    text-decoration: underline;
+}
+
+.home-listings-blog a:nth-child(3) {
+    margin-right: 100px;
+}
+.header-mid {
+    text-align: center;
+}
+h2 {
+    color: white;
+    font-size: 25px;
+    line-height: 30px;
+    margin: 120px 0px 10px;
+    font-weight: 500;
+}
+.header-mid>p {
+    color: white;
+    line-height: 18px;
+    margin-bottom: 40px;
+}
+.content {
+    display: flex;
+    padding: 50px 250px 0px 265px;
+    gap: 25px;
+    margin-bottom: 100px;
+}
+.page-content {
+    flex-basis: 70%;
+}
+.page-content {
+    display: none;
+}
+.page-content.default {
+    display: block;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+.pagi {
+    margin-right: 25px;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+#vector1 {
+    margin-right: 25px;
+    cursor: pointer;
+}
+#vector2 {
+    cursor: pointer;
+}
+/* .pagination-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+.articles-container, .articles-container-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.article-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Thiết lập grid 2 cột với tỷ lệ tự động */
+    gap: 20px; /* Khoảng cách giữa các cột */
+}
+.article {
+    height: 280px;
+    width: calc(100% - 25px); 
+    background-color: #fff;
+    padding: 8px 5px 5px;
+    margin: 10px; 
+    border-radius: 8px;
+    border: 2px solid #eaeaea;
+    overflow: hidden;
+    cursor: pointer;
+}
+.ar_img:hover img {
+    transform: scale(1.2);
+}
+.search-articles {
+    flex-basis: 30%;
+}
+.ar_img {
+    width: 100%;
+    height: 176px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.ar_img img {
+    width: 100%;
+    height: 100%;
+    transition: transform .5s ease;
+}
+.ar_img span {
+    background-color: #3f63d5;
+    padding: 3px 10px;
+    border-radius: 20px;
+    color: white;
+    position: relative;
+    bottom: 170px;
+    left: 10px;
+    /* top: 10px;
+    left: 20px; */
+}
+.article > span, .fa-user, .fa-calendar {
+    font-size: 12px;
+    color: #717171;
+}
+.ar-name {
+    margin-right: 25px;
+}
+.fa-user{
+    margin: 0px 8px 8px 10px;
+}
+.fa-calendar{
+    margin-right: 5px;
+}
+.article h4 {
+    font-size: 14px;
+    padding: 0px 10px;
+}
+.search-location {
+    width: 100%;
+    height: 82px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f1eddf;
+    margin: 10px 0px 30px;
+    border-radius: 8px;
+}
+.search-location input {
+    width: 215px;
+    height: 40px;
+    display: flex;
+    padding: 0px 20px;
+    border: 2px solid #eaeaea;
+    outline: none;
+    border-radius: 8px;
+}
+.search-result {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.search-location input::placeholder {
+    color: #717171;
+}
+.search-location input:focus {
+    color: #717171;
+}
+.popular-cities-filter {
+    background-color: #f1eddf;
+    padding: 20px 0px 0px 20px;
+    height: 350px;
+    border-radius: 8px;
+}
+.popular-cities-filter h3 {
+    margin-bottom: 15px;
+}
+.cities-list {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+.cities-list input {
+    margin-right: 15px;
+    width: 8px;
+    height: 8px;
+}
+.cities-list input[type="radio"]:checked {
+    accent-color: red;
+}
+.cities-list label{
+    font-size: 14px;
+    color: #717171;
+    cursor: pointer;
+}
+.color-label {
+    transition: color 0.3s;
+}
+
+input[type="radio"]:checked + .color-label {
+    color: red; 
+}
+.top-articles {
+    margin-top: 30px;
+    padding: 20px 20px 0px;
+    background-color: #f1eddf;
+    height: 350px;
+    border-radius: 8px;
+}
+.top-ar-img {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+.top-articles h3 {
+    margin-bottom: 15px;
+}
+.top-ar-img img{
+    width: 75px;
+    height: 75px;
+}
+.desc-top-ar h5{
+    font-size: 16px;
+    cursor: pointer;
+}
+.desc-top-ar p {
+    font-size: 14px;
+    color: #717171;
+    cursor: pointer;
+}
+.tags {
+    margin-top: 30px;
+    background-color: #f1eddf;
+    padding: 20px 20px 0px;
+    height: 160px;
+    border-radius: 8px;
+}
+.tags h3 {
+    margin-bottom: 15px;
+}
+.top-tags {
+    margin-bottom: 20px;
+}
+.tags span {
+    border-radius: 16px;
+    border: 1px solid #eaeaea;
+    background-color: white;
+    padding: 5px 15px;
+    font-size: 14px;
+    color: #717171;
+    cursor: pointer;
+}
+.tags span:hover {
+    background-color: #e8e2e2;
+}
+.tags .marker-tags {
+    background-color: #afafaf;
+    color: #fff;
+}

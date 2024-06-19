@@ -33,7 +33,7 @@
                                 <td>{{ $tour->startDay }}</td>
                                 <td>{{ $tour->endDay }}</td>
                                 <td>{{ $tour->cost }}</td>
-                                <td>{{ $tour->address->city }}, {{ $tour->address->district }}, {{ $tour->address->ward }}, {{ $tour->address->detailAddress }}</td>
+                                <td>{{ $tour->address->detailAddress }}, {{ $tour->address->ward }}, {{ $tour->address->district }}, {{ $tour->address->city }}</td>
                                 <td>{{ $tour->hotel->name ?? 'N/A' }}</td>
                                 <td>{{ $tour->vehicle->name ?? 'N/A' }}</td>
                                 <td>{{ $tour->tourGuide->name ?? 'N/A' }}</td>
