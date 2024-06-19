@@ -7,7 +7,7 @@
     <div class="home-listings-blog">
         <a href={{ route('index') }} id="home">Home</a>
         <a href={{ route('tours.index') }} id="listings">Listings</a>
-        <a href="W02-blog.html" id="blog">Blog</a>
+        <a href="{{route('blog.index')}}" id="blog">Blog</a>
         @if(Auth::check())
             <!-- Hiển thị nếu người dùng đã đăng nhập -->
             <a href="{{route('account')}}" id="account">{{ Auth::user()->name }}</a>

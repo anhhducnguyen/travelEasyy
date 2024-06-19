@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('assets/css/user/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/user/footer.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7b9d8c4ddc.js" crossorigin="anonymous"></script>
@@ -26,7 +27,7 @@
 
         <div class="header">
             <div class="header-top">
-                <a href="W01-home.html"><img src="{{asset('assets/images/logo.png')}}" alt=""></a>
+                <a href="{{route('index')}}"><img class="logo" src="{{asset('assets/images/logo_web_home.png')}}" alt=""></a>
                 <div class="search-bar-looking-for">
                     <input type="search" name="" id="" placeholder="What are you looking for?">
                     <img src="{{asset('assets/images/loupe 1.png')}}" alt="">
@@ -34,9 +35,8 @@
                 <div class="home-listings-blog">
                     <a href="{{route('index')}}" id="home">Home</a>
                     <a href="{{route('tours.index')}}" id="listings">Listings</a>
-                    <a href="#" id="blog">Blog</a>
+                    <a href="{{route('blog.index')}}" id="blog">Blog</a>
                     
-
                     @if(Auth::check())
                         <!-- Hiển thị nếu người dùng đã đăng nhập -->
                         <a href="{{route('account')}}" id="account">{{ Auth::user()->name }}</a>
@@ -259,78 +259,23 @@
                 <p>Check out latest news and articles from our blog</p>
             </div>
             <div class="articles-container">
-                <div class="article">
-                    <div class="ar_img ar1">
-                        <img src="{{asset('assets/images/ar_1-1.png')}}" alt="">
-                        <span>Quang Binh</span>
+                @foreach ($bookings->take(3) as $booking)
+                    <div class="article">
+                        <div class="ar_img">
+                            <img src="{{ asset($booking->tour->imageTour) }}" alt="ar">
+                            <span>{{ $booking->tour->address->city }}</span>
+                        </div>
+                        <i class="fa-regular fa-user"></i>
+                        <span class="ar-name">{{ $booking->user->name }}</span>
+                        <i class="fa-regular fa-calendar"></i>
+                        <span>{{ \Carbon\Carbon::parse($booking->tour->endDay)->format('d F, Y') }}</span>
+                        <h4>{{ $booking->tour->name }} very beautiful!</h4>
                     </div>
-                    <i class="fa-regular fa-user"></i>
-                    <span class="ar-name">Bao Ngoc</span>
-                    <i class="fa-regular fa-calendar"></i>
-                    <span>06 April, 2022</span>
-                    <h4>Explore the UNESCO World Heritage largest cave of Vietnam</h4>
-                </div>
-                <div class="article">
-                    <div class="ar_img ar2">
-                        <img src="{{asset('assets/images/ar_1-2.jpg')}}" alt="">
-                        <span>Hue</span>
-                    </div>
-                    <i class="fa-regular fa-user"></i>
-                    <span class="ar-name">David</span>
-                    <i class="fa-regular fa-calendar"></i>
-                    <span>16 January, 2023</span>
-                    <h4>Check-in Hoa Dang Festival: Illuminating the night in Hue's splendor</h4>
-                </div>
-                <div class="article">
-                    <div class="ar_img ar3">
-                        <img src="{{asset('assets/images/ar_1-3.png')}}" alt="">
-                        <span>Ha Noi</span>
-                    </div>
-                    <i class="fa-regular fa-user"></i>
-                    <span class="ar-name">Chang Liao</span>
-                    <i class="fa-regular fa-calendar"></i>
-                    <span>28 March, 2022</span>
-                    <h4>Check out the extraordinary sight of Ha Noi's urban life</h4>
-                </div>
-                <div class="article" id="hcm-blog-detail">
-                    <div class="ar_img ar4">
-                        <img src="{{asset('assets/images/ar_2-1.png')}}" alt="">
-                        <span>Ho Chi Minh</span>
-                    </div>
-                    <i class="fa-regular fa-user"></i>
-                    <span class="ar-name">Sytske</span>
-                    <i class="fa-regular fa-calendar"></i>
-                    <span>26 April, 2020</span>
-                    <h4>Cafe Apartment-Discover the perfect blend of old-world charm</h4>
-                </div>
-                <div class="article">
-                    <div class="ar_img ar5">
-                        <img src="{{asset('assets/images/ar_2-2.png')}}" alt="">
-                        <span>Sa Pa</span>
-                    </div>
-                    <i class="fa-regular fa-user"></i>
-                    <span class="ar-name">Quoc Viet</span>
-                    <i class="fa-regular fa-calendar"></i>
-                    <span>12 April, 2023</span>
-                    <h4>Majestic Fansipan moutain: The rooftop of Vietnam</h4>
-                </div>
-                <div class="article">
-                    <div class="ar_img ar6">
-                        <img src="{{asset('assets/images/ar_2-3.png')}}" alt="">
-                        <span>Binh Thuan</span>
-                    </div>
-                    <i class="fa-regular fa-user"></i>
-                    <span class="ar-name">Helmi</span>
-                    <i class="fa-regular fa-calendar"></i>
-                    <span>17 July, 2020</span>
-                    <h4>Don't miss Ta Cu mountain: A spiritual and natural oasis in Binh Thuan</h4>
-                </div>
+                @endforeach
             </div>
-            <button id="navi-to-blog">View all articles</button>
+            <a href="{{route('blog.index')}}"><button id="navi-to-blog">View all articles</button></a>
         </div>
-@include('fe.layouts.footer')
-<!-- test -->
+    @include('fe.layouts.footer')
     <script src="{{ asset('assets/js/home.js') }}"></script>
-
 </body>
 </html>

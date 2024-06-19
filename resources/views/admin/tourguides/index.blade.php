@@ -23,7 +23,7 @@
                         @foreach($tourGuides as $tourGuide)
                             <tr>
                                 <td>{{ $tourGuide->idTourGuide }}</td>
-                                <td>{{ $tourGuide->address->city }}, {{ $tourGuide->address->district }}, {{ $tourGuide->address->ward }}, {{ $tourGuide->address->detailAddress }}</td>
+                                <td>{{ $tourGuide->address->detailAddress }}, {{ $tourGuide->address->ward }}, {{ $tourGuide->address->district }}, {{ $tourGuide->address->city }}</td>
                                 <td>{{ $tourGuide->name }}</td>
                                 <td>{{ $tourGuide->phone }}</td>
                                 <td>{{ $tourGuide->email }}</td>

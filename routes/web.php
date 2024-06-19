@@ -22,6 +22,7 @@ use App\Http\Middleware\EnsureTokenIsValid;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\User\UserBlogController;
 use App\Http\Controllers\User\UserHomeController;
 use Illuminate\Support\Facades\URL;
 
@@ -88,6 +89,8 @@ Route::middleware(['auth', CheckAdmin::class])->group(function () {
 Route::get('/', [UserHomeController::class, 'index'])->name('index');
 Route::get('/tours', [UserTourController::class, 'index'])->name('tours.index');
 Route::get('/tours/{id}', [UserTourController::class, 'show'])->name('tours.show');
+Route::get('/blog', [UserBlogController::class, 'index'])->name('blog.index');
+
 
 Route::middleware(['auth', CheckLogin::class])->group(function () {
     Route::get('/tours/checkout/{tourId}', [CheckoutController::class, 'show'])->name('checkout.show');

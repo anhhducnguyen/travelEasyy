@@ -35,14 +35,16 @@
     height: 75px;
     display: flex;
     align-items: center;
+    justify-content: space-around;
 }
-#copyright {
-    margin: 0px 280px 0px 200px;
+#sologan{
+    color: white;
+    font-size: 14px;
+    font-style: italic;
 }
 #logo-footer {
     width: 170px;
     height: 60px;
-    margin-right: 250px;
 }
 .fa-brands {
     color: white;

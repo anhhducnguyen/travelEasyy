@@ -31,7 +31,7 @@
         </div>
     </div>
     <div class="footer-bottom">
-        <img src="{{ asset('assets/images/copyright.png')}}" alt="" id="copyright">
+        <p id="sologan">@Simplify Your Journey with TravelEasy</p>
         <img src="{{ asset('assets/images/logo_web_home_mini.png') }}" alt="" id="logo-footer">
         <div class="media">
             <i class="fa-brands fa-facebook-f"></i>

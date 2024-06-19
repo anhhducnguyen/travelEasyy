@@ -25,7 +25,7 @@ class ProfileController extends Controller
     public function updateProfile(Request $request)
     {
         $data = $request->validate([
-            'phone' => 'required|string|max:15',
+            'phone' => 'required|string|max:20',
             'city' => 'required|string|max:50',
             'district' => 'required|string|max:50',
             'ward' => 'required|string|max:50',

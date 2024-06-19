@@ -14,6 +14,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call([
+            AddressSeeder::class,
+        ]);
         User::factory(10)->create();
 
         User::factory()->create([
@@ -23,22 +26,15 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin',
         ]);
         User::factory()->create([
-            'name' => 'phong vu',
+            'name' => 'User Test',
             'email' => 'user@gmail.com',
-            'password' => '1234',
+            'password' => '123456789',
             'email_verified_at' => now(),
             'role' => 'user',
         ]);
-        // User::factory()->create([
-        //     'name' => 'Duc Anh',
-        //     'email' => '21012478@st.phenikaa-uni.edu.vn',
-        //     'password' => '1234',
-        //     'email_verified_at' => now(),
-        //     'role' => 'user',
-        // ]);
+
 
         $this->call([
-            AddressSeeder::class,
             VehicleSeeder::class,
             TourGuideSeeder::class,
             HotelSeeder::class,    

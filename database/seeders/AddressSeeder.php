@@ -74,6 +74,30 @@ class AddressSeeder extends Seeder
                 'ward' => 'Xã Trường Yên',
                 'detailAddress' => 'Trang An',
             ],
+            [
+                'city' => 'Tỉnh Kiên Giang',
+                'district' => 'Thành phố Phú Quốc',
+                'ward' => 'Xã Gành Dầu',
+                'detailAddress' => 'Bai Dai Phu Quoc',
+            ],
+            [
+                'city' => 'Tỉnh Quảng Bình',
+                'district' => 'Huyện Bố Trạch',
+                'ward' => 'Thị trấn Phong Nha',
+                'detailAddress' => 'Phong Nha Ke Bang',
+            ],
+            [
+                'city' => 'Tỉnh Quảng Nam',
+                'district' => 'Huyện Duy Xuyên',
+                'ward' => 'Xã Duy Phú',
+                'detailAddress' => 'My Son',
+            ],
+            [
+                'city' => 'Tỉnh Lai Châu',
+                'district' => 'Huyện Tam Đường',
+                'ward' => 'Thị xã Tam Đường',
+                'detailAddress' => 'Phan Xi Pang',
+            ],
         ];
 
         foreach ($addresses as $address) {
