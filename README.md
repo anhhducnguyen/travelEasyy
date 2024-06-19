@@ -22,7 +22,30 @@ restaurants, hotels... suitable for tours)
 - Change password
 - Home page
 - Decentralize admin and user rights
+- Listings
+  
 2. **Vu Minh Phong**
+  
+**Admin:**
+- Dashboard
+- Tour
+- User
+- Bookings
+- Hotels
+- Tour Guide
+- Vehicle
+**User:**
+- Home Page
+- Tour Detail
+- Blog
+
+**Restful API**
+- Register
+- Profile
+- Login
+- Tour
+
+**Deploy Web**
 
 ## Web:  
 Link Web: [Travel Easy](https://still-fortress-15846-1eacd8faf222.herokuapp.com/)
@@ -324,12 +347,12 @@ composer update
 ```
 - Use vulnerability testing tools: Such as `Snyk` or `OWASP Dependency-Check` to check libraries for security vulnerabilities.
 
-  # Restful API
-  
-  - Register
-  - Profile
-  - Login
-  - Tour
+# Restful API
+
+- Register
+- Profile
+- Login
+- Tour
 
 
 
