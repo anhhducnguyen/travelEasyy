@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\AdminConfirmation;
 use App\Mail\BookingConfirmed;
 use App\Models\Booking;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -30,22 +32,19 @@ class BookingController extends Controller
     // }
     public function confirm(Request $request, $id)
     {
-        $booking = Booking::findOrFail($id);
+        try{
+            $booking = Booking::findOrFail($id);
 
-        // Tìm người dùng liên quan đến booking
-        $user = $booking->user;
-
-        if ($user && !empty($user->email)) {
-            // Update trạng thái
             $booking->confirmation_status = 'confirmed';
             $booking->save();
 
-            // Gửi email xác nhận
-            Mail::to($user->email)->send(new BookingConfirmed($booking));
+            $booking->load('user', 'tour');
 
-            return redirect()->back()->with('success', 'Booking confirmed successfully and email sent.');
-        } else {
-            return redirect()->back()->with('error', 'Booking confirmed but customer email is missing.');
+            Mail::to($booking->user->email)->send(new AdminConfirmation($booking->user, $booking->tour, $booking));
+            return redirect()->back()->with('success', 'Booking confirmed successfully.');
+        
+        } catch(Exception $e) {
+            return redirect()->back()->with('error', 'The booking was not confirmed because your email was missing.');
         }
     }
     public function pay(Request $request, $id)
