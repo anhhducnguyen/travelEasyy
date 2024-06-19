@@ -3,16 +3,29 @@
 @section('content')
 <!-- test -->
 <li class="nav-item nav-search border-0 ml-1 ml-md-3 ml-lg-5 d-none d-md-flex">
-    <form class="nav-link form-inline mt-2 mt-md-0">
+    <div class="nav-link form-inline mt-2 mt-md-0">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search" />
+            <input type="text" id="searchInput" class="form-control" placeholder="Search" />
             <div class="input-group-append">
                 <span class="input-group-text">
                     <i class="mdi mdi-magnify"></i>
                 </span>
             </div>
         </div>
-    </form>
+        <div class="input-group">
+            <select id="confirmationStatusSelect" class="form-control ml-2">
+                <option value="">All Confirmation Status</option>
+                <option value="waiting_for_admin">Waiting for admin</option>
+                <option value="confirmed">Confirmed</option>
+            </select>
+            <select id="paymentStatusSelect" class="form-control ml-2">
+                <option value="">All Payment Status</option>
+                <option value="unpaid">Unpaid</option>
+                <option value="paid">Paid</option>
+            </select>
+            <button type="button" class="btn btn-primary ml-2" onclick="filterTable()">Filter</button>
+        </div>
+    </div>
 </li>
 
 <div class="col-lg-12 grid-margin stretch-card">
@@ -20,7 +33,7 @@
         <div class="card-body">
             <h4 class="card-title">Manage Bookings</h4>
             <div class="table-responsive">
-                <table class="table table-striped">
+                <table class="table table-striped" id="bookingsTable">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -39,12 +52,12 @@
                             <td>{{ $booking->idUser }}</td>
                             <td>{{ $booking->idTour }}</td>
                             <td>{{ $booking->quantityTicket }}</td>
-                            <td>
+                            <td class="confirmation-status">
                                 <label class="badge {{ $booking->confirmation_status === 'waiting_for_admin' ? 'badge-warning' : ($booking->confirmation_status === 'confirmed' ? 'badge-success' : 'badge-secondary') }}">
                                     {{ ucfirst(str_replace('_', ' ', $booking->confirmation_status)) }}
                                 </label>
                             </td>
-                            <td>
+                            <td class="payment-status">
                                 <label class="badge {{ $booking->payment_status === 'unpaid' ? 'badge-warning' : ($booking->payment_status === 'paid' ? 'badge-success' : 'badge-secondary') }}">
                                     {{ ucfirst($booking->payment_status) }}
                                 </label>
@@ -77,4 +90,35 @@
         </div>
     </div>
 </div>
+
+<script>
+    function filterTable() {
+        const searchInput = document.getElementById('searchInput').value.toLowerCase();
+        const confirmationStatus = document.getElementById('confirmationStatusSelect').value;
+        const paymentStatus = document.getElementById('paymentStatusSelect').value;
+        const table = document.getElementById('bookingsTable');
+        const tr = table.getElementsByTagName('tr');
+
+        for (let i = 1; i < tr.length; i++) {
+            let td = tr[i].getElementsByTagName('td');
+            let showRow = true;
+
+            if (searchInput && !td[0].textContent.toLowerCase().includes(searchInput) &&
+                !td[1].textContent.toLowerCase().includes(searchInput) &&
+                !td[2].textContent.toLowerCase().includes(searchInput)) {
+                showRow = false;
+            }
+
+            if (confirmationStatus && !td[4].textContent.toLowerCase().includes(confirmationStatus.replace('_', ' '))) {
+                showRow = false;
+            }
+
+            if (paymentStatus && !td[5].textContent.toLowerCase().includes(paymentStatus)) {
+                showRow = false;
+            }
+
+            tr[i].style.display = showRow ? '' : 'none';
+        }
+    }
+</script>
 @endsection
