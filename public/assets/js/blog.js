@@ -60,12 +60,7 @@ nextButton.addEventListener('click', () => {
 // Hiển thị trang đầu tiên khi tải trang
 showArContainer(currentPage);
 
-
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
-
     // Xử lý khi người dùng chọn radio button
     radioButtons.forEach(function(radio) {
         radio.addEventListener('change', function() {
@@ -88,6 +83,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 radio.parentNode.style.display = 'none';
             }
         });
+
+        // Lọc các bài viết theo nội dung tìm kiếm
+        filterToursByCity(searchText);
     });
 
     // Xử lý khi người dùng chọn All
@@ -102,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
         articles.forEach(function(article) {
             const articleCity = slugify(article.querySelector('.ar_img span').textContent.trim().toLowerCase());
 
-            if (city === 'all' || articleCity === city) {
+            if (city === 'all' || articleCity.includes(city)) {
                 article.style.display = 'block';
             } else {
                 article.style.display = 'none';
@@ -138,13 +136,3 @@ document.addEventListener('DOMContentLoaded', function() {
     // Hiển thị trang đầu tiên khi tải trang
     showArContainer(currentPage);
 });
-
-
-
-
-
-
-
-
-
-
