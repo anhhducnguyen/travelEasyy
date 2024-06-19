@@ -23,6 +23,7 @@ restaurants, hotels... suitable for tours)
 - Home page
 - Decentralize admin and user rights
 - Listings
+- Search Tour
   
 2. **Vu Minh Phong**
   
