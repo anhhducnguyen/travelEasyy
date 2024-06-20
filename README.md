@@ -26,27 +26,24 @@ restaurants, hotels... suitable for tours)
 - Search Tour
   
 2. **Vu Minh Phong**
-  
-**Admin:**
-- Dashboard
-- Tour
-- User
-- Bookings
-- Hotels
-- Tour Guide
-- Vehicle
-**User:**
-- Home Page
-- Tour Detail
-- Blog
-
-**Restful API**
-- Register
-- Profile
-- Login
-- Tour
-
-**Deploy Web**
+* Admin:
+  * Dashboard
+  * Tour
+  * User
+  * Bookings
+  * Hotels
+  * Tour Guide
+  * Vehicle
+* User:
+  * Home Page
+  * Tour Detail
+  * Blog
+  * Checkout details
+* Search Blog
+* Send email confirm bookings tour
+* Send payment confirmation email with invoice
+* Restful API
+* Deploy Web
 
 ## Web:  
 Link Web: [Travel Easy](https://still-fortress-15846-1eacd8faf222.herokuapp.com/)
@@ -57,7 +54,7 @@ Link Web: [Travel Easy](https://still-fortress-15846-1eacd8faf222.herokuapp.com/
 
 ### User account (You can register to create a new one): 
 - Email: user@gmail.com
-- Password: 123456
+- Password: 123456789
 
 
 ## Report: 
@@ -125,125 +122,6 @@ php artisan migrate
 php artisan db:seed
 ```
 
-# Security
-## Possible risks
-- SQL injection vulnerabilities: SQL Injection occurs when a web application allows users to input data into SQL queries in an unsafe manner, leading to the possibility of executing malicious SQL commands.
-- Cross-Site Scripting (XSS): XSS occurs when an application allows users to enter data that may contain malicious JavaScript code, which is then displayed back to other users without checking or encryption.
-- Cross-Site Request Forgery (CSRF): CSRF is when a user is unaware they are sending a malicious request to a web application they have authenticated, resulting in unwanted actions being taken.
-- Insecure Direct Object References (IDOR): IDOR occurs when an application allows direct access to objects based on user input without checking permissions, resulting in the exposure of other users' information or data.
-- Broken Authentication and Session Management: This issue occurs when authentication and session management mechanisms are not configured or implemented properly, leading to the risk of attacks from password guessing, session theft, or account hijacking. clause.
-- Security Misconfiguration: Security Misconfiguration occurs when the system or application is not properly configured for security, leading to security vulnerabilities.
-- Sensitive Data Exposure: Sensitive data exposure occurs when information such as passwords, credit card information or personal data is not properly protected.
-- Using Components with Known Vulnerabilities: Using libraries, modules or software with known security vulnerabilities that have not been patched.
-- Insufficient Logging and Monitoring: Failure to fully record or monitor system activity, leading to failure to promptly detect unusual behavior or attacks.
-- File Upload Vulnerabilities: Vulnerabilities related to uploading files without proper inspection, which can lead to malicious code execution or information disclosure.
-- Application error 500 (Not Found): Error 500 occurs when the server encounters an unknown problem and cannot process the request.
-- Key Exposure or Rubbish Character: Revealing sensitive information such as API keys, encryption keys or unwanted characters appearing in data
-
-## How to limit these risks
-1. SQL Injection
-- Use Eloquent ORM or Query Builder: Laravel provides Eloquent ORM and Query Builder to build safe queries
-```php
-// Use Eloquent ORM
-$users = User::where('email', $email)->get();
-```
-
-```php
-// Use Query Builder
-$users = DB::table('users')->where('email', $email)->get();
-```
-- Use methods with bound values: Avoid writing raw SQL queries without protections.
-```php
-// Use binding method
-DB::select('select * from users where email = ?', [$email]);
-```
-
-2. Cross-Site Scripting (XSS)
-- Use Blade template engine: Laravel's Blade automatically escapes variables.
-```php
-// In Blade template
-<h1>{{ $user->name }}</h1>
-```
-- Escape outputs: Use the e() function to escape outputs in sections that do not use Blade.
-```php
-// Escape output
-echo e($user->name);
-```
-
-3. Cross-Site Request Forgery (CSRF)
- - Use of CSRF tokens: Laravel automatically protects against CSRF using tokens
- - Check CSRF token in important requests: Laravel automatically handles this through the CSRF middleware.
-
-4. Insecure Direct Object References (IDOR)
- - Use middleware and policies: Laravel provides middleware and policies to control access to resources.
-```php
-// Middleware example
-public function handle($request, Closure $next)
-{
- if ($request->user()->id !== $request->route('id')) {
- return redirect('home');
- }
- return $next($request);
-}
-```
-- Check ownership before accessing: Ensure that the user has access to the object.
-```php
-// Check ownership
-if ($request->user()->id !== $post->user_id) {
- abort(403, 'Unauthorized action.');
-}
-```
-
-5. Broken Authentication and Session Management
- - Use Laravel's built-in authentication system: Laravel provides powerful and easy-to-use authentication mechanisms.
-```php
-//Use auth middleware
-Route::get('/profile', 'ProfileController@index')->middleware('auth');
-```
-
-- Use HTTPS: Ensure that the application runs over HTTPS to protect login information and sessions.
-- Set reasonable session timeout: Configure session timeout to reduce the risk of session being stolen.
-- In the file `config/session.php`
-```php
-'lifetime' => 120, // 120 minutes
-'secure' => true, // Only transmit session over HTTPS
-```
-
-6. Security Misconfiguration
-- Check and properly configure `.env files`: Ensure that sensitive information is not exposed.
-```php
-APP_DEBUG=false
-```
-- Ensure that APP_DEBUG=false in production environments: To avoid revealing detailed error information.
-- Correctly configure file and folder permissions: Ensure that files and folders such as `storage` and `bootstrap/cache` have the appropriate permissions.
-
-7. Sensitive Data Exposure
-- Use Laravel's encryption mechanism: Laravel provides methods to encrypt data.
-```php
-use Illuminate\Support\Facades\Crypt;
-$encrypted = Crypt::encryptString('hello world');
-$decrypted = Crypt::decryptString($encrypted);
-```
-- Do not store sensitive information in plain text: Use hash functions to store passwords.
-```php
-use Illuminate\Support\Facades\Hash;
-$hashed = Hash::make('password');
-```
-- Use HTTPS: To protect data during transmission.
-
-8. Using Components with Known Vulnerabilities
- - Regularly update libraries and dependencies: Use composer update to update libraries.
-```bash
-composer update
-```
-- Use vulnerability testing tools: Such as `Snyk` or `OWASP Dependency-Check` to check libraries for security vulnerabilities.
-
-# Restful API
-
-- Register
-- Profile
-- Login
-- Tour
 
 
 
