@@ -200,7 +200,6 @@ a {
 .lr-box {
     height: 160px;
     width: 100%;
-    overflow: hidden;
 }
 .upper-img {
     width: 100%;
@@ -213,8 +212,6 @@ a {
     width: 100%;
     height: 100%;
     transition: transform .5s ease;
-    overflow: hidden;
-
 }
 .upper-img:hover img {
     transform: scale(1.2);
