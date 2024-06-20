@@ -97,7 +97,7 @@
                             <div class="box-of-lr">
                                 <div class="lr-box">
                                     <div class="upper-img">
-                                        <img src="{{ asset($tour->imageTour) }}" alt="">
+                                        <a href="{{ route('tours.show', $tour->idTour) }}"><img src="{{ asset($tour->imageTour) }}" alt=""></a>
                                     </div>
                                     <div class="price">
                                         <a href="">{{ number_format($tour->cost, 0, ',', '.') }} $</a>
@@ -262,7 +262,7 @@
                 @foreach ($bookings->take(3) as $booking)
                     <div class="article">
                         <div class="ar_img">
-                            <img src="{{ asset($booking->tour->imageTour) }}" alt="ar">
+                            <a href="{{route('blog.index')}}"><img src="{{ asset($booking->tour->imageTour) }}" alt="ar"></a>
                             <span>{{ $booking->tour->address->city }}</span>
                         </div>
                         <i class="fa-regular fa-user"></i>

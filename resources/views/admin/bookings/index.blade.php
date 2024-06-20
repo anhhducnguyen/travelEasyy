@@ -5,24 +5,16 @@
 <li class="nav-item nav-search border-0 ml-1 ml-md-3 ml-lg-5 d-none d-md-flex">
     <div class="nav-link form-inline mt-2 mt-md-0">
         <div class="input-group">
-            <input type="text" id="searchInput" class="form-control" placeholder="Search" />
-            <div class="input-group-append">
-                <span class="input-group-text">
-                    <i class="mdi mdi-magnify"></i>
-                </span>
-            </div>
-        </div>
-        <div class="input-group">
-            <select id="confirmationStatusSelect" class="form-control ml-2">
-                <option value="">All Confirmation Status</option>
-                <option value="waiting_for_admin">Waiting for admin</option>
-                <option value="confirmed">Confirmed</option>
-            </select>
-            <select id="paymentStatusSelect" class="form-control ml-2">
-                <option value="">All Payment Status</option>
-                <option value="unpaid">Unpaid</option>
-                <option value="paid">Paid</option>
-            </select>
+        <select id="confirmationStatusSelect" class="form-control ml-2">
+            <option value="">All Confirmation Status</option>
+            <option value="Waitting">Waiting for admin</option>
+            <option value="Confirmed">Confirmed</option>
+        </select>
+        <select id="paymentStatusSelect" class="form-control ml-2">
+            <option value="">All Payment Status</option>
+            <option value="Unpaid">Unpaid</option>
+            <option value="Paid">Paid</option>
+        </select>
             <button type="button" class="btn btn-primary ml-2" onclick="filterTable()">Filter</button>
         </div>
     </div>
@@ -54,12 +46,12 @@
                             <td>{{ $booking->quantityTicket }}</td>
                             <td class="confirmation-status">
                                 <label class="badge {{ $booking->confirmation_status === 'waiting_for_admin' ? 'badge-warning' : ($booking->confirmation_status === 'confirmed' ? 'badge-success' : 'badge-secondary') }}">
-                                    {{ ucfirst(str_replace('_', ' ', $booking->confirmation_status)) }}
+                                    {{ $booking->confirmation_status === 'waiting_for_admin' ? 'Waitting' : 'Confirmed' }}
                                 </label>
                             </td>
                             <td class="payment-status">
                                 <label class="badge {{ $booking->payment_status === 'unpaid' ? 'badge-warning' : ($booking->payment_status === 'paid' ? 'badge-success' : 'badge-secondary') }}">
-                                    {{ ucfirst($booking->payment_status) }}
+                                    {{ $booking->payment_status === 'unpaid' ? 'Unpaid' : 'Paid' }}
                                 </label>
                             </td>
                             <td>
@@ -93,9 +85,8 @@
 
 <script>
     function filterTable() {
-        const searchInput = document.getElementById('searchInput').value.toLowerCase();
-        const confirmationStatus = document.getElementById('confirmationStatusSelect').value;
-        const paymentStatus = document.getElementById('paymentStatusSelect').value;
+        const confirmationStatus = document.getElementById('confirmationStatusSelect').value.toLowerCase();
+        const paymentStatus = document.getElementById('paymentStatusSelect').value.toLowerCase();
         const table = document.getElementById('bookingsTable');
         const tr = table.getElementsByTagName('tr');
 
@@ -103,22 +94,28 @@
             let td = tr[i].getElementsByTagName('td');
             let showRow = true;
 
-            if (searchInput && !td[0].textContent.toLowerCase().includes(searchInput) &&
-                !td[1].textContent.toLowerCase().includes(searchInput) &&
-                !td[2].textContent.toLowerCase().includes(searchInput)) {
-                showRow = false;
+            // Check confirmation status
+            if (confirmationStatus) {
+                let confirmationStatusText = td[4].querySelector('label').textContent.toLowerCase().trim();
+                if (confirmationStatusText !== confirmationStatus) {
+                    showRow = false;
+                }
             }
 
-            if (confirmationStatus && !td[4].textContent.toLowerCase().includes(confirmationStatus.replace('_', ' '))) {
-                showRow = false;
-            }
-
-            if (paymentStatus && !td[5].textContent.toLowerCase().includes(paymentStatus)) {
-                showRow = false;
+            // Check payment status
+            if (paymentStatus) {
+                let paymentStatusText = td[5].querySelector('label').textContent.toLowerCase().trim();
+                if (paymentStatusText !== paymentStatus) {
+                    showRow = false;
+                }
             }
 
             tr[i].style.display = showRow ? '' : 'none';
         }
     }
 </script>
+
+
+
+
 @endsection

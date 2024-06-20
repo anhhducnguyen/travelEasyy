@@ -187,17 +187,20 @@ a {
     grid-gap: 20px; 
 }
 .list-box {
-    width: 100%;
     height: 360px;
+    width: calc(100% -20px); 
     padding: 8px 5px 5px 5px;
     background-color: white;
     border-radius: 8px;
     border: 2px solid #f1f0ed;
     cursor: pointer;
+    overflow: hidden;
+    
 }
 .lr-box {
     height: 160px;
     width: 100%;
+    overflow: hidden;
 }
 .upper-img {
     width: 100%;
@@ -210,6 +213,8 @@ a {
     width: 100%;
     height: 100%;
     transition: transform .5s ease;
+    overflow: hidden;
+
 }
 .upper-img:hover img {
     transform: scale(1.2);

@@ -97,7 +97,7 @@
                 <div class="list-box" id="navi-to-ls-detail">
                     <div class="lr-box">
                         <div class="upper-img">
-                            <img src="{{ $tour->imageTour }}" alt="">
+                            <a href="{{ route('tours.show', $tour->idTour) }}"><img src="{{ $tour->imageTour }}" alt=""></a>    
                         </div>
                         <div class="price">
                             <a href="">{{ number_format($tour->cost, 0, ',', '.') }} $</a>
@@ -122,7 +122,6 @@
                     <a href="{{ route('tours.show', $tour->idTour) }}">
                         <button>Book now</button>
                     </a>
-
                 </div>
                 
             @endforeach
