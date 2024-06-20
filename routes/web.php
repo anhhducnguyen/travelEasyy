@@ -10,14 +10,14 @@ use App\Http\Controllers\Admin\TourGuideController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VehicleController;
 
-use App\Http\Controllers\Api\ApiTourController;
+
 use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\UserTourController;
 use App\Http\Middleware\CheckAdmin;
 use App\Http\Middleware\CheckLogin;
-use App\Http\Middleware\EnsureTokenIsValid;
+
 
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
@@ -87,7 +87,7 @@ Route::middleware(['auth', CheckAdmin::class])->group(function () {
 });
 
 
-//Test
+
 // FE ROUTE
 Route::get('/', [UserHomeController::class, 'index'])->name('index');
 Route::get('/tours', [UserTourController::class, 'index'])->name('tours.index');
@@ -101,14 +101,9 @@ Route::middleware(['auth', CheckLogin::class])->group(function () {
     Route::post('/bookings-confirm', [CheckoutController::class, 'confirmBooking'])->name('bookings.confirm');
 });
 
+
+
 if(App::environment('production')){
     URL::forceScheme('https');
 }
 
-//RESTful API
-
-    // Route::get('/api/tours', [ApiTourController::class, 'index']);           // Lấy danh sách tất cả các tour
-    // Route::post('/api/tours', [ApiTourController::class, 'store']);          // Tạo mới một tour
-    // Route::get('/api/tours/{id}', [ApiTourController::class, 'show']);       // Xem chi tiết một tour
-    // Route::put('/api/tours/{id}', [ApiTourController::class, 'update']);     // Cập nhật thông tin một tour
-    // Route::delete('/api/tours/{id}', [ApiTourController::class, 'destroy']); // Xóa một tour
