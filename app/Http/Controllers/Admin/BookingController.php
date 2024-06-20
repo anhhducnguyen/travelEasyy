@@ -19,17 +19,7 @@ class BookingController extends Controller
         return view('admin.bookings.index', compact('bookings'));
     }
 
-    // public function confirm(Request $request, $id)
-    // {
-    //     $booking = Booking::findOrFail($id);
 
-    //     // Update trạng thái
-    //     $booking->confirmation_status = 'confirmed';
-    //     $booking->save();
-        
-
-    //     return redirect()->back()->with('success', 'Booking confirmed successfully.');
-    // }
     public function confirm(Request $request, $id)
     {
         try{
