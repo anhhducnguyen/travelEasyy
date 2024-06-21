@@ -63,104 +63,7 @@ flatpickr("#checkOut", {
     dateFormat: "Y-m-d"
 });
 
-// =================================REGISTER===================================================================
 
-// document.getElementById('registerForm').addEventListener('submit', function(event) {
-//     event.preventDefault();
-
-//     let formData = new FormData(this);
-
-//     fetch('/register', {
-//         method: 'POST',
-//         headers: {
-//             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-//             'Accept': 'application/json'
-//         },
-//         body: formData
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//         if (data.message === 'Đăng ký thành công!') {
-//             alert('Đăng ký thành công!');
-//             this.reset();
-//             document.querySelector('.modal').style.display = 'none';
-//         } else {
-//             alert('Đăng ký thất bại: ' + data.message);
-//         }
-//     })
-//     .catch(error => {
-//         console.error('Error:', error);
-//         alert('Có lỗi xảy ra, vui lòng thử lại sau.');
-//     });
-// });
-// =================================END REGISTER===================================================================
-
-// =================================LOGIN==========================================================================
-
-// document.getElementById('loginForm').addEventListener('submit', function(event) {
-//     event.preventDefault();
-//     let formData = new FormData(this);
-
-//     fetch('/login', {
-//         method: 'POST',
-//         headers: {
-//             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-//             'Accept': 'application/json'
-//         },
-//         body: formData
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//         if (data.message === 'Đăng nhập thành công!') {
-//             alert(data.name + ' đã đăng nhập thành công!');
-//             this.reset();
-//             document.getElementById('a_login').style.display = 'none';
-//             document.getElementById('user-name').textContent = 'Welcome, ' + data.name;
-//             document.querySelector('.modal-search').style.display = 'none';
-//             // document.getElementById('a_logout').style.display = 'block';
-//             document.getElementById('a_register').style.display = 'none';
-
-//         } else {
-//             alert('Đăng nhập thất bại: ' + data.message);
-//         }
-//     })
-//     .catch(error => {
-//         console.error('Error:', error);
-//         alert('Có lỗi xảy ra, vui lòng thử lại sau.');
-//     });
-// });
-
-
-// document.getElementById('loginForm').addEventListener('submit', function(event) {
-//             event.preventDefault();
-//             let formData = new FormData(this);
-
-//             fetch('/login', {
-//                 method: 'POST',
-//                 headers: {
-//                     'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-//                     'Accept': 'application/json'
-//                 },
-//                 body: formData
-//             })
-//             .then(response => response.json())
-//             .then(data => {
-//                 if (data.message === 'Đăng nhập thành công!') {
-//                     alert(data.name + ' đã đăng nhập thành công!');
-//                     this.reset();
-//                     document.getElementById('a_login').style.display = 'none';
-//                     document.getElementById('user-name').textContent = 'Welcome, ' + data.name;
-//                     document.querySelector('.modal-search').style.display = 'none';
-//                     document.getElementById('a_register').style.display = 'none';
-//                 } else {
-//                     alert('Đăng nhập thất bại: ' + data.message);
-//                 }
-//             })
-//             .catch(error => {
-//                 console.error('Error:', error);
-//                 alert('Có lỗi xảy ra, vui lòng thử lại sau.');
-//             });
-//         });
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
     let formData = new FormData(this);
@@ -193,15 +96,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     });
 });
 
-// =================================END LOGIN===================================================================
 
-// ====================================ACCOUNT==================================================================
-// document.getElementById('user-name').addEventListener('click', function(event){
-//     event.preventDefault();
-//     // alert('hello');
-//     window.location.href = '/account';
-// });
-// ====================================END ACCOUNT==============================================================
 
 
 

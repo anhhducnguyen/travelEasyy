@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7b9d8c4ddc.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js"></script>
     <link rel="shortcut icon" href="{{asset('assets/images/logo_mini.png')}}" type="image/x-icon">
@@ -54,11 +55,8 @@
                 <div class="search-bar-check">
                     <div class="input-search where">
                         <p>Where</p>
-                        <select name="where" id="where" class="form-control">
-                            <!-- <option value="">Where are you going</option> -->
-                            <option value="Ha Noi">Ha Noi</option>
-                            <option value="Da Nang">Da Nang</option>
-                            <option value="Tp Ho Chi Minh">Tp Ho Chi Minh</option>
+                        <select class="form-control" id="city" name="city" required>
+                            <option value="" selected>Select City</option>
                         </select>
                     </div>
                     <div class="input-search check-in">
@@ -74,7 +72,7 @@
                         <input type="text" name="guest" id="guest" placeholder="Add guest">
                     </div>
                     <div class="bt-search">
-                        <i class="fas fa-search fa-1x"></i>
+                        <a href="{{ route('tours.index') }}"><i class="fas fa-search fa-1x"></i></a>
                     </div>
                 </div>
             </div>
@@ -276,6 +274,8 @@
             <a href="{{route('blog.index')}}"><button id="navi-to-blog">View all articles</button></a>
         </div>
     @include('fe.layouts.footer')
+    
     <script src="{{ asset('assets/js/home.js') }}"></script>
+    <script src="{{ asset('assets/js/address.js') }}"></script>
 </body>
 </html>
