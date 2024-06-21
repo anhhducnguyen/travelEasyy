@@ -15,9 +15,9 @@ class UserBlogController extends Controller
         $bookings = Booking::with(['user', 'tour'])
                 ->where('confirmation_status', 'confirmed')
                 ->where('payment_status', 'paid')
-                ->whereIn('tour_id', function($query) use ($now) {
-                    $query->select('id')
-                          ->from('tours')
+                ->whereIn('idTour', function($query) use ($now) {
+                    $query->select('idTour')
+                          ->from('tbltour')
                           ->where('endDay', '<', $now);
                 })
                 ->get();
