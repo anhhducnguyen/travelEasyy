@@ -85,10 +85,18 @@ git clone https://github.com/anhhducnguyen/travelEasyy
     MAIL_FROM_ADDRESS=""
     MAIL_FROM_NAME="Travel Easy"
     ```
+
+
+#### **Step 5**: Regenerate autoload files
+- Navigate to your project directory where the `composer.json` file is located
 - Configure necessary items in `composer.json` here [composer.json]( https://github.com/anhhducnguyen/travelEasyy/blob/main/composer.json)
+- Run Command: Execute the following command
 
-#### **Step 5**: Databases and Migrations
+    ```bash
+    composer dump-autoload
+    ```
 
+#### **Step 6**: Databases and Migrations
 - Create the database and run your application's database migrations:
   
     ```bash
