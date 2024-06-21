@@ -74,18 +74,17 @@ cd travelEasy
 php artisan serve
 ```
 
+#### **Step 6**: Login Credentials for Testing
 
-
-### Administrator account: 
 For testing purposes, you can use the following login credentials
+
+##### Administrator account: 
 
 ```php
 Email: admin@gmail.com
 Password: 1234
 ```
-
-
-### User account: 
+##### User account: 
 
 ```php
 Email: user@gmail.com
