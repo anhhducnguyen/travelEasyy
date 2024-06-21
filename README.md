@@ -19,9 +19,11 @@ restaurants, hotels... suitable for tours)
 
 ### Demo & Report:  
 
-- Demo [Travel Easy](https://traveleasy-99cc5a19f6e7.herokuapp.com/)
+- Demo [Travel Easy Demo](https://traveleasy-99cc5a19f6e7.herokuapp.com/)
 
-- Report [Advanced web design](https://docs.google.com/document/d/1tvsQSfRKzBhQTIywt9Z-ATvfhmvxCFdN/edit?usp=sharing&ouid=109210913742492563743&rtpof=true&sd=true)
+- Report [Advanced Web Design Report](https://docs.google.com/document/d/1tvsQSfRKzBhQTIywt9Z-ATvfhmvxCFdN/edit?usp=sharing&ouid=109210913742492563743&rtpof=true&sd=true)
+
+- Slide [Travel Easy Presentation]()
 
 
 ## Prerequisites
