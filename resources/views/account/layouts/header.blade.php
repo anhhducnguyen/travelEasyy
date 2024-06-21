@@ -11,10 +11,10 @@
                     <a href="{{ route('index') }}">Home</a>
                 </li>
                 <li>
-                    <a href="#product">Products</a>
+                    <a href="{{ route('tours.index') }}">Listings</a>
                 </li>
                 <li>
-                    <a href="#about">About Us</a>
+                    <a href="{{ route('blog.index') }}">Blog</a>
                 </li>
                 <li>
                     <a href="#contact">Contact</a>
