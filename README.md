@@ -39,8 +39,12 @@ Before you start, ensure that you have the following prerequisites installed on 
   
 ```bash
 php -v
+```
+
+```bash
 composer -v
 ```
+
 
 #### **Step 2**: If using `Xampp`, go to the `php.ini` file and remove the `;`. before the command line `extension=zip`
 
