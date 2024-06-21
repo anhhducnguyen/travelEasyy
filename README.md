@@ -17,7 +17,7 @@ restaurants, hotels... suitable for tours)
 
 
 
-### Demo & Report:  
+### Demo, Report and Slide:  
 
 - Demo [Travel Easy Demo](https://traveleasy-99cc5a19f6e7.herokuapp.com/)
 
