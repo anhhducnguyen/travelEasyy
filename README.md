@@ -44,38 +44,49 @@ composer -v
 #### **Step 2**: If using `Xampp`, go to the `php.ini` file and remove the `;`. before the command line `extension=zip`
 
 #### **Step 3**: Once you have installed PHP and Composer, you can download the Travel Easy project:
-```bash
-git clone https://github.com/anhhducnguyen/travelEasyy
-```
+    ```bash
+    git clone https://github.com/anhhducnguyen/travelEasyy
+    ```
 
 
 #### **Step 4**: Reconfigure the `.env` file according to the following information
 - If you wish to use MySQL, update your `.env` configuration file's DB_* variables like so:
-```php
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=laravel
-DB_USERNAME=root
-DB_PASSWORD=
-```
-- Sign in with Google: A modal will pop up with your apps client id and client secret. Add these values to your `.env` file (see details at [SSO](https://github.com/anhhducnguyen/travelEasyy/wiki/SSO)):
-```php
-GOOGLE_CLIENT_ID = 
-GOOGLE_SECRET_ID = 
-GOOGLE_REDIRECT = 
-```
+    ```php
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=laravel
+    DB_USERNAME=root
+    DB_PASSWORD=
+    ```
+- Sign in with Google: A modal will pop up with your apps client id and client secret. Add these values to your `.env` file, see details at [SSO](https://github.com/anhhducnguyen/travelEasyy/wiki/SSO):
+    ```php
+    GOOGLE_CLIENT_ID = 
+    GOOGLE_SECRET_ID = 
+    GOOGLE_REDIRECT = 
+    ```
+- Email sending configuration
+    ```php
+    MAIL_MAILER=smtp
+    MAIL_HOST=smtp.gmail.com
+    MAIL_PORT=587
+    MAIL_USERNAME=""
+    MAIL_PASSWORD=""
+    MAIL_ENCRYPTION=tls
+    MAIL_FROM_ADDRESS=""
+    MAIL_FROM_NAME="Travel Easy"
+    ```
 
 #### **Step 5**: Databases and Migrations
 
 - Create the database and run your application's database migrations:
-```bash
-php artisan migrate
-```
+    ```bash
+    php artisan migrate
+    ```
 - Import data to database
-```bash
-php artisan db:seed
-```
+    ```bash
+    php artisan db:seed
+    ```
   
 #### **Step 5**: Once the project has been created, start Laravel's local development server using the Laravel Artisan command`serve`
 ```bash
