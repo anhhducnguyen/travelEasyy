@@ -41,14 +41,15 @@ Before you start, ensure that you have the following prerequisites installed on 
 php -v
 composer -v
 ```
+#### **Step 2**: If using `Xampp`, go to the `php.ini` file and remove the `;`. before the command line `extension=zip`
 
-#### **Step 2**: Once you have installed PHP and Composer, you can download the Travel Easy project:
+#### **Step 3**: Once you have installed PHP and Composer, you can download the Travel Easy project:
 ```bash
 git clone https://github.com/anhhducnguyen/travelEasyy
 ```
-#### **Step 3**: Go to the `php.ini` file and remove the `;` sign. before the command line `extension=zip`
 
-#### **Step 4**: Databases and Migrations
+
+#### **Step 4**: Reconfigure the `.env` file according to the following information
 - If you wish to use MySQL, update your `.env` configuration file's DB_* variables like so:
 ```bash
 DB_CONNECTION=mysql
@@ -58,6 +59,9 @@ DB_DATABASE=laravel
 DB_USERNAME=root
 DB_PASSWORD=
 ```
+
+#### **Step 5**: Databases and Migrations
+
 - Create the database and run your application's database migrations:
 ```bash
 php artisan migrate
