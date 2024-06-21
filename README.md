@@ -137,4 +137,5 @@ Email: user@gmail.com
 Password: 123456789
 ```
 
+See details at our [Wiki Travel Easy](https://github.com/anhhducnguyen/travelEasyy/wiki)
 
