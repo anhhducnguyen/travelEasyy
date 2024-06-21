@@ -51,13 +51,19 @@ git clone https://github.com/anhhducnguyen/travelEasyy
 
 #### **Step 4**: Reconfigure the `.env` file according to the following information
 - If you wish to use MySQL, update your `.env` configuration file's DB_* variables like so:
-```bash
+```php
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=laravel
 DB_USERNAME=root
 DB_PASSWORD=
+```
+- Sign in with Google: A modal will pop up with your apps client id and client secret. Add these values to your `.env` file (see details at [SSO](https://github.com/anhhducnguyen/travelEasyy/wiki/SSO)):
+```php
+GOOGLE_CLIENT_ID = 
+GOOGLE_SECRET_ID = 
+GOOGLE_REDIRECT = 
 ```
 
 #### **Step 5**: Databases and Migrations
