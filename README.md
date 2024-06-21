@@ -17,15 +17,11 @@ restaurants, hotels... suitable for tours)
 
 ## Web:  
 Link Web: [Travel Easy](https://still-fortress-15846-1eacd8faf222.herokuapp.com/)
-
-
-
-
 ## Report: 
 Link report: [Thiet ke web nang cao](https://drive.google.com/drive/folders/1xLgb8YMsFQk0uTQHgyjuCHtLDfdMdnjp?usp=drive_link)
 
 
-# Framework: Laravel
+## Framework: Laravel
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -52,22 +48,31 @@ Link report: [Thiet ke web nang cao](https://drive.google.com/drive/folders/1xLg
 - Ability to integrate with third-party services: Laravel supports easy integration with third-party services such as payment services, email, and external APIs, helping you create a complete system and flexible.
 
 - Convenient development tools: Laravel provides many convenient tools for developers such as Laravel Artisan (powerful CLI to perform common tasks), Laravel Mix (CSS and JavaScript compilation tool), and Laravel Tinker (REPL for PHP).
-  
-## Setting:
-- **Step 1**: Install Composer and PHP
-- **Step 2**: After you have installed PHP and Composer, you can create a new Laravel project via Composer command (create-project):
-```bash
-composer create-project laravel/laravel example-app
-```
-- **Step 3**: Once the project has been created, start Laravel's local development server using the Laravel Artisan command`serve`
-```bash
-cd example-app
- 
-php artisan serve
-```
-- **Step 4**: Go to the `php.ini` file and remove the `;` sign. before the command line `extension=zip`
 
-## Databases and Migrations
+
+## Prerequisites
+Before you start, ensure that you have the following prerequisites installed on your system:
+
+- PHP (version 8.2.12 or higher)
+- Composer (version 2.7.6, dependency manager for PHP)
+- MySQL (or any other supported database system)
+
+## Step-by-Step Installation
+#### **Step 1**: Install Composer and PHP
+- Ensure PHP and Composer are installed. You can check their versions using the following commands:
+  
+```bash
+php -v
+composer -v
+```
+
+#### **Step 2**: Once you have installed PHP and Composer, you can download the Travel Easy project:
+```bash
+git clone https://github.com/anhhducnguyen/travelEasyy
+```
+#### **Step 3**: Go to the `php.ini` file and remove the `;` sign. before the command line `extension=zip`
+
+#### **Step 4**: Databases and Migrations
 - If you wish to use MySQL, update your `.env` configuration file's DB_* variables like so:
 ```bash
 DB_CONNECTION=mysql
@@ -85,8 +90,18 @@ php artisan migrate
 ```bash
 php artisan db:seed
 ```
+  
+#### **Step 5**: Once the project has been created, start Laravel's local development server using the Laravel Artisan command`serve`
+```bash
+cd travelEasy
+ 
+php artisan serve
+```
+
+
 
 ### Administrator account: 
+For testing purposes, you can use the following login credentials
 
 ```php
 Email: admin@gmail.com
