@@ -22,8 +22,8 @@
         <nav class="nav-bar" id="navbar">
             <ul>
                 <li><a href="{{ route('index') }}">Home</a></li>
-                <li><a href="#product">Products</a></li>
-                <li><a href="#about">About Us</a></li>
+                <li><a href="{{ route('tours.index') }}">Listtings</a></li>
+                <li><a href="{{ route('blog.index') }}">Blog</a></li>
                 <li><a href="{{ route('password.change') }}">Change Password</a></li>
                 <div class="login" id="login">
                     <li><a href="{{ route('logout_up') }}" class="navlogin">Logout</a></li>

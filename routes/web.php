@@ -27,7 +27,7 @@ use App\Http\Controllers\User\UserHomeController;
 use Illuminate\Support\Facades\URL;
 
 
-// FE ROUTE
+
 // REGISTER__LOGIN__LOGOUT
 Route::get('/register', [AccountController::class, 'register'])->name('register');
 Route::get('/login', [AccountController::class, 'login'])->name('login');
@@ -61,17 +61,25 @@ Route::post('/forgot-password', [PasswordResetController::class, 'check_forgot_p
 // RESET PASSWORD
 Route::get('/reset_password/{token}', [PasswordResetController::class, 'reset_password'])->name('account.reset_password');
 Route::post('/reset_password/{token}', [PasswordResetController::class, 'check_reset_password'])->name('check_reset_password');
-    
 
+// FE ROUTE
+Route::get('/', [UserHomeController::class, 'index'])->name('index');
+Route::get('/tours', [UserTourController::class, 'index'])->name('tours.index');
+Route::get('/tours/{id}', [UserTourController::class, 'show'])->name('tours.show');
+Route::get('/blog', [UserBlogController::class, 'index'])->name('blog.index');
+
+
+Route::middleware(['auth', CheckLogin::class])->group(function () {
+    Route::get('/tours/checkout/{tourId}', [CheckoutController::class, 'show'])->name('checkout.show');
+    Route::post('/checkout/store-session', [CheckoutController::class, 'storeSession'])->name('checkout.storeSession');
+    Route::post('/bookings-confirm', [CheckoutController::class, 'confirmBooking'])->name('bookings.confirm');
+});
 
 
 //=====ADMIN==================
 Route::get('/login-admin', [AdminLoginController::class, 'show_login'])->name('login-admin');
 Route::post('/check_login', [AdminLoginController::class, 'check_login']);
 
-
-
-// Các route khác dành cho admin
 Route::middleware(['auth', CheckAdmin::class])->group(function () {
     Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/', [HomeAdminController::class, 'dashboard'])->name('dashboard');
@@ -86,20 +94,6 @@ Route::middleware(['auth', CheckAdmin::class])->group(function () {
     });
 });
 
-
-
-// FE ROUTE
-Route::get('/', [UserHomeController::class, 'index'])->name('index');
-Route::get('/tours', [UserTourController::class, 'index'])->name('tours.index');
-Route::get('/tours/{id}', [UserTourController::class, 'show'])->name('tours.show');
-Route::get('/blog', [UserBlogController::class, 'index'])->name('blog.index');
-
-
-Route::middleware(['auth', CheckLogin::class])->group(function () {
-    Route::get('/tours/checkout/{tourId}', [CheckoutController::class, 'show'])->name('checkout.show');
-    Route::post('/checkout/store-session', [CheckoutController::class, 'storeSession'])->name('checkout.storeSession');
-    Route::post('/bookings-confirm', [CheckoutController::class, 'confirmBooking'])->name('bookings.confirm');
-});
 
 
 
