@@ -35,10 +35,10 @@ class TourController extends Controller
     {
         try {
             $data = $request->validate([
-                'name' => 'string|max:50',
-                'startDay' => 'date',
-                'endDay' => 'date',
-                'cost' => 'numeric',
+                'name' => 'required|string|max:50',
+                'startDay' => 'required|date',
+                'endDay' => 'required|date|after:startDay',
+                'cost' => 'required|numeric',
                 'city' => 'required|string|max:50',
                 'district' => 'required|string|max:50',
                 'ward' => 'required|string|max:50',
@@ -94,10 +94,10 @@ class TourController extends Controller
     {
         try {
             $data = $request->validate([
-                'name' => 'string|max:50',
-                'startDay' => 'date',
-                'endDay' => 'date',
-                'cost' => 'numeric',
+                'name' => 'required|string|max:50',
+                'startDay' => 'required|date',
+                'endDay' => 'required|date|after:startDay',
+                'cost' => 'required|numeric',
                 'city' => 'required|string|max:50',
                 'district' => 'required|string|max:50',
                 'ward' => 'required|string|max:50',
@@ -152,6 +152,6 @@ class TourController extends Controller
         return redirect()->route('admin.tours.index')->with('success', 'Tour deleted successfully.');
     }
 
-
+    
 
 }

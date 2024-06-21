@@ -29,8 +29,8 @@ class VehicleController extends Controller
     {
         try {
             $data = $request->validate([
-                'name' => 'nullable|string|max:50',
-                'licensePlate' => ['nullable','string','max:20',Rule::unique('tblvehicle', 'licensePlate'),],
+                'name' => 'required|string|max:50',
+                'licensePlate' => ['required','string','max:20',Rule::unique('tblvehicle', 'licensePlate'),],
             ]);
             $newId = IdGenerator::generateId('VH', Vehicle::class, 'idVehicle');   
 

@@ -27,7 +27,7 @@
             </div>
             <div class="radius-around-filter">
                 <p>Radius around selected destination</p>
-                <input type="range" name="" id="" min="0" max="160" value="50">
+                <input type="range" id="radius-slider" min="0" max="160" value="50">
                 <p id="kilometer-range">50 km</p>
             </div>
             <div class="price-range-filter">
@@ -97,7 +97,7 @@
                 <div class="list-box" id="navi-to-ls-detail">
                     <div class="lr-box">
                         <div class="upper-img">
-                            <img src="{{ $tour->imageTour }}" alt="">
+                            <a href="{{ route('tours.show', $tour->idTour) }}"><img src="{{ $tour->imageTour }}" alt=""></a>    
                         </div>
                         <div class="price">
                             <a href="">{{ number_format($tour->cost, 0, ',', '.') }} $</a>
@@ -122,8 +122,8 @@
                     <a href="{{ route('tours.show', $tour->idTour) }}">
                         <button>Book now</button>
                     </a>
-
                 </div>
+                
             @endforeach
             </div>
   

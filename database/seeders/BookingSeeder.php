@@ -16,7 +16,7 @@ class BookingSeeder extends Seeder
         $bookings = [
             [
                 'idBooking' => 'BK1',
-                'idUser' => 1,
+                'idUser' => 3,
                 'idTour' => 'TO1',
                 'quantityTicket' => 2,
                 'confirmation_status' => 'waiting_for_admin',
@@ -24,11 +24,51 @@ class BookingSeeder extends Seeder
             ],
             [
                 'idBooking' => 'BK2',
-                'idUser' => 2,
+                'idUser' => 4,
                 'idTour' => 'TO2',
                 'quantityTicket' => 1,
                 'confirmation_status' => 'confirmed',
+                'payment_status' => 'unpaid',
+            ],
+            [
+                'idBooking' => 'BK3',
+                'idUser' => 6,
+                'idTour' => 'TO3',
+                'quantityTicket' => 1,
+                'confirmation_status' => 'confirmed',
                 'payment_status' => 'paid',
+            ],
+            [
+                'idBooking' => 'BK4',
+                'idUser' => 2,
+                'idTour' => 'TO4',
+                'quantityTicket' => 1,
+                'confirmation_status' => 'confirmed',
+                'payment_status' => 'paid',
+            ],
+            [
+                'idBooking' => 'BK5',
+                'idUser' => 5,
+                'idTour' => 'TO4',
+                'quantityTicket' => 1,
+                'confirmation_status' => 'confirmed',
+                'payment_status' => 'paid',
+            ],
+            [
+                'idBooking' => 'BK6',
+                'idUser' => 5,
+                'idTour' => 'TO6',
+                'quantityTicket' => 1,
+                'confirmation_status' => 'waiting_for_admin',
+                'payment_status' => 'unpaid',
+            ],
+            [
+                'idBooking' => 'BK7',
+                'idUser' => 8,
+                'idTour' => 'TO5',
+                'quantityTicket' => 1,
+                'confirmation_status' => 'waiting_for_admin',
+                'payment_status' => 'unpaid',
             ],
             // Add more dummy data as needed
         ];

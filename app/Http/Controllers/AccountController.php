@@ -27,7 +27,7 @@ class AccountController extends Controller
         try {
             if ($acc = User::create($req->all())){
                 Mail::to($req->email)->send(new VerifyAccount($acc));
-                return redirect()->route('loginn')->with('success','Your Account has been created succesfully!! Please check your email to confirm your email address in order to activate your account.');
+                return redirect()->route('login')->with('success','Your Account has been created succesfully!! Please check your email to confirm your email address in order to activate your account.');
             }
         } catch (\Throwable $th){
             // dd($th);
@@ -38,7 +38,7 @@ class AccountController extends Controller
     {
         $acc = User::where('email', $email)->whereNull('email_verified_at')->firstOrFail();
         User::where('email', $email)->update(['email_verified_at'=>date('Y-m-d')]);
-        return redirect()->route('loginn')->with('success','Your account has been activated! Now, you can login.');
+        return redirect()->route('login')->with('success','Your account has been activated! Now, you can login.');
     }
     public function storeLogin(Request $req)
     {

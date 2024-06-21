@@ -157,11 +157,11 @@
                     <tr>
                         <th id="th-border">
                             <p class="cin-cout">CHECK - IN</p>
-                            <p class="date-ch">{{ $tour->startDay }}</p>
+                            <p class="date-ch">{{\Carbon\Carbon::parse($tour->startDay)->format('d F, Y')}}</p>
                         </th>
                         <th>
                             <p class="cin-cout">CHECK - OUT</p>
-                            <p class="date-ch">{{ $tour->endDay }}</p>
+                            <p class="date-ch">{{ \Carbon\Carbon::parse($tour->endDay)->format('d F, Y') }}</p>
                         </th>
                     </tr>
                     <tr>
@@ -236,7 +236,7 @@
                     <div class="list-box" id="navi-to-ls-detail">
                         <div class="lr-box">
                             <div class="upper-img">
-                                <img src="{{ asset($tour->imageTour) }}" alt="">
+                                <a href="{{ route('tours.show', $tour->idTour) }}"><img src="{{ asset($tour->imageTour) }}" alt=""></a>    
                             </div>
                             <div class="price">
                                 <a href="">{{ number_format($tour->cost, 0, ',', '.') }} $</a>

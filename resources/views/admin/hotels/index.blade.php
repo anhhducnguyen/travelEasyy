@@ -13,10 +13,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>city</th>
-                            <th>district</th>
-                            <th>ward</th>
-                            <th>detail Address</th>
+                            <th>Address</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -25,11 +22,11 @@
                             <tr>
                                 <td>{{ $hotel->idHotel }}</td>
                                 <td>{{ $hotel->name }}</td>
-                                <!-- <td>{{ $hotel->address->city }}, {{ $hotel->address->district }}, {{ $hotel->address->ward }}, {{ $hotel->address->detailAddress }}</td> -->
-                                <td>{{ $hotel->address->city }}</td>
+                                <td>{{ $hotel->address->detailAddress }}, {{ $hotel->address->ward }}, {{ $hotel->address->district }}, {{ $hotel->address->city }}</td>
+                                <!-- <td>{{ $hotel->address->city }}</td>
                                 <td>{{ $hotel->address->district }}</td>
                                 <td>{{ $hotel->address->ward }}</td>
-                                <td>{{ $hotel->address->detailAddress }}</td>
+                                <td>{{ $hotel->address->detailAddress }}</td> -->
                                 <td class="table-actions">
                                     <a href="{{ route('admin.hotels.edit', $hotel->idHotel) }}" class="btn btn-sm">Edit</a>
                                     <form action="{{ route('admin.hotels.destroy', $hotel->idHotel) }}" method="POST" style="display:inline-block;">
