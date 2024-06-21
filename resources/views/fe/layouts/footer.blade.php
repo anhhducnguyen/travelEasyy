@@ -4,7 +4,7 @@
             <h4>Contact-us</h4>
             <div class="address">
                 <img src="{{ asset('assets/images/pin2.png')}}" alt="">
-                <p>14 Quang Trung, Ha Đong, Haa Noi</p>
+                <p>14 Quang Trung, Ha Đong, Ha Noi</p>
             </div>
             <div class="phone-number">
                 <img src="{{ asset('assets/images/phone.png')}}" alt="">

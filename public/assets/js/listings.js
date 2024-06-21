@@ -37,17 +37,17 @@ $(document).ready(function() {
                     showListing = true;  // Show all listings if 'All' is selected
                     break;
                 case 'low':
-                    if (tourPrice < 1000) {  // Adjust this threshold based on your price categories
+                    if (tourPrice < 55) {  // Adjust this threshold based on your price categories
                         showListing = true;
                     }
                     break;
                 case 'medium':
-                    if (tourPrice >= 1000 && tourPrice <= 5000) {  // Adjust these thresholds based on your price categories
+                    if (tourPrice >= 55 && tourPrice <= 70) {  // Adjust these thresholds based on your price categories
                         showListing = true;
                     }
                     break;
                 case 'high':
-                    if (tourPrice > 5000) {  // Adjust this threshold based on your price categories
+                    if (tourPrice > 70) {  // Adjust this threshold based on your price categories
                         showListing = true;
                     }
                     break;
