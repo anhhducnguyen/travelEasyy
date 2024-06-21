@@ -21,7 +21,7 @@ restaurants, hotels... suitable for tours)
 
 - Demo
   
-    Link website: [Travel Easy](https://still-fortress-15846-1eacd8faf222.herokuapp.com/)
+    Link website: [Travel Easy](https://traveleasy-99cc5a19f6e7.herokuapp.com/)
 
 - Report
   
