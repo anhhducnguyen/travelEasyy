@@ -13,37 +13,7 @@ restaurants, hotels... suitable for tours)
 - User management
 - Manage and process online orders
 
-## Member
-1. **Nguyen Duc Anh**:
-- Login (Authentication, SSO)
-- Register (Confirm account by email)
-- Forgot password (Recover password by email)
-- Account information
-- Change password
-- Home page
-- Decentralize admin and user rights
-- Listings
-- Search Tour
-  
-2. **Vu Minh Phong**
-* Admin:
-  * Dashboard
-  * Tour
-  * User
-  * Bookings
-  * Hotels
-  * Tour Guide
-  * Vehicle
-* User:
-  * Home Page
-  * Tour Detail
-  * Blog
-  * Checkout details
-* Search Blog
-* Send email confirm bookings tour
-* Send payment confirmation email with invoice
-* Restful API
-* Deploy Web
+
 
 ## Web:  
 Link Web: [Travel Easy](https://still-fortress-15846-1eacd8faf222.herokuapp.com/)
