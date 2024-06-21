@@ -2,12 +2,14 @@
 
 ## Topic: **Build a website to introduce tours and book tours online**
 ### Allow users
+
 - Search and view tour information
 - Book tours online with relevant requirements (such as number of guests, travel time
 tour, contact person, price...)
 - Receive and view the resulting installation tour
   
 ### Administrator permission
+
 - Update travel list and related information (list of locations, homes)
 restaurants, hotels... suitable for tours)
 - User management
@@ -41,16 +43,19 @@ Before you start, ensure that you have the following prerequisites installed on 
 php -v
 composer -v
 ```
+
 #### **Step 2**: If using `Xampp`, go to the `php.ini` file and remove the `;`. before the command line `extension=zip`
 
 #### **Step 3**: Once you have installed PHP and Composer, you can download the Travel Easy project:
-    ```bash
-    git clone https://github.com/anhhducnguyen/travelEasyy
-    ```
+
+```bash
+git clone https://github.com/anhhducnguyen/travelEasyy
+```
 
 
 #### **Step 4**: Reconfigure the `.env` file according to the following information
 - If you wish to use MySQL, update your `.env` configuration file's DB_* variables like so:
+  
     ```php
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
@@ -59,13 +64,17 @@ composer -v
     DB_USERNAME=root
     DB_PASSWORD=
     ```
+    
 - Sign in with Google: A modal will pop up with your apps client id and client secret. Add these values to your `.env` file, see details at [SSO](https://github.com/anhhducnguyen/travelEasyy/wiki/SSO):
+  
     ```php
     GOOGLE_CLIENT_ID = 
     GOOGLE_SECRET_ID = 
     GOOGLE_REDIRECT = 
     ```
-- Email sending configuration
+
+- Email sending configuration. Add these values ​​to your `.env` file
+  
     ```php
     MAIL_MAILER=smtp
     MAIL_HOST=smtp.gmail.com
@@ -76,19 +85,24 @@ composer -v
     MAIL_FROM_ADDRESS=""
     MAIL_FROM_NAME="Travel Easy"
     ```
+- Configure necessary items in `composer.json` here [composer.json]( https://github.com/anhhducnguyen/travelEasyy/blob/main/composer.json)
 
 #### **Step 5**: Databases and Migrations
 
 - Create the database and run your application's database migrations:
+  
     ```bash
     php artisan migrate
     ```
+
 - Import data to database
+  
     ```bash
     php artisan db:seed
     ```
   
 #### **Step 5**: Once the project has been created, start Laravel's local development server using the Laravel Artisan command`serve`
+
 ```bash
 cd travelEasy
  
@@ -105,6 +119,7 @@ For testing purposes, you can use the following login credentials
 Email: admin@gmail.com
 Password: 1234
 ```
+
 ##### User account: 
 
 ```php
