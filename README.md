@@ -25,6 +25,10 @@ restaurants, hotels... suitable for tours)
 
 - Slide [Travel Easy Presentation](https://drive.google.com/file/d/1VP4zVsGxiNek2Jn7KFrbnfW5hJBeCjta/view?usp=sharing)
 
+- Video demo app [Video demo](https://drive.google.com/file/d/1lcgCGRsBHMrHggJIyndMa1nDMOuxcLp3/view?usp=drive_link)
+
+- Video demo RestfulAPI [Video demo RestfulAPT](https://drive.google.com/file/d/1EA30RzzTZNSnUu1JERHVWlY8R8vJ17Ot/view?usp=drive_link)
+
 
 ## Prerequisites
 Before you start, ensure that you have the following prerequisites installed on your system:
